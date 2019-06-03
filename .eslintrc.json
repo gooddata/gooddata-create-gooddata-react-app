@@ -1,0 +1,6 @@
+{
+    "extends": ["@gooddata", "prettier"],
+    "rules": {
+        "no-console": "off"
+    }
+}
