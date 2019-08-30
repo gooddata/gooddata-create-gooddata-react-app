@@ -1,0 +1,28 @@
+{
+    "testMatch": [
+        "<rootDir>/src/**/__tests__/*.test.js"
+    ],
+    "moduleFileExtensions": [
+        "js"
+    ],
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+        "src/**/*.js"
+    ],
+    "coverageDirectory": "<rootDir>/ci/results/coverage",
+    "coverageReporters": [
+        "json",
+        "cobertura",
+        "lcov"
+    ],
+    "reporters": [
+        "default",
+        [
+            "jest-junit",
+            {
+                "outputDirectory": "./ci/results",
+                "outputName": "test-results.xml"
+            }
+        ]
+    ]
+}
