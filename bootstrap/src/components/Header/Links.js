@@ -5,8 +5,8 @@ import styles from "./Header.module.scss";
 const Links = () => {
     return (
         <>
-            <NavLink to="/help" className={styles.Link} activeClassName={styles.LinkActive}>
-                Help
+            <NavLink to="/welcome" className={styles.Link} activeClassName={styles.LinkActive}>
+                Welcome
             </NavLink>
             <NavLink to="/" className={styles.Link} activeClassName={styles.LinkActive} exact>
                 Home
