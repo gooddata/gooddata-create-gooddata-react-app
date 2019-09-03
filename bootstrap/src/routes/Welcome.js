@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import constants from "../constants";
 import Page from "../components/Page";
 
-import styles from "./Help.module.scss";
+import styles from "./Welcome.module.scss";
 
 import findProjectIdUri from "../media/find-project-id.png";
 import greyPagesMetricsdUri from "../media/grey-pages-metrics.png";
@@ -83,22 +83,64 @@ const Help = () => {
                             padding: 10,
                         }}
                     >
-                        {`import { Kpi } from '@gooddata/react-components';
+                        {`
+import React from "react";
+import { Kpi } from "@gooddata/react-components";
 
-<Kpi
-    projectId="<project-id>"
-    measure="<measure-identifier>"
-/>`}
+import Page from "../components/Page";
+
+// Unless you want to use multiple projects and/or domains, we recommend reusing your project configuration
+// by importing from a separate file like so:
+// import project from "../project";
+import { factory as createSdk } from "@gooddata/gooddata-js";
+// edit your GoodData domain and projectId in constants.js
+import constants from "../constants";
+// Set domain to null (localhost) in development, because it needs to be handled by setupProxy.js instead
+const domain = process.env.NODE_ENV === "production" ? constants.backend : null;
+const projectId = constants.projectId;
+const project = {
+    sdk: createSdk({
+        domain,
+        // If you set origin package, GoodData will be able to find
+        // and possibly troubleshoot your requests in the logs.
+        // originPackage: {
+        //     name: "my-application-package",
+        //     version: "1.0.0"
+        // }
+    }),
+    projectId,
+};
+
+const Home = () => {
+    return (
+        <Page>
+            {/* Always make sure to add {...project} with sdk and projectId props */}
+            <Kpi {...project} measure="<measure-identifier>" />
+        </Page>
+    );
+};
+
+export default Home;
+`}
                     </Pre>
                     <Blockquote>
                         <img src={iUri} alt="(i)" className={styles.inlineImg} />
-                        &emsp;The code above is the most basic KPI usage. For a more complex example, see{" "}
+                        &emsp;See{" "}
                         <a href="https://sdk.gooddata.com/gooddata-ui/docs/kpi_component.html" {...linkProps}>
-                            KPI
+                            KPI Component reference
                         </a>
                     </Blockquote>
                     <p>
-                        Replace {`<project-id>`} with an id of your project.{" "}
+                        Check <Code>projectId</Code> and <Code>backend</Code> props in{" "}
+                        <Code>src/constants.js</Code>.
+                    </p>
+                    <p>
+                        Set <Code>backend</Code> to your domain URI, e.g.{" "}
+                        <Code>"https://secure.gooddata.com"</Code>,{" "}
+                        <Code>"https://developer.na.gooddata.com"</Code>
+                    </p>
+                    <p>
+                        Set <Code>projectId</Code>;{" "}
                         <a
                             href="https://help.gooddata.com/doc/en/project-and-user-administration/administering-projects-and-project-objects/find-the-project-id"
                             {...linkProps}
@@ -110,15 +152,17 @@ const Help = () => {
                         <img src={findProjectIdUri} alt="Find your project id" />
                     </p>
                     <p>
-                        Replace {`<measure-identifier>`} with an id of the measure of your choice.{" "}
+                        Replace <Code>{`<measure-identifier>`}</Code> with an identifier of a measure of your
+                        choice.{" "}
                         <a
                             href={`${constants.backend}/gdc/md/${constants.projectId}/query/metrics`}
                             {...linkProps}
                         >
                             Find your measures here
-                        </a>
-                        , select a measure and then look for <Code>metric.meta.identifier</Code> on the
-                        details page.
+                        </a>{" "}
+                        (requires Admin privileges),
+                        <br />
+                        select a measure and look for <Code>metric.meta.identifier</Code> on the details page.
                     </p>
                     <p className={styles.imageFrame}>
                         <img src={greyPagesMetricsdUri} alt="Grey pages - metrics" />

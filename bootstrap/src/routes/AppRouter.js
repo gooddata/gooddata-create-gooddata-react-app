@@ -8,7 +8,7 @@ import Logout from "./Logout";
 
 import styles from "./AppRouter.module.scss";
 import { useAuth } from "../contexts/Auth";
-import Help from "./Help";
+import Welcome from "./Welcome";
 import Page from "../components/Page";
 
 const RedirectIfNotLoggedIn = () => {
@@ -25,8 +25,8 @@ const AppRouter = () => {
             <Router>
                 <Route exact path="/" component={Home} />
                 <Route exact path="/dashboard" component={() => <Page>Dashboard</Page>} />
-                {/* DELETE THIS LINE */} <Redirect to="/help" />
-                <Route exact path="/help" component={Help} />
+                {/* DELETE THIS LINE */} <Redirect to="/welcome" />
+                <Route exact path="/welcome" component={Welcome} />
                 <Route exact path="/login" component={Login} />
                 <Route exact path="/logout" component={Logout} />
                 {/* Uncomment the next line if you want to redirect unauthorized users to login form */}
