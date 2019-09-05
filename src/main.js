@@ -44,13 +44,26 @@ const performTemplateReplacements = ({ targetDir, sanitizedAppName, projectId, d
     return replaceInFiles(targetDir, replacementDefinitions);
 };
 
-const runYarnInstall = ({ targetDir, install }) =>
-    install
-        ? execa("yarn", {
-              cwd: targetDir,
-              stdio: [process.stdin, process.stdout, process.stderr],
-          })
-        : console.log("Skipping installation because the --no-install flag was specified");
+const runYarnInstall = ({ targetDir, install }) => {
+    if (!install) {
+        console.log("Skipping installation because the --no-install flag was specified");
+        return true;
+    }
+
+    return execa("yarn", {
+        cwd: targetDir,
+        stdio: [process.stdin, process.stdout, process.stderr],
+    })
+        .then(() => true)
+        .catch(() => {
+            console.log(
+                chalk.red(
+                    "Installation failed. Please make sure that you have yarn installed and try again.",
+                ),
+            );
+            return false;
+        });
+};
 
 const outputFinalInstructions = ({ sanitizedAppName, install, targetDir }) => {
     console.log(`Success! Your GoodData-powered application "${sanitizedAppName}" was created.`);
@@ -85,9 +98,9 @@ const main = async partialBootstrapData => {
 
     await tasks.run();
 
-    await runYarnInstall(bootstrapData);
-
-    outputFinalInstructions(bootstrapData);
+    if (await runYarnInstall(bootstrapData)) {
+        outputFinalInstructions(bootstrapData);
+    }
 };
 
 export default main;
