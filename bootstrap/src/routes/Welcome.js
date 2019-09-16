@@ -33,42 +33,35 @@ const Blockquote = ({ children, ...restProps }) => (
     </blockquote>
 );
 
-const Help = () => {
+const Welcome = () => {
     return (
         <Page>
             <div className={styles.Lead}>
                 <h1>
                     <img src={successUri} alt="" />
                     <br />
-                    Congrats!
+                    Congratulations!
                     <br />
-                    Your GoodData app was created.
+                    Your GoodData-powered app is created.
                 </h1>
             </div>
 
-            <h2>Last step to do</h2>
+            <h2>Your new GoodData-powered app is ready!</h2>
             <p>
-                Your new GoodData powered app is ready! However… :) As the last step, let’s create a test KPI
-                widget to create your home dashboard and test that everything was set up correctly.
+                Now, let’s take one more step and set up your home dashboard with a test KPI widget. This will
+                help verify that everything is set up correctly.
             </p>
 
-            <h3>Create your home dashboard</h3>
-            <p>To create your default landing page dashboard, remove the redirect to this help page.</p>
             <ol>
                 <li>
-                    Go to <Code>/src/routes/AppRouter.js</Code>
+                    In <Code>/src/routes/AppRouter.js</Code>, find the line that says{" "}
+                    <Code>DELETE THIS LINE</Code>, and delete it.
+                    <br />
+                    This removes the redirect to this help page and sets up the default landing page dashboard
+                    for your app.
                 </li>
                 <li>
-                    Find the line that says <Code>DELETE THIS LINE</Code>
-                </li>
-                <li>Delete that line</li>
-            </ol>
-
-            <h3>Test that everything was set up correctly</h3>
-            <p>Confirm that the app is properly set up.</p>
-            <ol>
-                <li>
-                    Ensure you are <Link to="/login">logged in</Link>.
+                    Log in to your app at <Link to="/login">/login</Link>.
                 </li>
                 <li>
                     Add a simple{" "}
@@ -125,29 +118,39 @@ export default Home;
                     </Pre>
                     <Blockquote>
                         <img src={iUri} alt="(i)" className={styles.inlineImg} />
-                        &emsp;See{" "}
+                        &emsp;For more information, see{" "}
                         <a href="https://sdk.gooddata.com/gooddata-ui/docs/kpi_component.html" {...linkProps}>
-                            KPI Component reference
+                            KPI Component
                         </a>
                     </Blockquote>
                     <p>
-                        Check <Code>projectId</Code> and <Code>backend</Code> props in{" "}
-                        <Code>src/constants.js</Code>.
+                        In <Code>src/constants.js</Code>:
                     </p>
-                    <p>
-                        Set <Code>backend</Code> to your domain URI, e.g.{" "}
-                        <Code>"https://secure.gooddata.com"</Code>,{" "}
-                        <Code>"https://developer.na.gooddata.com"</Code>
-                    </p>
-                    <p>
-                        Set <Code>projectId</Code>;{" "}
-                        <a
-                            href="https://help.gooddata.com/doc/en/project-and-user-administration/administering-projects-and-project-objects/find-the-project-id"
-                            {...linkProps}
-                        >
-                            Learn how to find your project id.
-                        </a>
-                    </p>
+                    <ol className={styles.subList}>
+                        <li>
+                            <p>
+                                Set <Code>backend</Code> prop to your domain URI.
+                            </p>
+                            For example, <Code>"https://secure.gooddata.com"</Code> or{" "}
+                            <Code>"https://developer.na.gooddata.com"</Code>
+                        </li>
+                        <li>
+                            <p>
+                                Set <Code>projectId</Code> to your project ID.
+                            </p>
+                            <Blockquote>
+                                <img src={iUri} alt="(i)" className={styles.inlineImg} />
+                                &emsp;
+                                <a
+                                    href="https://help.gooddata.com/doc/en/project-and-user-administration/administering-projects-and-project-objects/find-the-project-id"
+                                    {...linkProps}
+                                >
+                                    Learn how to find your project id.
+                                </a>
+                            </Blockquote>
+                        </li>
+                    </ol>
+                    <p></p>
                     <p className={styles.imageFrame}>
                         <img src={findProjectIdUri} alt="Find your project id" />
                     </p>
@@ -218,4 +221,4 @@ export default Home;
     );
 };
 
-export default Help;
+export default Welcome;
