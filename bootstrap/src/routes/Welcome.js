@@ -64,11 +64,7 @@ const Welcome = () => {
                     Log in to your app at <Link to="/login">/login</Link>.
                 </li>
                 <li>
-                    Add a simple{" "}
-                    <a href="https://sdk.gooddata.com/gooddata-ui/docs/kpi_component.html" {...linkProps}>
-                        KPI
-                    </a>{" "}
-                    to <Code>src/routes/Home.js</Code>.<br />
+                    Add a simple KPI to <Code>src/routes/Home.js</Code>.<br />
                     <Pre
                         style={{
                             backgroundColor: "#242629",
@@ -117,22 +113,30 @@ export default Home;
 `}
                     </Pre>
                     <Blockquote>
-                        <img src={iUri} alt="(i)" className={styles.inlineImg} />
-                        &emsp;For more information, see{" "}
-                        <a href="https://sdk.gooddata.com/gooddata-ui/docs/kpi_component.html" {...linkProps}>
-                            KPI Component
-                        </a>
+                        <p>
+                            <img src={iUri} alt="(i)" className={styles.inlineImg} />
+                            &emsp;For more information, see{" "}
+                            <a
+                                href="https://sdk.gooddata.com/gooddata-ui/docs/kpi_component.html"
+                                {...linkProps}
+                            >
+                                KPI Component
+                            </a>
+                            .
+                        </p>
                     </Blockquote>
+                </li>
+                <li>
                     <p>
                         In <Code>src/constants.js</Code>:
                     </p>
                     <ol className={styles.subList}>
                         <li>
                             <p>
-                                Set <Code>backend</Code> prop to your domain URI.
+                                Set <Code>backend</Code> to your domain URI.
                             </p>
-                            For example, <Code>"https://secure.gooddata.com"</Code> or{" "}
-                            <Code>"https://developer.na.gooddata.com"</Code>
+                            For example, <Code>https://secure.gooddata.com</Code> or{" "}
+                            <Code>https://developer.na.gooddata.com</Code>.
                         </li>
                         <li>
                             <p>
@@ -150,10 +154,11 @@ export default Home;
                             </Blockquote>
                         </li>
                     </ol>
-                    <p></p>
                     <p className={styles.imageFrame}>
                         <img src={findProjectIdUri} alt="Find your project id" />
                     </p>
+                </li>
+                <li>
                     <p>
                         Replace <Code>{`<measure-identifier>`}</Code> with an identifier of a measure of your
                         choice.{" "}
@@ -187,11 +192,10 @@ export default Home;
                         .
                     </p>
                 </li>
-                <li>Now you are ready to play around with your app.</li>
             </ol>
+            <p>Now, you are ready to play around with your app.</p>
 
-            <h2>You might want to try next</h2>
-            <p>Here are few tips what you could start with when developing your own application.</p>
+            <h2>Things to try next</h2>
 
             <h3>Add page (route)</h3>
             <ol>
@@ -204,19 +208,15 @@ export default Home;
             </ol>
 
             <h3>Add a link to the Navigation / Menu</h3>
-            <ol>
-                <li>
-                    Add a new <Code>{`<NavLink>`}</Code> component to <Code>/src/Header/Links.js</Code>
-                </li>
-            </ol>
+            <p>
+                Add a new <Code>{`<NavLink>`}</Code> component to <Code>/src/components/Header/Links.js</Code>
+            </p>
 
             <h3>Add any example from Live Examples</h3>
-            <ol>
-                <li>
-                    Go to <a href="https://gooddata-examples.herokuapp.com">Live Examples</a>, explore and try
-                    out some code snippets.
-                </li>
-            </ol>
+            <p>
+                Go to <a href="https://gooddata-examples.herokuapp.com">Live Examples</a>, explore and try out
+                some code snippets.
+            </p>
         </Page>
     );
 };
