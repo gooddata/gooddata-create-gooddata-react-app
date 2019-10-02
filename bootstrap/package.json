@@ -18,8 +18,11 @@
     "scripts": {
         "start": "cross-env HTTPS=true react-scripts start",
         "build": "react-scripts build",
-        "test": "react-scripts test",
-        "eject": "react-scripts eject"
+        "eject": "react-scripts eject",
+        "test": "react-scripts test --setupFilesAfterEnv ./jest.setup.js",
+        "testcafe-backend": "rm -R ./build & yarn build & serve -l 5000 build",
+        "testcafe": "cross-env TEST_BACKEND=http://localhost:5000 ./scripts/run-testcafe.js",
+        "testcafe-visual": "cross-env TEST_MODE=visual ./scripts/run-testcafe.js"
     },
     "eslintConfig": {
         "extends": "react-app"
@@ -38,10 +41,14 @@
     },
     "devDependencies": {
         "cross-env": "^5.2.0",
+        "enzyme": "^3.10.0",
+        "enzyme-adapter-react-16": "^1.14.0",
         "husky": "^3.0.0",
         "node-sass": "^4.12.0",
         "prettier": "^1.18.2",
-        "pretty-quick": "^1.11.1"
+        "pretty-quick": "^1.11.1",
+        "serve": "^11.2.0",
+        "testcafe": "^1.5.0"
     },
     "husky": {
         "hooks": {

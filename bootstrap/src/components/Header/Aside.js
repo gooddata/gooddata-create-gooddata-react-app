@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import cx from "classnames";
 
 import styles from "./Header.module.scss";
 import { useAuth } from "../../contexts/Auth";
@@ -11,12 +12,12 @@ const Aside = () => {
         <div className={styles.Aside}>
             {authState.isLoading && <InlineLoading />}
             {!authState.isLoading && authState.data && (
-                <Link to="/logout" className={styles.Link}>
+                <Link to="/logout" className={cx(styles.Link, "s-logout-link")}>
                     Logout
                 </Link>
             )}
             {!authState.isLoading && !authState.data && (
-                <Link to="/login" className={styles.Link}>
+                <Link to="/login" className={cx(styles.Link, "s-login-link")}>
                     Login
                 </Link>
             )}
