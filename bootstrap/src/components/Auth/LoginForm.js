@@ -28,7 +28,7 @@ const LoginFormComponent = props => {
     return (
         <>
             {loginError && <div className={styles.Error}>{loginError}</div>}
-            <form onSubmit={handleSubmit} className={styles.Login}>
+            <form onSubmit={handleSubmit} className={cx(styles.Login, "s-login-form")}>
                 <div className={styles.LoginLogo}>
                     <img
                         src="https://secure.gooddata.com/images/logo-new.png"

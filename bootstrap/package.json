@@ -20,8 +20,9 @@
         "build": "react-scripts build",
         "eject": "react-scripts eject",
         "test": "react-scripts test --setupFilesAfterEnv ./jest.setup.js",
-        "testcafe": "react-scripts start & bash ./scripts/run-testcafe.sh",
-        "testcafe-visual": "bash ./scripts/run-testcafe.sh visual"
+        "testcafe-backend": "rm -R ./build & yarn build & serve -l 5000 build",
+        "testcafe": "cross-env TEST_BACKEND=http://localhost:5000 ./scripts/run-testcafe.js",
+        "testcafe-visual": "cross-env TEST_MODE=visual ./scripts/run-testcafe.js"
     },
     "eslintConfig": {
         "extends": "react-app"
@@ -46,6 +47,7 @@
         "node-sass": "^4.12.0",
         "prettier": "^1.18.2",
         "pretty-quick": "^1.11.1",
+        "serve": "^11.2.0",
         "testcafe": "^1.5.0"
     },
     "husky": {
