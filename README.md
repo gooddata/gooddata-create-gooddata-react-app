@@ -25,7 +25,6 @@ Then follow the instructions provided by the CLI.
 `@gooddata/create-gooddata-react-app` supports several optional flags:
 
 -   `-d, --domainUrl <domain>` URL of your GoodData domain
--   `-p, --projectId <projectId>` projectID of your GoodData project
 -   `-c, --config <config>` path to configuration file (see below)
 -   `--no-install` skip yarn installing the app dependencies
 -   `--verbose` output additional logs, useful mainly for debugging and bug reports
@@ -38,7 +37,6 @@ The configuration file has the following structure:
 ```json
 {
     "domain": "(Required) domain where the project is hosted, e.g. https://developer.na.gooddata.com",
-    "projectId": "(Required) the projectId of the project (must be hosted on the domain specified above)",
     "appName": "(Optional) name of the app to use"
 }
 ```

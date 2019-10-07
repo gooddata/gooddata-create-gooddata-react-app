@@ -3,13 +3,9 @@ import fs from "fs-extra";
 
 import { sanitizeAppName } from "./stringUtils";
 
-export const parseConfig = ({ domain, projectId, appName }, nameFromCli) => {
+export const parseConfig = ({ domain, appName }, nameFromCli) => {
     if (!domain) {
         throw new Error("You must provide a domain for your app");
-    }
-
-    if (!projectId) {
-        throw new Error("You must provide a projectId for your app");
     }
 
     const sanitizedAppName = sanitizeAppName(appName || nameFromCli);
@@ -20,7 +16,6 @@ export const parseConfig = ({ domain, projectId, appName }, nameFromCli) => {
     return {
         sanitizedAppName,
         domain,
-        projectId,
     };
 };
 

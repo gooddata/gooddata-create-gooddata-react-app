@@ -22,14 +22,14 @@ const copyAppFiles = async ({ targetDir }) => {
     });
 };
 
-const performTemplateReplacements = ({ targetDir, sanitizedAppName, projectId, domain }) => {
+const performTemplateReplacements = ({ targetDir, sanitizedAppName, domain }) => {
     // this object has structure corresponding to the file structure relative to targetDir
     // having it like this makes sure that all the replacements relevant to each file are in one place, thus preventing race conditions
     const replacementDefinitions = {
         "package.json": [{ regex: /@gooddata\/gdc-app-name/, value: sanitizedAppName }],
         src: {
             "constants.js": [
-                { regex: /projectId: "\w+"/, value: `projectId: "${projectId}"` },
+                { regex: /appName: "(.*?)"/, value: `appName: "${sanitizedAppName}"` },
                 {
                     regex: /backend: "https:\/\/developer\.na\.gooddata\.com"/g,
                     value: `backend: "${getDomainWithSchema(domain)}"`,
