@@ -7,17 +7,18 @@ import Login from "./Login";
 import Logout from "./Logout";
 
 import styles from "./AppRouter.module.scss";
-import { useAuth } from "../contexts/Auth";
 import Welcome from "./Welcome";
 import Page from "../components/Page";
 
-const RedirectIfNotLoggedIn = () => {
-    const auth = useAuth();
-    const user = auth.data;
-    const isLoading = auth.isLoading;
-    const shouldRedirectToLogin = !isLoading && !user;
-    return shouldRedirectToLogin ? <Route component={() => <Redirect to="/login" />} /> : null;
-};
+// Uncomment these lines if you want to redirect unauthorized users to login form
+// import { useAuth } from "../contexts/Auth";
+// const RedirectIfNotLoggedIn = () => {
+//     const auth = useAuth();
+//     const user = auth.data;
+//     const isLoading = auth.isLoading;
+//     const shouldRedirectToLogin = !isLoading && !user;
+//     return shouldRedirectToLogin ? <Route component={() => <Redirect to="/login" />} /> : null;
+// };
 
 const AppRouter = () => {
     return (

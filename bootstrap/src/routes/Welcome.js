@@ -78,32 +78,19 @@ import { Kpi } from "@gooddata/react-components";
 
 import Page from "../components/Page";
 
-// Unless you want to use multiple projects and/or domains, we recommend reusing your project configuration
-// by importing from a separate file like so:
-// import project from "../project";
-import { factory as createSdk } from "@gooddata/gooddata-js";
-// edit your GoodData domain and projectId in constants.js
-import constants from "../constants";
-// Set domain to null (localhost) in development, because it needs to be handled by setupProxy.js instead
-const domain = process.env.NODE_ENV === "production" ? constants.backend : null;
-const projectId = constants.projectId;
+// 'sdk' will connect GD.UI components to the same GoodData domain you are logged in. You can change this in constants.js
+import sdk from "../sdk";
+import { projectId } from "../constants";
+
 const project = {
-    sdk: createSdk({
-        domain,
-        // If you set origin package, GoodData will be able to find
-        // and possibly troubleshoot your requests in the logs.
-        // originPackage: {
-        //     name: "my-application-package",
-        //     version: "1.0.0"
-        // }
-    }),
+    sdk,
     projectId,
 };
 
 const Home = () => {
     return (
         <Page>
-            {/* Always make sure to add {...project} with sdk and projectId props */}
+            {/* Always make sure to add {...project} with sdk and projectId props to GD.UI components */}
             <Kpi {...project} measure="<measure-identifier>" />
         </Page>
     );
@@ -217,6 +204,42 @@ export default Home;
                 Go to <a href="https://gooddata-examples.herokuapp.com">Live Examples</a>, explore and try out
                 some code snippets.
             </p>
+
+            <h3>
+                Deploy your app to <a href="https://www.heroku.com/">Heroku</a>
+            </h3>
+            <ol>
+                <li>
+                    <p>
+                        Create a new Heroku app with{" "}
+                        <a href="https://elements.heroku.com/buildpacks/mars/create-react-app-buildpack">
+                            create-react-app buildpack
+                        </a>{" "}
+                        <Code>mars/create-react-app</Code>
+                    </p>
+                    <Pre>{`heroku create $APP_NAME --buildpack mars/create-react-app`}</Pre>
+                </li>
+                <li>
+                    <p>Commit your changes</p>
+                    <Pre>{`git add .
+git commit -m "Setup Heroku deployment"`}</Pre>
+                </li>
+                <li>
+                    Cross-domain requests need to be allowed for specific domains by GoodData.
+                    <br />
+                    Request your cross-domain exception by e-mail at{" "}
+                    <a href="mailto:support@gooddata.com">support@gooddata.com</a>
+                    <br />
+                    Please list the domain of your app (e.g. <Code>gooddata-examples.herokuapp.com</Code>)
+                    <br />
+                    and the target GoodData domain (e.g. <Code>developer.na.gooddata.com</Code>).
+                </li>
+                <li>
+                    <p>Trigger deployment and open your app in a browser.</p>
+                    <Pre>{`git push heroku master
+heroku open`}</Pre>
+                </li>
+            </ol>
         </Page>
     );
 };

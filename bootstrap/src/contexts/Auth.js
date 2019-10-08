@@ -1,7 +1,7 @@
-import React, { useState, useEffect, useCallback, useContext } from "react";
-import sdk, { ApiResponseError } from "@gooddata/gooddata-js";
+import React, { useState, useEffect, useCallback, useContext, createContext } from "react";
+import { ApiResponseError } from "@gooddata/gooddata-js";
 import { defaultSourceState } from "../utils";
-import { createContext } from "react";
+import sdk from "../sdk";
 
 const AuthContext = createContext({
     ...defaultSourceState,
