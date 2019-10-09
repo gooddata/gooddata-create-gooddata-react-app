@@ -78,7 +78,7 @@ import { Kpi } from "@gooddata/react-components";
 
 import Page from "../components/Page";
 
-// 'sdk' will connect GD.UI components to the same GoodData domain you are logged in. You can change this in constants.js
+// 'sdk' will connect the GD.UI components to the same GoodData domain that you are logged in. You can change this in constants.js.
 import sdk from "../sdk";
 import { projectId } from "../constants";
 
@@ -90,7 +90,7 @@ const project = {
 const Home = () => {
     return (
         <Page>
-            {/* Always make sure to add {...project} with sdk and projectId props to GD.UI components */}
+            {/* Always make sure to add {...project} with the sdk and projectId props to the GD.UI components. */}
             <Kpi {...project} measure="<measure-identifier>" />
         </Page>
     );
@@ -136,31 +136,31 @@ export default Home;
                                     href="https://help.gooddata.com/doc/en/project-and-user-administration/administering-projects-and-project-objects/find-the-project-id"
                                     {...linkProps}
                                 >
-                                    Learn how to find your project id.
+                                    Learn how to find your project ID.
                                 </a>
                             </Blockquote>
                         </li>
                     </ol>
                     <p className={styles.imageFrame}>
-                        <img src={findProjectIdUri} alt="Find your project id" />
+                        <img src={findProjectIdUri} alt="Finding the project ID" />
                     </p>
                 </li>
                 <li>
                     <p>
-                        Replace <Code>{`<measure-identifier>`}</Code> with an identifier of a measure of your
-                        choice.{" "}
+                        Replace <Code>{`<measure-identifier>`}</Code> with the identifier of a measure of your
+                        choice. Find your measure {" "}
                         <a
                             href={`${constants.backend}/gdc/md/${constants.projectId}/query/metrics`}
                             {...linkProps}
                         >
-                            Find your measures here
+                            here
                         </a>{" "}
-                        (requires Admin privileges),
+                        (requires admin privileges),
                         <br />
-                        select a measure and look for <Code>metric.meta.identifier</Code> on the details page.
+                        and look for <Code>metric.meta.identifier</Code> on the measure's details page.
                     </p>
                     <p className={styles.imageFrame}>
-                        <img src={greyPagesMetricsdUri} alt="Grey pages - metrics" />
+                        <img src={greyPagesMetricsdUri} alt="Gray pages with measure details" />
                     </p>
                 </li>
                 <li>
@@ -171,10 +171,10 @@ export default Home;
                         <img src={kpiUri} alt="KPI example" />
                     </p>
                     <p>
-                        Value of your KPI is likely different. As long as you don't see Error, you are good to
-                        go. If you do see an error, please contact{" "}
+                        Most likely, the value of your KPI would be different. As long as you do not see an error, you are good to
+                        go. If you do see an error, please use one of the {" "}
                         <a href="https://sdk.gooddata.com/gooddata-ui/docs/support_options.html">
-                            GoodData.UI support
+                            GoodData.UI support options
                         </a>
                         .
                     </p>
@@ -184,24 +184,24 @@ export default Home;
 
             <h2>Things to try next</h2>
 
-            <h3>Add page (route)</h3>
+            <h3>Add a page (route)</h3>
             <ol>
                 <li>
-                    Duplicate a route in <Code>/src/routes</Code>
+                    Duplicate a route in <Code>/src/routes</Code>.
                 </li>
                 <li>
-                    Add a new route in <Code>/src/routes/AppRouter.js</Code>
+                    Add the new route to <Code>/src/routes/AppRouter.js</Code>.
                 </li>
             </ol>
 
-            <h3>Add a link to the Navigation / Menu</h3>
+            <h3>Add a link to the navigation / menu</h3>
             <p>
-                Add a new <Code>{`<NavLink>`}</Code> component to <Code>/src/components/Header/Links.js</Code>
+                Add a new <Code>{`<NavLink>`}</Code> component to <Code>/src/components/Header/Links.js</Code>.
             </p>
 
-            <h3>Add any example from Live Examples</h3>
+            <h3>Add an example from the Live Examples</h3>
             <p>
-                Go to <a href="https://gooddata-examples.herokuapp.com">Live Examples</a>, explore and try out
+                Explore the <a href="https://gooddata-examples.herokuapp.com">Live Examples</a> and try out
                 some code snippets.
             </p>
 
@@ -211,31 +211,30 @@ export default Home;
             <ol>
                 <li>
                     <p>
-                        Create a new Heroku app with{" "}
+                        Create a new Heroku app with the{" "}
                         <a href="https://elements.heroku.com/buildpacks/mars/create-react-app-buildpack">
                             create-react-app buildpack
                         </a>{" "}
-                        <Code>mars/create-react-app</Code>
+                        .
                     </p>
                     <Pre>{`heroku create $APP_NAME --buildpack mars/create-react-app`}</Pre>
                 </li>
                 <li>
-                    <p>Commit your changes</p>
+                    <p>Commit your changes.</p>
                     <Pre>{`git add .
 git commit -m "Setup Heroku deployment"`}</Pre>
                 </li>
                 <li>
-                    Cross-domain requests need to be allowed for specific domains by GoodData.
+                    Send a request to {" "}
+                    <a href="https://support.gooddata.com/">GoodData Support</a>
+                    to allow cross-domain requests for your domains.
                     <br />
-                    Request your cross-domain exception by e-mail at{" "}
-                    <a href="mailto:support@gooddata.com">support@gooddata.com</a>
+                    In the request, include the domain of your app (for example, <Code>gooddata-examples.herokuapp.com</Code>)
                     <br />
-                    Please list the domain of your app (e.g. <Code>gooddata-examples.herokuapp.com</Code>)
-                    <br />
-                    and the target GoodData domain (e.g. <Code>developer.na.gooddata.com</Code>).
+                    and the target GoodData domain (for example, <Code>developer.na.gooddata.com</Code>).
                 </li>
                 <li>
-                    <p>Trigger deployment and open your app in a browser.</p>
+                    <p>Trigger deployment, and open your app in a browser.</p>
                     <Pre>{`git push heroku master
 heroku open`}</Pre>
                 </li>
