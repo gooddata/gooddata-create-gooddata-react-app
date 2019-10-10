@@ -48,7 +48,7 @@ const Welcome = () => {
 
             <h2>Your new GoodData-powered app is ready!</h2>
             <p>
-                Now, let’s take one more step and set up your home dashboard with a test KPI widget. This will
+                Now, let’s take one more step and set up your home dashboard with a test headline report widget. This will
                 help verify that everything is set up correctly.
             </p>
 
@@ -64,54 +64,20 @@ const Welcome = () => {
                     Log in to your app at <Link to="/login">/login</Link>.
                 </li>
                 <li>
-                    Add a simple KPI to <Code>src/routes/Home.js</Code>.<br />
-                    <Pre
-                        style={{
-                            backgroundColor: "#242629",
-                            color: "#E8EAEA",
-                            padding: 10,
-                        }}
-                    >
-                        {`
-import React from "react";
-import { Kpi } from "@gooddata/react-components";
-
-import Page from "../components/Page";
-
-// 'sdk' will connect the GD.UI components to the same GoodData domain that you are logged in. You can change this in constants.js.
-import sdk from "../sdk";
-import { projectId } from "../constants";
-
-const project = {
-    sdk,
-    projectId,
-};
-
-const Home = () => {
-    return (
-        <Page>
-            {/* Always make sure to add {...project} with the sdk and projectId props to the GD.UI components. */}
-            <Kpi {...project} measure="<measure-identifier>" />
-        </Page>
-    );
-};
-
-export default Home;
-`}
-                    </Pre>
-                    <Blockquote>
-                        <p>
-                            <img src={iUri} alt="(i)" className={styles.inlineImg} />
-                            &emsp;For more information, see{" "}
-                            <a
-                                href="https://sdk.gooddata.com/gooddata-ui/docs/kpi_component.html"
-                                {...linkProps}
-                            >
-                                KPI Component
-                            </a>
-                            .
-                        </p>
-                    </Blockquote>
+                    Go to https://secure.gooddata.com/labs/apps/, and click <b>UI Developer Toolkit</b> ->
+                    <b>Visualization Builder</b>.<br />
+                    The widget for creating visualizations opens.
+                </li>
+                <li>
+                    From the visualization type toolbar, select the headline visualization.
+                </li>
+                <li>
+                    Select the primary measure from the dropdown list.
+                    <br />
+                    The headline report is calculated and displayed.
+                </li>
+                <li>
+                    Click <b>Copy code</b> and paste the copied code into your <code>Home.js</code>.
                 </li>
                 <li>
                     <p>
@@ -120,7 +86,7 @@ export default Home;
                     <ol className={styles.subList}>
                         <li>
                             <p>
-                                Set <Code>backend</Code> to your domain URI.
+                                Check that <Code>backend</Code> is set to your domain URI.
                             </p>
                             For example, <Code>https://secure.gooddata.com</Code> or{" "}
                             <Code>https://developer.na.gooddata.com</Code>.
@@ -147,32 +113,14 @@ export default Home;
                 </li>
                 <li>
                     <p>
-                        Replace <Code>{`<measure-identifier>`}</Code> with the identifier of a measure of your
-                        choice. Find your measure {" "}
-                        <a
-                            href={`${constants.backend}/gdc/md/${constants.projectId}/query/metrics`}
-                            {...linkProps}
-                        >
-                            here
-                        </a>{" "}
-                        (requires admin privileges),
-                        <br />
-                        and look for <Code>metric.meta.identifier</Code> on the measure's details page.
-                    </p>
-                    <p className={styles.imageFrame}>
-                        <img src={greyPagesMetricsdUri} alt="Gray pages with measure details" />
-                    </p>
-                </li>
-                <li>
-                    <p>
-                        Check your KPI on the <Link to="/">Home route</Link>.
+                        Check the headline report on the <Link to="/">Home route</Link>.
                     </p>
                     <p className={styles.imageFrame}>
                         <img src={kpiUri} alt="KPI example" />
                     </p>
                     <p>
-                        Most likely, the value of your KPI would be different. As long as you do not see an error, you are good to
-                        go. If you do see an error, please use one of the {" "}
+                        Most likely, the value of your headline report would be different. As long as you do not see an error,
+                        you are good to go. If you do see an error, please use one of the {" "}
                         <a href="https://sdk.gooddata.com/gooddata-ui/docs/support_options.html">
                             GoodData.UI support options
                         </a>
@@ -243,6 +191,12 @@ git commit -m "Setup Heroku deployment"`}</Pre>
 heroku open`}</Pre>
                 </li>
             </ol>
+
+            <h3>Get familiar with Catalog Browser</h3>
+                <p>Go to https://secure.gooddata.com/labs/apps/, and click <b>UI Developer Toolkit</b> ->
+                    <b>Catalog Browser</b>.<br /></p>
+                <p>Catalog Browser allows you to search for and review various objects
+                (attributes, attribute displayForms, measures, and date datasets) in your project.</p>
         </Page>
     );
 };
