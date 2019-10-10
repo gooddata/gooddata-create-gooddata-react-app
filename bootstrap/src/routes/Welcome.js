@@ -215,7 +215,7 @@ export default Home;
                         <a href="https://elements.heroku.com/buildpacks/mars/create-react-app-buildpack">
                             create-react-app buildpack
                         </a>{" "}
-                        .
+                        (<Code>mars/create-react-app</Code>).
                     </p>
                     <Pre>{`heroku create $APP_NAME --buildpack mars/create-react-app`}</Pre>
                 </li>
@@ -232,6 +232,10 @@ git commit -m "Setup Heroku deployment"`}</Pre>
                     In the request, include the domain of your app (for example, <Code>gooddata-examples.herokuapp.com</Code>)
                     <br />
                     and the target GoodData domain (for example, <Code>developer.na.gooddata.com</Code>).
+                    <br />
+                    **NOTE:** If cross-domain requests are not allowed, you will not be able to log in
+                    <br />
+                    and will see a cross-domain error message.
                 </li>
                 <li>
                     <p>Trigger deployment, and open your app in a browser.</p>
