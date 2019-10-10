@@ -77,7 +77,7 @@ const Welcome = () => {
                     The headline report is calculated and displayed.
                 </li>
                 <li>
-                    Click <b>Copy code</b> and paste the copied code into your <code>Home.js</code>.
+                    Click <b>Copy code</b> and paste the copied code into your <Code>Home.js</Code>.
                 </li>
                 <li>
                     <p>
@@ -181,7 +181,7 @@ git commit -m "Setup Heroku deployment"`}</Pre>
                     <br />
                     and the target GoodData domain (for example, <Code>developer.na.gooddata.com</Code>).
                     <br />
-                    **NOTE:** If cross-domain requests are not allowed, you will not be able to log in
+                    <b>NOTE:</b> If cross-domain requests are not allowed, you will not be able to log in
                     <br />
                     and will see a cross-domain error message.
                 </li>
