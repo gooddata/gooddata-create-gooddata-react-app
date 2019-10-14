@@ -77,7 +77,8 @@ const Welcome = () => {
                     The headline report is calculated and displayed.
                 </li>
                 <li>
-                    Click <b>Copy code</b> and paste the copied code into your <Code>Home.js</Code>.
+                    Click <b>Copy code</b> and paste the copied code into your <Code>Home.js</Code>,
+                    to the line reading `Place your content here`.
                 </li>
                 <li>
                     <p>
@@ -195,6 +196,8 @@ heroku open`}</Pre>
             <h3>Get familiar with Catalog Browser</h3>
                 <p>Go to https://secure.gooddata.com/labs/apps/, and click <b>UI Developer Toolkit</b> ->
                     <b>Catalog Browser</b>.<br /></p>
+                <p>If you are a white-labeled customer, go to that page from your white-labeled domain:
+                    https://<i>my.domain.com</i>/labs/apps/</p>
                 <p>Catalog Browser allows you to search for and review various objects
                 (attributes, attribute displayForms, measures, and date datasets) in your project.</p>
         </Page>
