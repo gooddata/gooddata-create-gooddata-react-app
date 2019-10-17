@@ -5,6 +5,8 @@ import main from "./src/main";
 import getBootstrapDataFromCli from "./src/cliBootstrap";
 import getBootstrapDataFromConfig from "./src/configBootstrap";
 
+process.on('unhandledRejection', (err) => console.error(err));
+
 program
     .name("@gooddata/create-react-app")
     .arguments("[app-name]")
