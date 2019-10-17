@@ -25,7 +25,14 @@ export const parseConfig = ({ domain, appName }, nameFromCli) => {
  * @param {Object} options Other options from the CLI.
  */
 const getBootstrapData = async (nameFromCli, { config }) => {
-    const contents = await fs.readJSON(config, { encoding: "utf8", flag: "r" });
+    let contents = {};
+
+    try {
+        contents = await fs.readJSON(config, { encoding: "utf8", flag: "r" })
+    } catch (err) {
+        throw new Error("The config file specified using the -c option was not found. Please check that the path you provided is correct.");
+    }
+
     return parseConfig(contents, nameFromCli);
 };
 
