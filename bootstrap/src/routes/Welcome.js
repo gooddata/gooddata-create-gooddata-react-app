@@ -175,7 +175,7 @@ git commit -m "Setup Heroku deployment"`}</Pre>
                 </li>
                 <li>
                     Send a request to {" "}
-                    <a href="https://support.gooddata.com/">GoodData Support</a>
+                    <a href="https://support.gooddata.com/">GoodData Support</a>{" "}
                     to allow cross-domain requests for your domains.
                     <br />
                     In the request, include the domain of your app (for example, <Code>gooddata-examples.herokuapp.com</Code>)
@@ -193,13 +193,14 @@ heroku open`}</Pre>
                 </li>
             </ol>
 
-            <h3>Get familiar with Catalog Browser</h3>
-                <p>Go to https://secure.gooddata.com/labs/apps/, and click <b>UI Developer Toolkit</b> ->
-                    <b>Catalog Browser</b>.<br /></p>
-                <p>If you are a white-labeled customer, go to that page from your white-labeled domain:
-                    https://<i>my.domain.com</i>/labs/apps/</p>
+            <h3>Get familiar with Catalog Browser and Visualization Builder</h3>
+                <p>
+                    Go to the{" "}
+                    <a href={`${constants.backend}/labs/apps/ui-developer-toolkit/build/index.html`}>Accelerator Toolkit</a>.
+                </p>
                 <p>Catalog Browser allows you to search for and review various objects
                 (attributes, attribute displayForms, measures, and date datasets) in your project.</p>
+                <p>Visualization Builder allows you to build a visualization in a few clicks and copy its code to use it in your application.</p>
         </Page>
     );
 };
