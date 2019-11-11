@@ -48,8 +48,8 @@ const Welcome = () => {
 
             <h2>Your new GoodData-powered app is ready!</h2>
             <p>
-                Now, let’s take one more step and set up your home dashboard with a test headline report widget. This will
-                help verify that everything is set up correctly.
+                Now, let’s take one more step and set up your home dashboard with a test headline report
+                widget. This will help verify that everything is set up correctly.
             </p>
 
             <ol>
@@ -68,17 +68,15 @@ const Welcome = () => {
                     <b>Visualization Builder</b>.<br />
                     The widget for creating visualizations opens.
                 </li>
-                <li>
-                    From the visualization type toolbar, select the headline visualization.
-                </li>
+                <li>From the visualization type toolbar, select the headline visualization.</li>
                 <li>
                     Select the primary measure from the dropdown list.
                     <br />
                     The headline report is calculated and displayed.
                 </li>
                 <li>
-                    Click <b>Copy code</b> and paste the copied code into your <Code>Home.js</Code>,
-                    to the line reading `Place your content here`.
+                    Click <b>Copy code</b> and paste the copied code into your <Code>Home.js</Code>, to the
+                    line reading `Place your content here`.
                 </li>
                 <li>
                     <p>
@@ -98,19 +96,27 @@ const Welcome = () => {
                             </p>
                             <Blockquote>
                                 <img src={iUri} alt="(i)" className={styles.inlineImg} />
-                                &emsp;
-                                <a
-                                    href="https://help.gooddata.com/doc/en/project-and-user-administration/administering-projects-and-project-objects/find-the-project-id"
-                                    {...linkProps}
-                                >
-                                    Learn how to find your project ID.
-                                </a>
+                                &emsp; You can find your project ID
+                                <ol>
+                                    <li>
+                                        by visiting https://secure.gooddata.com/labs/apps/ and clicking{" "}
+                                        <b>UI Developer Toolkit</b> (project ID should be visible right above
+                                        the tool list), or
+                                    </li>
+                                    <li>
+                                        by following&nbsp;
+                                        <a
+                                            href="https://help.gooddata.com/doc/en/project-and-user-administration/administering-projects-and-project-objects/find-the-project-id"
+                                            {...linkProps}
+                                        >
+                                            this tutorial
+                                        </a>
+                                        .
+                                    </li>
+                                </ol>
                             </Blockquote>
                         </li>
                     </ol>
-                    <p className={styles.imageFrame}>
-                        <img src={findProjectIdUri} alt="Finding the project ID" />
-                    </p>
                 </li>
                 <li>
                     <p>
@@ -120,8 +126,8 @@ const Welcome = () => {
                         <img src={kpiUri} alt="KPI example" />
                     </p>
                     <p>
-                        Most likely, the value of your headline report would be different. As long as you do not see an error,
-                        you are good to go. If you do see an error, please use one of the {" "}
+                        Most likely, the value of your headline report would be different. As long as you do
+                        not see an error, you are good to go. If you do see an error, please use one of the{" "}
                         <a href="https://sdk.gooddata.com/gooddata-ui/docs/support_options.html">
                             GoodData.UI support options
                         </a>
@@ -145,7 +151,8 @@ const Welcome = () => {
 
             <h3>Add a link to the navigation / menu</h3>
             <p>
-                Add a new <Code>{`<NavLink>`}</Code> component to <Code>/src/components/Header/Links.js</Code>.
+                Add a new <Code>{`<NavLink>`}</Code> component to <Code>/src/components/Header/Links.js</Code>
+                .
             </p>
 
             <h3>Add an example from the Live Examples</h3>
@@ -174,11 +181,11 @@ const Welcome = () => {
 git commit -m "Setup Heroku deployment"`}</Pre>
                 </li>
                 <li>
-                    Send a request to {" "}
-                    <a href="https://support.gooddata.com/">GoodData Support</a>
+                    Send a request to <a href="https://support.gooddata.com/">GoodData Support</a>
                     to allow cross-domain requests for your domains.
                     <br />
-                    In the request, include the domain of your app (for example, <Code>gooddata-examples.herokuapp.com</Code>)
+                    In the request, include the domain of your app (for example,{" "}
+                    <Code>gooddata-examples.herokuapp.com</Code>)
                     <br />
                     and the target GoodData domain (for example, <Code>developer.na.gooddata.com</Code>).
                     <br />
@@ -194,12 +201,18 @@ heroku open`}</Pre>
             </ol>
 
             <h3>Get familiar with Catalog Browser</h3>
-                <p>Go to https://secure.gooddata.com/labs/apps/, and click <b>UI Developer Toolkit</b> ->
-                    <b>Catalog Browser</b>.<br /></p>
-                <p>If you are a white-labeled customer, go to that page from your white-labeled domain:
-                    https://<i>my.domain.com</i>/labs/apps/</p>
-                <p>Catalog Browser allows you to search for and review various objects
-                (attributes, attribute displayForms, measures, and date datasets) in your project.</p>
+            <p>
+                Go to https://secure.gooddata.com/labs/apps/, and click <b>UI Developer Toolkit</b> ->
+                <b>Catalog Browser</b>.<br />
+            </p>
+            <p>
+                If you are a white-labeled customer, go to that page from your white-labeled domain: https://
+                <i>my.domain.com</i>/labs/apps/
+            </p>
+            <p>
+                Catalog Browser allows you to search for and review various objects (attributes, attribute
+                displayForms, measures, and date datasets) in your project.
+            </p>
         </Page>
     );
 };
