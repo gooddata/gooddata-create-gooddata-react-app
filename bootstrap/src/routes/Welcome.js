@@ -193,13 +193,11 @@ git commit -m "Setup Heroku deployment"`}</Pre>
                     cross-domain requests for your domains.
                     <br />
                     In the request, include the domain of your app (for example,{" "}
-                    <Code>gooddata-examples.herokuapp.com</Code>)
+                    <Code>gooddata-examples.herokuapp.com</Code>) and the target GoodData domain (for example,{" "}
+                    <Code>developer.na.gooddata.com</Code>).
                     <br />
-                    and the target GoodData domain (for example, <Code>developer.na.gooddata.com</Code>).
-                    <br />
-                    <b>NOTE:</b> If cross-domain requests are not allowed, you will not be able to log in
-                    <br />
-                    and will see a cross-domain error message.
+                    <b>NOTE:</b> If cross-domain requests are not allowed, you will not be able to log in and
+                    will see a cross-domain error message.
                 </li>
                 <li>
                     <p>Trigger deployment, and open your app in a browser.</p>
