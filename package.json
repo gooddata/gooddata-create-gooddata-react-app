@@ -34,7 +34,6 @@
     "start-unsafe": "cross-env NODE_TLS_REJECT_UNAUTHORIZED=0 node ./dist/index.js"
   },
   "dependencies": {
-    "@gooddata/gooddata-js": "^11.14.1",
     "chalk": "^2.4.2",
     "commander": "^2.20.0",
     "cross-env": "^5.2.0",
@@ -42,7 +41,7 @@
     "fs-extra": "^8.1.0",
     "inquirer": "^6.3.1",
     "listr": "^0.14.3",
-    "lodash": "^4.17.11",
+    "lodash": "^4.17.15",
     "mkdirp": "^0.5.1",
     "tar": "^4.4.10"
   },
