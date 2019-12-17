@@ -6,8 +6,6 @@ import Page from "../components/Page";
 
 import styles from "./Welcome.module.scss";
 
-import findProjectIdUri from "../media/find-project-id.png";
-import greyPagesMetricsdUri from "../media/grey-pages-metrics.png";
 import kpiUri from "../media/kpi.png";
 import iUri from "../media/i.svg";
 import successUri from "../media/success.svg";
@@ -215,12 +213,16 @@ heroku open`}</Pre>
                 .
             </p>
             <p>
-                Catalog Browser allows you to search for and review various objects (attributes, attribute
-                displayForms, measures, and date datasets) in your project.
+                Catalog Browser allows you to search for and review attributes, attribute displayForms,
+                measures, and date datasets in your project.
             </p>
             <p>
                 Visualization Builder allows you to build a visualization in a few clicks and copy its code to
                 use it in your application.
+            </p>
+            <p>
+                Metadata Tool allows you to browse for details of various metadata objects (for example,
+                filters, saved views, reports, and so on) in your project.
             </p>
         </Page>
     );
