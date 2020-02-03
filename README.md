@@ -18,7 +18,7 @@ npx @gooddata/create-gooddata-react-app my-app
 
 Then follow the instructions provided by the CLI.
 
-*NOTE:* We use `yarn` dependency manager. To install it, follow its [documentation](https://yarnpkg.com/lang/en/docs/install). If you don't want to use `yarn`, provide the `--no-install` flag like `npx @gooddata/create-gooddata-react-app my-app --no-install` . This will skip calling `yarn install` and you will have to manually install the dependencies of the created app. Please note that we do not provide `package-lock.json` so the application may not work properly when dependencies are installed using `npm`.
+_NOTE:_ We use `yarn` dependency manager. To install it, follow its [documentation](https://yarnpkg.com/lang/en/docs/install). If you don't want to use `yarn`, provide the `--no-install` flag like `npx @gooddata/create-gooddata-react-app my-app --no-install` . This will skip calling `yarn install` and you will have to manually install the dependencies of the created app. Please note that we do not provide `package-lock.json` so the application may not work properly when dependencies are installed using `npm`.
 
 ## CLI usage
 
@@ -40,6 +40,10 @@ The configuration file has the following structure:
     "appName": "(Optional) name of the app to use"
 }
 ```
+
+## Prerequisites
+
+Before running `@gooddata/create-gooddata-react-app`, please make sure that you have all compatible [technologies](https://sdk.gooddata.com/gooddata-ui/docs/about_gooddataui.html#supported-technologies) installed on your device.
 
 ## Troubleshooting
 
