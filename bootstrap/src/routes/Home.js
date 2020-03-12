@@ -1,9 +1,16 @@
 import React from "react";
 
 import Page from "../components/Page";
+import { useProjectId } from "../contexts/ProjectId";
 
 const Home = () => {
-    return <Page>Place your content here&hellip;</Page>;
+    const { projectId } = useProjectId();
+    return (
+        <Page>
+            {/* In components replace hard-coded ID's with projectId={projectId} */}
+            Place your content here&hellip;
+        </Page>
+    );
 };
 
 export default Home;

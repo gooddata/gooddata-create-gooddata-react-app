@@ -21,51 +21,52 @@ const getUser = async () => {
 export const AuthProvider = ({ children }) => {
     const [userState, setUserState] = useState({ ...defaultSourceState });
     useEffect(() => {
-        getUser()
-            .then(account => {
-                setUserState({ isLoading: false, error: null, data: account });
-            })
-            .catch(error => {
+        const initializeUser = async () => {
+            try {
+                const user = await getUser();
+                setUserState({ isLoading: false, error: null, data: user });
+            } catch (error) {
                 setUserState({ isLoading: false, error, data: null });
-            });
+            }
+        };
+        initializeUser();
     }, []);
 
     const login = useCallback(async (username, password) => {
-        setUserState({ isLoading: true, error: null, data: null });
-        return sdk.user
-            .login(username, password)
-            .then(user => {
-                setUserState({ isLoading: false, error: null, data: user });
-                return user;
-            })
-            .catch(error => {
-                setUserState({ isLoading: false, error, data: null });
-                throw new ApiResponseError(error.message, error.response, error.responseBody);
-            });
+        try {
+            setUserState({ isLoading: true, error: null, data: null });
+            await sdk.user.login(username, password);
+            const user = await getUser();
+            setUserState({ isLoading: false, error: null, data: user });
+            return user;
+        } catch (error) {
+            setUserState({ isLoading: false, error, data: null });
+            throw new ApiResponseError(error.message, error.response, error.responseBody);
+        }
     }, []);
 
     const logout = useCallback(async () => {
-        setUserState({
-            ...userState,
-            isLoading: true,
-            error: null,
-        });
-        return sdk.user
-            .logout()
-            .then(() => {
-                setUserState({
-                    isLoading: false,
-                    error: null,
-                    data: null,
-                });
-            })
-            .catch(() => {
-                setUserState({
-                    isLoading: false,
-                    error: null,
-                    data: null,
-                });
+        try {
+            setUserState({
+                ...userState,
+                isLoading: true,
+                error: null,
             });
+
+            await sdk.user.logout();
+
+            setUserState({
+                isLoading: false,
+                error: null,
+                data: null,
+            });
+        } catch (error) {
+            setUserState({
+                isLoading: false,
+                error: null,
+                data: null,
+            });
+        }
     }, [userState]);
 
     return <AuthContext.Provider value={{ ...userState, login, logout }}>{children}</AuthContext.Provider>;

@@ -5,8 +5,18 @@ import Logo from "./Logo";
 import styles from "./Header.module.scss";
 import Links from "./Links";
 import Aside from "./Aside";
+import { useAuth } from "../../contexts/Auth";
+// uncomment the next line to use ProjectPicker
+// import ProjectPicker from "../controls/ProjectPicker";
 
 const VR = ({ ...restProps }) => <div className={styles.VR} {...restProps} />;
+
+// a wrapper for items visible to authenticated users only (e.g. ProjectPicker)
+const ProtectedItems = ({ children }) => {
+    const authState = useAuth();
+    if (!authState.data || authState.isLoading) return null;
+    return children || null;
+};
 
 const BurgerMenu = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -23,6 +33,12 @@ const BurgerMenu = () => {
             {isOpen && (
                 <div className={styles.BurgerContent}>
                     <Links />
+                    <ProtectedItems>
+                        {/* Uncomment these lines to add a project picker into the burger menu */}
+                        {/* <div className={styles.Centered}>
+                            <ProjectPicker />
+                        </div> */}
+                    </ProtectedItems>
                 </div>
             )}
         </div>
@@ -62,6 +78,12 @@ const Header = () => {
                     <Logo />
                     <VR />
                     <Links />
+                    <ProtectedItems>
+                        {/* Uncomment these lines to add a project picker into the menu */}
+                        {/* <div className={styles.Centered}>
+                            <ProjectPicker />
+                        </div> */}
+                    </ProtectedItems>
                 </>
             )}
             <Aside />

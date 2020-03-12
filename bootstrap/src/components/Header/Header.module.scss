@@ -15,42 +15,6 @@
     color: #4a4a4a;
     background: #fdfdfd;
     border-bottom: 1px solid $color-active;
-
-    &Button {
-        line-height: 26px;
-        color: rgba(0, 0, 0, 0.7);
-        font-size: 12px;
-        text-decoration: none;
-        padding: 0px 22px;
-        margin: 0px 10px;
-        border-width: 1px;
-        border-style: solid;
-        border-color: rgba(0, 0, 0, 0.5);
-        border-image: initial;
-        border-radius: 100px;
-        transition: $transition-fast;
-
-        &:hover,
-        &:active {
-            color: rgba(0, 0, 0, 0.9);
-            border-color: rgba(0, 0, 0, 0.9);
-        }
-    }
-
-    &Link {
-        height: 28px;
-        line-height: 28px;
-        color: inherit;
-        font-size: 12px;
-        text-decoration: none;
-        margin: 0px 10px;
-        padding: 0px 10px;
-        border-width: initial;
-        border-style: none;
-        border-color: initial;
-        border-image: initial;
-        transition: $transition-fast;
-    }
 }
 
 .Aside {
@@ -76,6 +40,15 @@
     background-color: $color-border;
     align-self: stretch;
     margin: $spacing 0;
+}
+
+.Centered {
+    margin: 0 $spacing / 2;
+    padding: 0 $spacing;
+    display: flex;
+    flex: 0 0 auto;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .Link {
@@ -140,7 +113,8 @@
     padding-bottom: $spacing;
     @include box-shadow;
 
-    .Link {
+    .Link,
+    .Centered {
         padding-bottom: $spacing/4;
         margin-top: $spacing;
     }

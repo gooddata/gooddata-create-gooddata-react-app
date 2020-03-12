@@ -7,7 +7,7 @@ import mkdirp from "mkdirp";
 import tar from "tar";
 
 import replaceInFiles from "./replaceInFiles";
-import { getDomainWithSchema, getDomainWithoutSchema } from "./stringUtils";
+import { getDomainWithSchema } from "./stringUtils";
 import { verboseLog } from "./verboseLogging";
 
 const getTargetDirPath = (sanitizedAppName, targetDir) =>
@@ -34,9 +34,6 @@ const performTemplateReplacements = ({ targetDir, sanitizedAppName, domain }) =>
                     regex: /backend: "https:\/\/developer\.na\.gooddata\.com"/g,
                     value: `backend: "${getDomainWithSchema(domain)}"`,
                 },
-            ],
-            "setupProxy.js": [
-                { regex: /developer\.na\.gooddata\.com/g, value: getDomainWithoutSchema(domain) },
             ],
         },
     };

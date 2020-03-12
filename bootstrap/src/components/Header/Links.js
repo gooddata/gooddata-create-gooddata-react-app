@@ -13,7 +13,7 @@ const Links = () => {
             >
                 Welcome
             </NavLink>
-            <NavLink to="/" className={styles.Link} activeClassName={styles.LinkActive} exact>
+            <NavLink to={"/"} className={styles.Link} activeClassName={styles.LinkActive} exact>
                 Home
             </NavLink>
         </>
