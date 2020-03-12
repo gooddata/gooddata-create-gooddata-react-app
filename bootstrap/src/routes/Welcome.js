@@ -164,7 +164,7 @@ const Welcome = () => {
             <h3>Add the multi-tenant functionality and the optional project picker</h3>
             <ul>
                 <li>
-                    In <Code>Home.js</Code>, replace all hard-coded project ID's with the one provided by the{" "}
+                    In <Code>Home.js</Code>, replace all hard-coded project IDs with the one provided by the{" "}
                     <Code>useProjectId</Code> hook.
                     <p>
                         For example, <Code> {`<Headline projectId={projectId} … > … </Headline>`}</Code>
@@ -180,7 +180,7 @@ const Welcome = () => {
                 <li>
                     The <Code>ProjectList</Code> context object in <Code>/src/contexts/ProjectList.js</Code>{" "}
                     provides a list of all projects available for a logged-in user. To allow users to select a
-                    project within the app, use ProjectPicker component in{" "}
+                    project within the app, use the ProjectPicker component in{" "}
                     <Code>/src/components/controls/ProjectPicker.js</Code>.
                 </li>
                 <li>
