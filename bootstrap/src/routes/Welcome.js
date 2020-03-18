@@ -82,7 +82,7 @@ const Welcome = () => {
                 </li>
                 <li>
                     <p>
-                        In <Code>src/constants.js</Code>:
+                        In <Code>/src/constants.js</Code>:
                     </p>
                     <ol className={styles.subList}>
                         <li>
@@ -160,6 +160,34 @@ const Welcome = () => {
                 Add a new <Code>{`<NavLink>`}</Code> component to <Code>/src/components/Header/Links.js</Code>
                 .
             </p>
+
+            <h3>Add the multi-tenant functionality and the optional project picker</h3>
+            <ul>
+                <li>
+                    In <Code>Home.js</Code>, replace all hard-coded project ID's with the one provided by the{" "}
+                    <Code>useProjectId</Code> hook.
+                    <p>
+                        For example, <Code> {`<Headline projectId={projectId} … > … </Headline>`}</Code>
+                    </p>
+                </li>
+                <li>
+                    The <Code>ProjectId</Code> context object in <Code>/src/contexts/ProjectId.js</Code>{" "}
+                    stores the actual project ID and provides it to the rest of the app. It also stores it in
+                    URL query string so that the app can be easily embedded or linked with a particular
+                    project pre-selected. If no project ID is found in the URL, <Code>projectId</Code> from{" "}
+                    <Code>/src/constants.js</Code> is used as the default value.
+                </li>
+                <li>
+                    The <Code>ProjectList</Code> context object in <Code>/src/contexts/ProjectList.js</Code>{" "}
+                    provides a list of all projects available for a logged-in user. To allow users to select a
+                    project within the app, use ProjectPicker component in{" "}
+                    <Code>/src/components/controls/ProjectPicker.js</Code>.
+                </li>
+                <li>
+                    To filter projects available for the user by project name, use <Code>projectFilter</Code>{" "}
+                    in <Code>/src/constatns.js</Code>.
+                </li>
+            </ul>
 
             <h3>Add an example from the Live Examples</h3>
             <p>
