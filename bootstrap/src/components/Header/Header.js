@@ -65,7 +65,7 @@ const Header = () => {
     }, [handleResize]);
 
     // You need to set this manually to the smallest window width that can still fit all menu items
-    const isTooSmall = windowWidth < 440;
+    const isTooSmall = windowWidth < 666;
     return (
         <nav className={styles.Header}>
             {isTooSmall ? (
@@ -80,7 +80,7 @@ const Header = () => {
                     <Links />
                     <ProtectedItems>
                         {/* Uncomment these lines to add a project picker into the menu */}
-                        {/* <div className={styles.Centered}>
+                        {/* <div className={`${styles.Centered} ${styles.Link}`}>
                             <ProjectPicker />
                         </div> */}
                     </ProtectedItems>

@@ -1,0 +1,36 @@
+@import "../../theme.scss";
+
+$color-projectpicker: rgba(75, 75, 75, 0.9);
+$textsize: 15px;
+
+.ProjectPickerContainer {
+    height: 100%;
+}
+
+.ProjectPicker {
+    width: 100%;
+    height: 100%;
+    font-size: $textsize;
+    cursor: pointer;
+    border-radius: 0;
+    background-color: #fdfdfd;
+    border: none;
+    color: $color-projectpicker;
+
+    &:hover,
+    &:visited,
+    &:active,
+    &:focus {
+        outline: none;
+    }
+
+    /* For IE <= 11 */
+    ::-ms-expand {
+        display: none;
+    }
+}
+
+.OneProject {
+    font-size: $textsize;
+    color: $color-projectpicker;
+}

@@ -5,6 +5,8 @@ import InlineLoading from "../InlineLoading";
 import { useProjectId } from "../../contexts/ProjectId";
 import { useProjectList } from "../../contexts/ProjectList";
 
+import styles from "./ProjectPicker.module.scss";
+
 const getProjectId = project => project && last(project.links.self.split("/"));
 
 const isInList = (projectId, projectList) => {
@@ -31,11 +33,16 @@ const ProjectPicker = () => {
 
     if (!projectList.data || !projectList.data.length) return <div>{"No projects available."}</div>;
 
-    if (projectList.data.length === 1) return <div>{projectList.data[0].meta.title}</div>;
+    if (projectList.data.length === 1)
+        return <div className={styles.OneProject}>{projectList.data[0].meta.title}</div>;
 
     return (
-        <div>
-            <select value={projectId} onChange={event => setProjectId(event.target.value)}>
+        <div className={styles.ProjectPickerContainer}>
+            <select
+                value={projectId}
+                onChange={event => setProjectId(event.target.value)}
+                className={styles.ProjectPicker}
+            >
                 {!isInList(projectId, projectList.data) && (
                     <option value={""} key={"0"}>
                         Please select...
