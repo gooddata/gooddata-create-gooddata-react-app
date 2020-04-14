@@ -75,15 +75,15 @@ const Header = () => {
                 </>
             ) : (
                 <>
-                    <Logo />
-                    <VR />
-                    <Links />
                     <ProtectedItems>
                         {/* Uncomment these lines to add a project picker into the menu */}
                         {/* <div className={`${styles.Centered} ${styles.Link}`}>
                             <ProjectPicker />
                         </div> */}
                     </ProtectedItems>
+                    <Logo />
+                    <VR />
+                    <Links />
                 </>
             )}
             <Aside />
