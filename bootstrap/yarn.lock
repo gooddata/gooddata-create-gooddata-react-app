@@ -1067,12 +1067,12 @@
   resolved "https://registry.yarnpkg.com/@formatjs/intl-utils/-/intl-utils-2.2.0.tgz#ba6e12fe64ff7fd160be392007c47d24b7ae5c75"
   integrity sha512-+Az7tR1av1DHZu9668D8uh9atT6vp+FFmEF8BrEssv0OqzpVjpVBGVmcgPzQP8k2PQjVlm/h2w8cTt0knn132w==
 
-"@gooddata/gooddata-js@^12.5.0":
-  version "12.5.1"
-  resolved "https://registry.yarnpkg.com/@gooddata/gooddata-js/-/gooddata-js-12.5.1.tgz#89eea5b82326c2debda243dfc91d1102a4f48a82"
-  integrity sha512-JHQVKoBz+1SUt2CXxHDe+ym04ZD6svSWr7NKgzZmiGCf2zqoeiFld92J11kJXg/OSUSxFaddDzjyeBPvXz0ryw==
+"@gooddata/gooddata-js@^12.5.0", "@gooddata/gooddata-js@^12.5.4":
+  version "12.5.5"
+  resolved "https://registry.yarnpkg.com/@gooddata/gooddata-js/-/gooddata-js-12.5.5.tgz#ac8180bc20762a0adeadcb7aad8fe669482f2eaa"
+  integrity sha512-i9RictlJBil5OhYmD3tvNM4cZT50WaQQpxVrCGXqQW9PXoxG5BmYY/O/+fLiqwb8y1FqQFQh+hbwUS6xQjRTVA==
   dependencies:
-    "@gooddata/typings" "^2.22.0"
+    "@gooddata/typings" "^2.24.0"
     es6-promise "^3.0.2"
     fetch-cookie "^0.7.0"
     invariant "^2.2.2"
@@ -1085,13 +1085,13 @@
     rxjs "^5.5.6"
     uuid "^3.2.1"
 
-"@gooddata/goodstrap@^68.1.0":
-  version "68.2.1"
-  resolved "https://registry.yarnpkg.com/@gooddata/goodstrap/-/goodstrap-68.2.1.tgz#da8c6eadb257d23dc1757c25c33279e1d4a1b1da"
-  integrity sha512-qZQpQSrPqoir4GDSE/WtnoXWJNUwm4TnHwWWhm9lqTnQy5NliyCiMDO6Ro942lRozy+D0S4+eR37OktNFdjO8Q==
+"@gooddata/goodstrap@^68.5.2":
+  version "68.6.0"
+  resolved "https://registry.yarnpkg.com/@gooddata/goodstrap/-/goodstrap-68.6.0.tgz#cc1e03645f5f7dbcccd8eaf036b66131f651dfd0"
+  integrity sha512-FtKog90KXlWH8WxVqr1NWnLAFDZKj7EUV6XD5OCbyVzMy23//Bv9YPSB5rRaWNZevWsHZwW68gA6xSaHswn5aA==
   dependencies:
     "@babel/runtime-corejs2" "^7.0.0"
-    "@gooddata/js-utils" "^3.5.0"
+    "@gooddata/js-utils" "^3.10.4"
     classnames "^2.2.6"
     custom-event "^1.0.1"
     element-closest-polyfill "^1.0.0"
@@ -1116,11 +1116,12 @@
     rxjs "^5.5.6"
     tinycolor2 "^1.4.1"
 
-"@gooddata/js-utils@^3.5.0":
-  version "3.10.0"
-  resolved "https://registry.yarnpkg.com/@gooddata/js-utils/-/js-utils-3.10.0.tgz#36516a7af93a3a19a3e9e5cede2a3e94f6967115"
-  integrity sha512-UFZaMRtwx+1S5h6S05n+FgFjSvHQAhKNog5YM/Wv5sl/y+Vo8ERDRLQe2jqGIf66DwKo4LOXz9xKf63AMNbi3w==
+"@gooddata/js-utils@^3.10.4", "@gooddata/js-utils@^3.10.5":
+  version "3.10.6"
+  resolved "https://registry.yarnpkg.com/@gooddata/js-utils/-/js-utils-3.10.6.tgz#875b6d8045e3575fb5eea18dafbde077ce76d67b"
+  integrity sha512-hGNorgIkgl7Q3M13rUVPiWz0G4T43VnobzG3wu4e6bPg7Vd6URIRvyZfJdxMk3lgV3AloTWRL/Mm1OVahXw6Cw==
   dependencies:
+    "@gooddata/typings" "^2.24.0"
     js-cookie "^2.1.4"
     lodash "^4.17.15"
 
@@ -1129,17 +1130,17 @@
   resolved "https://registry.yarnpkg.com/@gooddata/numberjs/-/numberjs-3.2.4.tgz#4363751f4a589e9d3f12d185b38b954183dc1c48"
   integrity sha512-v4JO9dIQ9PIJCxjiBkUNCSa40tHGShFsSYBo6B+YuMxpZpslLClvC1tcXRuk7tc9OsCAorcKzcEgtHQTLPtH2A==
 
-"@gooddata/react-components@^7.4.0":
-  version "7.4.0"
-  resolved "https://registry.yarnpkg.com/@gooddata/react-components/-/react-components-7.4.0.tgz#6d7ff33f7ad9f5391418fd550ae36787f150636d"
-  integrity sha512-OVrnqKou+iXZc3x0YqoXE6d9xGfAieDFhN4dBHsOOkni9xa4Bp7UTR8UXU1Zp7C3/R4JGR6lpXoGTZciQUgBBA==
+"@gooddata/react-components@^7.6.0":
+  version "7.6.0"
+  resolved "https://registry.yarnpkg.com/@gooddata/react-components/-/react-components-7.6.0.tgz#271d02e96db655a359c881840258254de3995e9a"
+  integrity sha512-AdR+G2pRMNjWymQp15ZuXrRARKIPY/0Hg8MKIZoKAG1sPDK15KoJFvMklm9zOIhB0bB7ZZM2/TzHGHoN8wzRSg==
   dependencies:
     "@formatjs/intl-pluralrules" "^1.3.6"
-    "@gooddata/gooddata-js" "^12.5.0"
-    "@gooddata/goodstrap" "^68.1.0"
-    "@gooddata/js-utils" "^3.5.0"
+    "@gooddata/gooddata-js" "^12.5.4"
+    "@gooddata/goodstrap" "^68.5.2"
+    "@gooddata/js-utils" "^3.10.5"
     "@gooddata/numberjs" "^3.2.4"
-    "@gooddata/typings" "^2.22.0"
+    "@gooddata/typings" "^2.24.0"
     "@types/mapbox-gl" "^1.6.1"
     ag-grid-community "20.0.0"
     ag-grid-react "20.0.0"
@@ -1170,10 +1171,10 @@
     stringify-object "^2.4.0"
     uuid "^3.2.1"
 
-"@gooddata/typings@^2.22.0":
-  version "2.22.0"
-  resolved "https://registry.yarnpkg.com/@gooddata/typings/-/typings-2.22.0.tgz#0ae09d7b0c619ca2a6cd101b33ced774a5a1d534"
-  integrity sha512-AD5Cd1tFu7GJ9Px+jDT7QyTm6ofyeKH5zdmOjrm8YWG6fmwTcCEigLvrekHUSCdGceeAlHXpkqFXQXNjzspEtQ==
+"@gooddata/typings@^2.22.0", "@gooddata/typings@^2.24.0":
+  version "2.24.2"
+  resolved "https://registry.yarnpkg.com/@gooddata/typings/-/typings-2.24.2.tgz#0f2a511231aeba08c2051ad29ef1f497bdefce3b"
+  integrity sha512-j20MPBDXq9oEUTtruMSRJRfWvLc6UHzb3aWn9z7Sb+pYptZFuUzDfxT7uyoU010cMNSPOGia74KorE82QQZugA==
   dependencies:
     lodash "^4.17.11"
 
