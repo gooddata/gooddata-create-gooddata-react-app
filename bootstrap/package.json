@@ -5,6 +5,7 @@
     "dependencies": {
         "@gooddata/gooddata-js": "^13.1.0",
         "@gooddata/react-components": "^7.8.0",
+        "@gooddata/sdk-model": "^8.0.0-alpha.72",
         "classnames": "^2.2.6",
         "formik": "^1.5.7",
         "lodash": "^4.17.15",
@@ -24,7 +25,8 @@
         "test": "react-scripts test --setupFilesAfterEnv ./jest.setup.js",
         "testcafe-backend": "rm -R ./build & yarn build & serve -l 5000 build",
         "testcafe": "cross-env TEST_BACKEND=http://localhost:5000 ./scripts/run-testcafe.js",
-        "testcafe-visual": "cross-env TEST_MODE=visual ./scripts/run-testcafe.js"
+        "testcafe-visual": "cross-env TEST_MODE=visual ./scripts/run-testcafe.js",
+        "refresh-ldm": "node ./scripts/refresh-ldm.js"
     },
     "eslintConfig": {
         "extends": "react-app"
@@ -42,6 +44,8 @@
         ]
     },
     "devDependencies": {
+        "@babel/plugin-transform-typescript": "^7.9.6",
+        "@gooddata/catalog-export": "^8.0.0-alpha.72",
         "cross-env": "^5.2.0",
         "enzyme": "^3.10.0",
         "enzyme-adapter-react-16": "^1.14.0",
