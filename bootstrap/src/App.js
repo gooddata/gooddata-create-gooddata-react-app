@@ -1,17 +1,20 @@
 import React from "react";
 
 import "@gooddata/react-components/styles/css/main.css";
-import { AuthProvider } from "./contexts/Auth";
+import { BackendProvider } from "@gooddata/sdk-ui";
 import AppRouter from "./routes/AppRouter";
+import { useAuth } from "./contexts/Auth";
 import { ProjectListProvider } from "./contexts/ProjectList";
 
 function App() {
+    const { backend } = useAuth();
+
     return (
-        <AuthProvider>
+        <BackendProvider backend={backend}>
             <ProjectListProvider>
                 <AppRouter />
             </ProjectListProvider>
-        </AuthProvider>
+        </BackendProvider>
     );
 }
 

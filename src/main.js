@@ -22,11 +22,23 @@ const copyAppFiles = async ({ targetDir }) => {
     });
 };
 
-const performTemplateReplacements = ({ targetDir, sanitizedAppName, domain }) => {
+const performTemplateReplacements = ({ targetDir, sanitizedAppName, domain, backend }) => {
     // this object has structure corresponding to the file structure relative to targetDir
     // having it like this makes sure that all the replacements relevant to each file are in one place, thus preventing race conditions
     const replacementDefinitions = {
-        "package.json": [{ regex: /@gooddata\/gdc-app-name/, value: sanitizedAppName }],
+        "package.json": [
+            { regex: /@gooddata\/gdc-app-name/, value: sanitizedAppName },
+            backend === "tiger"
+                ? { regex: /@gooddata\/sdk-backend-bear/g, value: "@gooddata/sdk-backend-tiger" }
+                : "",
+            backend === "tiger"
+                ? {
+                      regex: /@gooddata\/gd-bear-client/g,
+                      value: "@gooddata/gd-tiger-client",
+                  }
+                : "",
+        ],
+
         src: {
             "constants.js": [
                 { regex: /appName: "(.*?)"/, value: `appName: "${sanitizedAppName}"` },
@@ -35,6 +47,25 @@ const performTemplateReplacements = ({ targetDir, sanitizedAppName, domain }) =>
                     value: `backend: "${getDomainWithSchema(domain)}"`,
                 },
             ],
+            "backend.js": [
+                backend === "tiger"
+                    ? {
+                          regex: /@gooddata\/sdk-backend-bear/g,
+                          value: "@gooddata/sdk-backend-tiger",
+                      }
+                    : "",
+                backend === "tiger" ? { regex: /bearFactory/g, value: "tigerFactory" } : "",
+            ],
+            contexts: {
+                "ProjectList.js": [
+                    backend === "tiger"
+                        ? {
+                              regex: /@gooddata\/gd-bear-client/g,
+                              value: "@gooddata/gd-tiger-client",
+                          }
+                        : "",
+                ],
+            },
         },
     };
 
@@ -72,7 +103,7 @@ const outputFinalInstructions = ({ sanitizedAppName, install, targetDir }) => {
     console.log(chalk.cyan("    yarn start"));
 };
 
-const main = async partialBootstrapData => {
+const main = async (partialBootstrapData) => {
     const bootstrapData = {
         ...partialBootstrapData,
         targetDir: getTargetDirPath(partialBootstrapData.sanitizedAppName, partialBootstrapData.targetDir),
