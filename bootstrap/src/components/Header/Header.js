@@ -6,15 +6,16 @@ import styles from "./Header.module.scss";
 import Links from "./Links";
 import Aside from "./Aside";
 import { useAuth } from "../../contexts/Auth";
+import { AuthStatus } from "../../contexts/Auth/state";
 // uncomment the next line to use ProjectPicker
-// import ProjectPicker from "../controls/ProjectPicker";
+import ProjectPicker from "../controls/ProjectPicker";
 
 const VR = ({ ...restProps }) => <div className={styles.VR} {...restProps} />;
 
 // a wrapper for items visible to authenticated users only (e.g. ProjectPicker)
 const ProtectedItems = ({ children }) => {
-    const authState = useAuth();
-    if (!authState.data || authState.isLoading) return null;
+    const { authStatus } = useAuth();
+    if (authStatus !== AuthStatus.AUTHORIZED) return null;
     return children || null;
 };
 
@@ -35,9 +36,9 @@ const BurgerMenu = () => {
                     <Links />
                     <ProtectedItems>
                         {/* Uncomment these lines to add a project picker into the burger menu */}
-                        {/* <div className={styles.Centered}>
+                        <div className={styles.Centered}>
                             <ProjectPicker />
-                        </div> */}
+                        </div>
                     </ProtectedItems>
                 </div>
             )}
@@ -77,9 +78,9 @@ const Header = () => {
                 <>
                     <ProtectedItems>
                         {/* Uncomment these lines to add a project picker into the menu */}
-                        {/* <div className={`${styles.Centered} ${styles.Link}`}>
+                        <div className={`${styles.Centered} ${styles.Link}`}>
                             <ProjectPicker />
-                        </div> */}
+                        </div>
                     </ProtectedItems>
                     <Logo />
                     <VR />

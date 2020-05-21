@@ -1,6 +1,6 @@
 import React, { createContext, useState, useContext, useEffect } from "react";
 import { useQueryState } from "react-router-use-location-state";
-
+import { WorkspaceProvider } from "@gooddata/sdk-ui";
 import { projectId as constProjectId } from "../constants";
 import { useProjectList } from "../contexts/ProjectList";
 
@@ -27,7 +27,9 @@ export const ProjectIdProvider = ({ children }) => {
     }, [projectId, projectList]);
 
     return (
-        <ProjectIdContext.Provider value={{ projectId, setProjectId }}>{children}</ProjectIdContext.Provider>
+        <ProjectIdContext.Provider value={{ projectId, setProjectId }}>
+            <WorkspaceProvider workspace={projectId}>{children}</WorkspaceProvider>
+        </ProjectIdContext.Provider>
     );
 };
 
