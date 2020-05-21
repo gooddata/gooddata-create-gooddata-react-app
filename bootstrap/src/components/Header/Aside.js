@@ -4,19 +4,22 @@ import cx from "classnames";
 
 import styles from "./Header.module.scss";
 import { useAuth } from "../../contexts/Auth";
+import { AuthStatus } from "../../contexts/Auth/state";
 import InlineLoading from "../InlineLoading";
 
 const Aside = () => {
-    const authState = useAuth();
+    const { authStatus } = useAuth();
+    const { AUTHORIZED, LOGGING_IN, LOGGING_OUT, AUTHORIZING } = AuthStatus;
+
     return (
         <div className={styles.Aside}>
-            {authState.isLoading && <InlineLoading />}
-            {!authState.isLoading && authState.data && (
+            {[LOGGING_IN, LOGGING_OUT, AUTHORIZING].includes(authStatus) ? (
+                <InlineLoading />
+            ) : authStatus === AUTHORIZED ? (
                 <Link to="/logout" className={cx(styles.Link, "s-logout-link")}>
                     Logout
                 </Link>
-            )}
-            {!authState.isLoading && !authState.data && (
+            ) : (
                 <Link to="/login" className={cx(styles.Link, "s-login-link")}>
                     Login
                 </Link>

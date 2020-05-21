@@ -2,8 +2,9 @@ import React, { createContext, useState, useContext, useEffect } from "react";
 import last from "lodash/last";
 
 import { defaultSourceState } from "../utils";
-import sdk from "../sdk";
+import sdk from "@gooddata/gd-bear-client";
 import { useAuth } from "../contexts/Auth";
+import { AuthStatus } from "../contexts/Auth/state";
 import { projectFilter } from "../constants";
 
 const ProjectListContext = createContext({
@@ -20,15 +21,15 @@ const getFirstProject = projects => {
 };
 
 export const ProjectListProvider = ({ children }) => {
-    const authState = useAuth();
+    const { authStatus } = useAuth();
     const [projectListState, setProjectListState] = useState({ ...defaultSourceState });
     const [firstProjectId, setFirstProjectId] = useState(null);
 
     useEffect(() => {
-        const getProjects = async userId => {
+        const getProjects = async userInfo => {
             setProjectListState({ isLoading: true });
             try {
-                const currentProjects = await sdk.project.getProjects(userId);
+                const currentProjects = await sdk.project.getProjects((await userInfo).loginMD5);
                 const filteredProjects = filterProjects(currentProjects, projectFilter);
                 setProjectListState({
                     isLoading: false,
@@ -41,8 +42,8 @@ export const ProjectListProvider = ({ children }) => {
         };
 
         setProjectListState({ isLoading: false });
-        if (!authState.isLoading && authState.data) getProjects(authState.data.loginMD5);
-    }, [authState.isLoading, authState.data]);
+        if (authStatus === AuthStatus.AUTHORIZED) getProjects(sdk.user.getAccountInfo());
+    }, [authStatus]);
 
     return (
         <ProjectListContext.Provider value={{ ...projectListState, firstProjectId }}>
