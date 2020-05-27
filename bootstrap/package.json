@@ -4,7 +4,6 @@
     "private": true,
     "dependencies": {
         "@gooddata/sdk-backend-bear": "^8.0.0-alpha.72",
-        "@gooddata/gd-bear-client": "^8.0.0-alpha.72",
         "@gooddata/sdk-ui": "^8.0.0-alpha.72",
         "@gooddata/react-components": "^7.6.0",
         "@gooddata/sdk-model": "^8.0.0-alpha.72",

@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import constants from "../constants";
 import Page from "../components/Page";
 
 import styles from "./Welcome.module.scss";
@@ -52,35 +51,6 @@ const Welcome = () => {
 
             <ol>
                 <li>
-                    In <Code>/src/routes/AppRouter.js</Code>, find the line that says{" "}
-                    <Code>DELETE THIS LINE</Code>, and delete it.
-                    <br />
-                    This removes the redirect to this help page and sets up the default landing page dashboard
-                    for your app.
-                </li>
-                <li>
-                    Log in to your app at <Link to="/login">/login</Link>.
-                </li>
-                <li>
-                    Go to the{" "}
-                    <a
-                        href={`${constants.backend}/labs/apps/ui-developer-toolkit/build/index.html#/visualization-builder`}
-                    >
-                        Visualization Builder
-                    </a>
-                    .
-                </li>
-                <li>From the visualization type toolbar, select the headline visualization.</li>
-                <li>
-                    Select the primary measure from the dropdown list.
-                    <br />
-                    The headline report is calculated and displayed.
-                </li>
-                <li>
-                    Click <b>Copy code</b> and paste the copied code into your <Code>Home.js</Code>, to the
-                    line reading `Place your content here`.
-                </li>
-                <li>
                     <p>
                         In <Code>/src/constants.js</Code>:
                     </p>
@@ -94,25 +64,16 @@ const Welcome = () => {
                         </li>
                         <li>
                             <p>
-                                Set <Code>projectId</Code> to your project ID.
+                                Set <Code>workspace</Code> to your workspace ID.
                             </p>
                             <Blockquote>
                                 <img src={iUri} alt="(i)" className={styles.inlineImg} />
-                                &emsp; You can find your project ID
+                                &emsp; You can find your workspace ID
                                 <ol>
-                                    <li>
-                                        by going to the{" "}
-                                        <a
-                                            href={`${constants.backend}/labs/apps/ui-developer-toolkit/build/index.html`}
-                                        >
-                                            Accelerator Toolkit
-                                        </a>{" "}
-                                        (project ID should be visible right above the tool list), or
-                                    </li>
                                     <li>
                                         by following&nbsp;
                                         <a
-                                            href="https://help.gooddata.com/doc/en/project-and-user-administration/administering-projects-and-project-objects/find-the-project-id"
+                                            href="https://help.gooddata.com/doc/en/workspace-and-user-administration/administering-workspaces-and-workspace-objects/find-the-workspace-id"
                                             {...linkProps}
                                         >
                                             this tutorial
@@ -124,6 +85,45 @@ const Welcome = () => {
                         </li>
                     </ol>
                 </li>
+                <li>
+                    <p>
+                        In the root of the boilerplate, run <Code>yarn refresh-ldm</Code>, the terminal then
+                        will prompt you to enter <Code>Username/Password</Code> and <Code>workspace</Code>
+                        selection.
+                        <br />
+                        After that, the script will create a file <Code>/src/ldm/full.ts</Code> which will
+                        contain all <Code>LDM</Code> objects, metrics and insights that are in the selected
+                        <Code>workspace</Code>.
+                        <br />
+                        You will be able to utilize those generated objects. To read more about generating LDM
+                        objects, refer to <Code>npm run refresh-ldm</Code> section in <Code>README.md</Code>
+                        file.
+                    </p>
+                </li>
+                <li>
+                    In <Code>Home.js</Code>, replace <Code>Place your content here</Code> with actual code.
+                    <p>
+                        For example, <Code> {`<InsightView insight={Ldm.Insights.Headline}/>`}</Code>. We
+                        access the <Code>Headline</Code> identifier through the generated <Code>LDM</Code>
+                        objects.
+                        <br />
+                        The main benefit of utilizing the generated LDM objects is that you have the access to
+                        all LDM objects, metrics and insights in the workspace that you selected.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        In <Code>/src/routes/AppRouter.js</Code>, find the line that says{" "}
+                        <Code>DELETE THIS LINE</Code>, and delete it.
+                        <br />
+                        This removes the redirect to this help page and sets up the default landing page
+                        dashboard for your app.
+                    </p>
+                </li>
+                <li>
+                    Log in to your app at <Link to="/login">/login</Link>.
+                </li>
+
                 <li>
                     <p>
                         Check the headline report on the <Link to="/">Home route</Link>.
@@ -161,31 +161,24 @@ const Welcome = () => {
                 .
             </p>
 
-            <h3>Add the multi-tenant functionality and the optional project picker</h3>
+            <h3>Add the multi-tenant functionality and the optional workspace picker</h3>
             <ul>
                 <li>
-                    In <Code>Home.js</Code>, replace all hard-coded project IDs with the one provided by the{" "}
-                    <Code>useProjectId</Code> hook.
-                    <p>
-                        For example, <Code> {`<Headline projectId={projectId} … > … </Headline>`}</Code>
-                    </p>
+                    The <Code>Workspace</Code> context object in <Code>/src/contexts/Workspace.js</Code>{" "}
+                    stores the actual workspace ID and provides it to the rest of the app. It also stores it
+                    in URL query string so that the app can be easily embedded or linked with a particular
+                    workspace pre-selected. If no workspace ID is found in the URL, <Code>workspace</Code>{" "}
+                    from <Code>/src/constants.js</Code> is used as the default value.
                 </li>
                 <li>
-                    The <Code>ProjectId</Code> context object in <Code>/src/contexts/ProjectId.js</Code>{" "}
-                    stores the actual project ID and provides it to the rest of the app. It also stores it in
-                    URL query string so that the app can be easily embedded or linked with a particular
-                    project pre-selected. If no project ID is found in the URL, <Code>projectId</Code> from{" "}
-                    <Code>/src/constants.js</Code> is used as the default value.
+                    The <Code>WorkspaceList</Code> context object in{" "}
+                    <Code>/src/contexts/WorkspaceList.js</Code> provides a list of all workspaces available
+                    for a logged-in user. To allow users to select a workspace within the app, use the
+                    WorkspacePicker component in <Code>/src/components/controls/WorkspacePicker.js</Code>.
                 </li>
                 <li>
-                    The <Code>ProjectList</Code> context object in <Code>/src/contexts/ProjectList.js</Code>{" "}
-                    provides a list of all projects available for a logged-in user. To allow users to select a
-                    project within the app, use the ProjectPicker component in{" "}
-                    <Code>/src/components/controls/ProjectPicker.js</Code>.
-                </li>
-                <li>
-                    To filter projects available for the user by project name, use <Code>projectFilter</Code>{" "}
-                    in <Code>/src/constatns.js</Code>.
+                    To filter workspaces available for the user by workspace name, use{" "}
+                    <Code>workspaceFilter</Code> in <Code>/src/constatns.js</Code>.
                 </li>
             </ul>
 
@@ -231,27 +224,6 @@ git commit -m "Setup Heroku deployment"`}</Pre>
 heroku open`}</Pre>
                 </li>
             </ol>
-
-            <h3>Get familiar with Catalog Browser and Visualization Builder</h3>
-            <p>
-                Go to the{" "}
-                <a href={`${constants.backend}/labs/apps/ui-developer-toolkit/build/index.html`}>
-                    Accelerator Toolkit
-                </a>
-                .
-            </p>
-            <p>
-                Catalog Browser allows you to search for and review attributes, attribute displayForms,
-                measures, and date datasets in your project.
-            </p>
-            <p>
-                Visualization Builder allows you to build a visualization in a few clicks and copy its code to
-                use it in your application.
-            </p>
-            <p>
-                Metadata Tool allows you to browse for details of various metadata objects (for example,
-                filters, saved views, reports, and so on) in your project.
-            </p>
         </Page>
     );
 };

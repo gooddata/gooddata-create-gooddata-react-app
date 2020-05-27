@@ -7,7 +7,6 @@ export const AuthStatus = {
     UNAUTHORIZED: "UNAUTHORIZED",
     LOGGING_IN: "LOGGING_IN",
     LOGGING_OUT: "LOGGING_OUT",
-    REGISTERING: "REGISTERING",
 };
 
 export const initialState = {
@@ -45,21 +44,6 @@ export const useAuthState = (initialState) => {
             authError: err.message,
         });
 
-    const onRegisterStart = () =>
-        setState({
-            authStatus: AuthStatus.REGISTERING,
-        });
-    const onRegisterSuccess = () =>
-        setState({
-            authStatus: AuthStatus.UNAUTHORIZED,
-            authError: undefined,
-        });
-    const onRegisterError = (err) =>
-        setState({
-            authStatus: AuthStatus.UNAUTHORIZED,
-            authError: err.message,
-        });
-
     return {
         onLoginStart,
         onLoginSuccess,
@@ -67,9 +51,6 @@ export const useAuthState = (initialState) => {
         onLogoutStart,
         onLogoutSuccess,
         onLogoutError,
-        onRegisterStart,
-        onRegisterSuccess,
-        onRegisterError,
         authStatus,
         authError,
     };

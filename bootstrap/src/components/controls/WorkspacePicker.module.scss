@@ -1,13 +1,13 @@
 @import "../../theme.scss";
 
-$color-projectpicker: rgba(75, 75, 75, 0.9);
+$color-workspacepicker: rgba(75, 75, 75, 0.9);
 $textsize: 15px;
 
-.ProjectPickerContainer {
+.WorkspacePickerContainer {
     height: 100%;
 }
 
-.ProjectPicker {
+.WorkspacePicker {
     width: 100%;
     height: 100%;
     font-size: $textsize;
@@ -15,7 +15,7 @@ $textsize: 15px;
     border-radius: 0;
     background-color: #fdfdfd;
     border: none;
-    color: $color-projectpicker;
+    color: $color-workspacepicker;
 
     &:hover,
     &:visited,
@@ -30,7 +30,7 @@ $textsize: 15px;
     }
 }
 
-.OneProject {
+.OneWorkspace {
     font-size: $textsize;
-    color: $color-projectpicker;
+    color: $color-workspacepicker;
 }

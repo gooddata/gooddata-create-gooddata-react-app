@@ -6,7 +6,6 @@ const Home = () => {
 
     return (
         <Page>
-            {/* In components replace hard-coded IDs with projectId={projectId} */}
             Place your content here&hellip;
         </Page>
     );
