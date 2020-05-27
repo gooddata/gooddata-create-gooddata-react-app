@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 import "@gooddata/react-components/styles/css/main.css";
 
-import { ProjectIdProvider } from "../contexts/ProjectId";
+import { WorkspaceProvider } from "../contexts/Workspace";
 import Login from "./Login";
 import Logout from "./Logout";
 import Welcome from "./Welcome";
@@ -24,8 +24,8 @@ const AppRouter = () => {
     return (
         <div className={styles.AppRouter}>
             <Router>
-                {/* ProjectIdProvider depends on Router so it must be nested */}
-                <ProjectIdProvider>
+                {/* WorkspaceProvider depends on Router so it must be nested */}
+                <WorkspaceProvider>
                     <Route exact path="/" component={Home} />
                     <Route exact path="/welcome" component={Welcome} />
                     <Route exact path="/dashboard" component={() => <Page>Dashboard</Page>} />
@@ -34,7 +34,7 @@ const AppRouter = () => {
                     {/* DELETE THIS LINE  */} <Redirect to="/welcome" />
                     {/* Uncomment the next line if you want to redirect unauthorized users to login form */}
                     {/* <RedirectIfNotLoggedIn /> */}
-                </ProjectIdProvider>
+                </WorkspaceProvider>
             </Router>
         </div>
     );

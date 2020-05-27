@@ -20,7 +20,7 @@ Then follow the instructions provided by the CLI.
 
 When navigating to your application using an IP address instead of localhost, you may run into `401` errors while trying to log in. This is due to proxying and cookie rewriting rules that the generated application uses to get around CORS. Use localhost instead of IP addresses to access the application because the development server rewrites GDC cookies to be for localhost.
 
-_NOTE:_ We use `yarn` dependency manager. To install it, follow its [documentation](https://yarnpkg.com/lang/en/docs/install). If you don't want to use `yarn`, provide the `--no-install` flag like `npx @gooddata/create-gooddata-react-app my-app --no-install` . This will skip calling `yarn install` and you will have to manually install the dependencies of the created app. Please note that we do not provide `package-lock.json` so the application may not work properly when dependencies are installed using `npm`. 
+_NOTE:_ We use `yarn` dependency manager. To install it, follow its [documentation](https://yarnpkg.com/lang/en/docs/install). If you don't want to use `yarn`, provide the `--no-install` flag like `npx @gooddata/create-gooddata-react-app my-app --no-install` . This will skip calling `yarn install` and you will have to manually install the dependencies of the created app. Please note that we do not provide `package-lock.json` so the application may not work properly when dependencies are installed using `npm`.
 
 ## CLI usage
 
@@ -31,6 +31,7 @@ _NOTE:_ We use `yarn` dependency manager. To install it, follow its [documentati
 -   `--no-install` skip yarn installing the app dependencies
 -   `--verbose` output additional logs, useful mainly for debugging and bug reports
 -   `-h, --help` output usage information
+-   `--backend <backend>` switch backend to a desired one (default: bear)
 
 ### Configuration file
 

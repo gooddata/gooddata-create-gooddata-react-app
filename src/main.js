@@ -31,12 +31,6 @@ const performTemplateReplacements = ({ targetDir, sanitizedAppName, domain, back
             backend === "tiger"
                 ? { regex: /@gooddata\/sdk-backend-bear/g, value: "@gooddata/sdk-backend-tiger" }
                 : "",
-            backend === "tiger"
-                ? {
-                      regex: /@gooddata\/gd-bear-client/g,
-                      value: "@gooddata/gd-tiger-client",
-                  }
-                : "",
         ],
 
         src: {
@@ -56,16 +50,6 @@ const performTemplateReplacements = ({ targetDir, sanitizedAppName, domain, back
                     : "",
                 backend === "tiger" ? { regex: /bearFactory/g, value: "tigerFactory" } : "",
             ],
-            contexts: {
-                "ProjectList.js": [
-                    backend === "tiger"
-                        ? {
-                              regex: /@gooddata\/gd-bear-client/g,
-                              value: "@gooddata/gd-tiger-client",
-                          }
-                        : "",
-                ],
-            },
         },
     };
 
