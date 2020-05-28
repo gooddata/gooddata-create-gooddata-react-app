@@ -1,17 +1,20 @@
 import React from "react";
 
 import "@gooddata/react-components/styles/css/main.css";
-import { AuthProvider } from "./contexts/Auth";
+import { BackendProvider } from "@gooddata/sdk-ui";
 import AppRouter from "./routes/AppRouter";
-import { ProjectListProvider } from "./contexts/ProjectList";
+import { useAuth } from "./contexts/Auth";
+import { WorkspaceListProvider } from "./contexts/WorkspaceList";
 
 function App() {
+    const { backend } = useAuth();
+
     return (
-        <AuthProvider>
-            <ProjectListProvider>
+        <BackendProvider backend={backend}>
+            <WorkspaceListProvider>
                 <AppRouter />
-            </ProjectListProvider>
-        </AuthProvider>
+            </WorkspaceListProvider>
+        </BackendProvider>
     );
 }
 
