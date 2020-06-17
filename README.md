@@ -26,7 +26,7 @@ _NOTE:_ We use `yarn` dependency manager. To install it, follow its [documentati
 
 `@gooddata/create-gooddata-react-app` supports several optional flags:
 
--   `-d, --domainUrl <domain>` URL of your GoodData domain
+-   `--hostname <hostname>` URL of your GoodData host
 -   `-c, --config <config>` path to configuration file (see below)
 -   `--no-install` skip yarn installing the app dependencies
 -   `--verbose` output additional logs, useful mainly for debugging and bug reports
@@ -39,7 +39,7 @@ The configuration file has the following structure:
 
 ```json
 {
-    "domain": "(Required) domain where the project is hosted, e.g. https://developer.na.gooddata.com",
+    "hostname": "(Required) URL of the project hosted, e.g. https://developer.na.gooddata.com",
     "appName": "(Optional) name of the app to use"
 }
 ```

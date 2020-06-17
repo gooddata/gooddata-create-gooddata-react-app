@@ -8,36 +8,36 @@ export const inquireName = () =>
             name: "name",
             type: "input",
         })
-        .then(value => value.name);
+        .then((value) => value.name);
 
-export const inquireDomain = () =>
+export const inquireHostname = () =>
     inquirer
         .prompt([
             {
-                message: "What is your domain?",
-                name: "domain",
+                message: "What is your hostname?",
+                name: "hostname",
                 type: "list",
                 choices: [
                     {
-                        value: "secure.gooddata.com",
+                        value: "https://secure.gooddata.com",
                     },
                     {
-                        value: "developer.na.gooddata.com",
+                        value: "https://developer.na.gooddata.com",
                     },
                     {
-                        value: "salesengineering.na.gooddata.com",
+                        value: "https://salesengineering.na.gooddata.com",
                     },
                     {
-                        name: "I have a custom domain",
+                        name: "I have a custom hostname",
                         value: "WHITE_LABELLED",
                     },
                 ],
             },
             {
-                message: "Insert your domain",
-                name: "domain",
+                message: "Insert your hostname",
+                name: "hostname",
                 type: "input",
-                when: ({ domain }) => domain === "WHITE_LABELLED",
+                when: ({ hostname }) => hostname === "WHITE_LABELLED",
             },
         ])
-        .then(value => value.domain);
+        .then((value) => value.hostname);
