@@ -49,7 +49,33 @@ const performTemplateReplacements = ({ targetDir, sanitizedAppName, hostname, ba
                       }
                     : "",
                 backend === "tiger" ? { regex: /bearFactory/g, value: "tigerFactory" } : "",
+                backend === "tiger"
+                    ? {
+                          regex: /FixedLoginAndPasswordAuthProvider\([^)]+\)/g,
+                          value: "AnonymousAuthProvider()",
+                      }
+                    : "",
+                backend === "tiger"
+                    ? { regex: /FixedLoginAndPasswordAuthProvider/g, value: "AnonymousAuthProvider" }
+                    : "",
             ],
+            "setupProxy.js": [
+                backend === "tiger"
+                    ? {
+                          regex: /proxy\("\/gdc"/g,
+                          value: 'proxy("/api"',
+                      }
+                    : "",
+            ],
+            components: {
+                Header: {
+                    // remove Login / Logout buttons for now from tiger
+                    "Header.js": [
+                        backend === "tiger" ? { regex: /import Aside from ".\/Aside";\n/g, value: "" } : "",
+                        backend === "tiger" ? { regex: /<Aside \/>/g, value: "" } : "",
+                    ],
+                },
+            },
         },
     };
 
