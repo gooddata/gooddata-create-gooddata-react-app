@@ -32,7 +32,6 @@ const performTemplateReplacements = ({ targetDir, sanitizedAppName, hostname, ba
                 ? { regex: /@gooddata\/sdk-backend-bear/g, value: "@gooddata/sdk-backend-tiger" }
                 : "",
         ],
-
         src: {
             "constants.js": [
                 { regex: /appName: "(.*?)"/, value: `appName: "${sanitizedAppName}"` },
@@ -40,6 +39,7 @@ const performTemplateReplacements = ({ targetDir, sanitizedAppName, hostname, ba
                     regex: /backend: "https:\/\/developer\.na\.gooddata\.com"/g,
                     value: `backend: "${getHostnameWithSchema(hostname)}"`,
                 },
+                backend === "tiger" ? { regex: /workspace: ""/g, value: 'workspace: "workspace"' } : "",
             ],
             "backend.js": [
                 backend === "tiger"
