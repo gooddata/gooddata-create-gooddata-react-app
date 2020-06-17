@@ -10,7 +10,7 @@ process.on("unhandledRejection", (err) => console.error(err.message));
 program
     .name("@gooddata/create-react-app")
     .arguments("[app-name]")
-    .option("-d, --domainUrl <domain>", "URL of your GoodData domain")
+    .option("--hostname <hostname>", "URL of your GoodData host")
     .option("-c, --config <config>", "path to configuration file")
     .option("--target-dir <path>", 'path to the directory to create the app in (default: ".")')
     .option("--no-install", "skip yarn installing the app dependencies")

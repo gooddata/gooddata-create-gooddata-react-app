@@ -1,7 +1,6 @@
 // (C) 2019 GoodData Corporation
 import kebabCase from "lodash/kebabCase";
 
-const replaceSchemaWith = replacement => domain => domain.replace(/^(\w+:\/\/|)/, replacement);
-export const getDomainWithSchema = replaceSchemaWith("https://");
-export const getDomainWithoutSchema = replaceSchemaWith("");
+const hasSchema = (hostname) => /^\w+:\/\//i.test(hostname);
+export const getHostnameWithSchema = (hostname) => (hasSchema(hostname) ? hostname : `https://${hostname}`);
 export const sanitizeAppName = kebabCase;

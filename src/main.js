@@ -7,7 +7,7 @@ import mkdirp from "mkdirp";
 import tar from "tar";
 
 import replaceInFiles from "./replaceInFiles";
-import { getDomainWithSchema } from "./stringUtils";
+import { getHostnameWithSchema } from "./stringUtils";
 import { verboseLog } from "./verboseLogging";
 
 const getTargetDirPath = (sanitizedAppName, targetDir) =>
@@ -22,7 +22,7 @@ const copyAppFiles = async ({ targetDir }) => {
     });
 };
 
-const performTemplateReplacements = ({ targetDir, sanitizedAppName, domain, backend }) => {
+const performTemplateReplacements = ({ targetDir, sanitizedAppName, hostname, backend }) => {
     // this object has structure corresponding to the file structure relative to targetDir
     // having it like this makes sure that all the replacements relevant to each file are in one place, thus preventing race conditions
     const replacementDefinitions = {
@@ -38,7 +38,7 @@ const performTemplateReplacements = ({ targetDir, sanitizedAppName, domain, back
                 { regex: /appName: "(.*?)"/, value: `appName: "${sanitizedAppName}"` },
                 {
                     regex: /backend: "https:\/\/developer\.na\.gooddata\.com"/g,
-                    value: `backend: "${getDomainWithSchema(domain)}"`,
+                    value: `backend: "${getHostnameWithSchema(hostname)}"`,
                 },
             ],
             "backend.js": [
