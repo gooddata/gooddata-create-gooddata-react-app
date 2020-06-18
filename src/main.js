@@ -7,7 +7,7 @@ import mkdirp from "mkdirp";
 import tar from "tar";
 
 import replaceInFiles from "./replaceInFiles";
-import { getHostnameWithSchema } from "./stringUtils";
+import { getHostnameWithSchema, getSchema, DEFAULT_SCHEMA } from "./stringUtils";
 import { verboseLog } from "./verboseLogging";
 
 const getTargetDirPath = (sanitizedAppName, targetDir) =>
@@ -23,6 +23,8 @@ const copyAppFiles = async ({ targetDir }) => {
 };
 
 const performTemplateReplacements = ({ targetDir, sanitizedAppName, hostname, backend }) => {
+    const hostnameSchema = getSchema(hostname) || DEFAULT_SCHEMA;
+
     // this object has structure corresponding to the file structure relative to targetDir
     // having it like this makes sure that all the replacements relevant to each file are in one place, thus preventing race conditions
     const replacementDefinitions = {
@@ -35,6 +37,12 @@ const performTemplateReplacements = ({ targetDir, sanitizedAppName, hostname, ba
                 ? {
                       regex: /"refresh-ldm": "node .\/scripts\/refresh-ldm.js"/g,
                       value: '"refresh-ldm": "node ./scripts/refresh-ldm.js --backend tiger"',
+                  }
+                : "",
+            hostnameSchema !== "https"
+                ? {
+                      regex: /"start": "cross-env HTTPS=true react-scripts start",/g,
+                      value: '"start": "react-scripts start",',
                   }
                 : "",
         ],
@@ -119,7 +127,7 @@ const outputFinalInstructions = ({ sanitizedAppName, install, targetDir }) => {
     console.log(chalk.cyan("    yarn start"));
 };
 
-const main = async partialBootstrapData => {
+const main = async (partialBootstrapData) => {
     const bootstrapData = {
         ...partialBootstrapData,
         targetDir: getTargetDirPath(partialBootstrapData.sanitizedAppName, partialBootstrapData.targetDir),

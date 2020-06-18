@@ -1,5 +1,5 @@
 // (C) 2019 GoodData Corporation
-import { getHostnameWithSchema } from "../stringUtils";
+import { getHostnameWithSchema, getSchema } from "../stringUtils";
 
 describe("stringUtils", () => {
     describe("getHostnameWithSchema", () => {
@@ -20,6 +20,29 @@ describe("stringUtils", () => {
             const input = "http://foo.bar.com";
             const actual = getHostnameWithSchema(input);
             expect(actual).toEqual(input);
+        });
+    });
+
+    describe("getSchema", () => {
+        it("should return http schema", () => {
+            const input = "http://foo.bar.com";
+            const expected = "http";
+            const actual = getSchema(input);
+            expect(actual).toEqual(expected);
+        });
+
+        it("should return https schema", () => {
+            const input = "https://foo.bar.com";
+            const expected = "https";
+            const actual = getSchema(input);
+            expect(actual).toEqual(expected);
+        });
+
+        it("should return empty string when no schema is detected", () => {
+            const input = "foo.bar.com";
+            const expected = "";
+            const actual = getSchema(input);
+            expect(actual).toEqual(expected);
         });
     });
 });
