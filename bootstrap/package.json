@@ -7,6 +7,8 @@
         "@gooddata/sdk-model": "^8.0.0-alpha.101",
         "@gooddata/sdk-ui": "^8.0.0-alpha.101",
         "@gooddata/sdk-ui-charts": "^8.0.0-alpha.101",
+        "@gooddata/sdk-ui-geo": "^8.0.0-alpha.101",
+        "@gooddata/sdk-ui-pivot": "^8.0.0-alpha.101",
         "classnames": "^2.2.6",
         "formik": "^1.5.7",
         "lodash": "^4.17.15",
