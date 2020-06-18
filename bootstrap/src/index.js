@@ -6,7 +6,7 @@ import * as serviceWorker from "./serviceWorker";
 import { AppProviders } from "./contexts";
 
 import "./index.scss";
-import "@gooddata/react-components/styles/css/main.css";
+import "@gooddata/sdk-ui-charts/styles/css/main.css";
 
 ReactDOM.render(
     <AppProviders>
