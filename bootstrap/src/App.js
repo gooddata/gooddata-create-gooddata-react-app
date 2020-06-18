@@ -1,6 +1,5 @@
 import React from "react";
 
-import "@gooddata/react-components/styles/css/main.css";
 import { BackendProvider } from "@gooddata/sdk-ui";
 import AppRouter from "./routes/AppRouter";
 import { useAuth } from "./contexts/Auth";

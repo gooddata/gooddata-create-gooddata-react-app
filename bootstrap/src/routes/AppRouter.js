@@ -1,6 +1,5 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
-import "@gooddata/react-components/styles/css/main.css";
 
 import { WorkspaceProvider } from "../contexts/Workspace";
 import Login from "./Login";
