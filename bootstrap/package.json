@@ -17,7 +17,7 @@
         "react-helmet": "^5.2.1",
         "react-router-dom": "^5.0.1",
         "react-router-use-location-state": "^2.3.1",
-        "react-scripts": "3.0.1",
+        "react-scripts": "3.4.1",
         "use-location-state": "^2.3.1",
         "yup": "^0.27.0"
     },
