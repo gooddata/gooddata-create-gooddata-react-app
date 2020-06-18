@@ -31,6 +31,12 @@ const performTemplateReplacements = ({ targetDir, sanitizedAppName, hostname, ba
             backend === "tiger"
                 ? { regex: /@gooddata\/sdk-backend-bear/g, value: "@gooddata/sdk-backend-tiger" }
                 : "",
+            backend === "tiger"
+                ? {
+                      regex: /"refresh-ldm": "node .\/scripts\/refresh-ldm.js"/g,
+                      value: '"refresh-ldm": "node ./scripts/refresh-ldm.js --backend tiger"',
+                  }
+                : "",
         ],
         src: {
             "constants.js": [
@@ -113,7 +119,7 @@ const outputFinalInstructions = ({ sanitizedAppName, install, targetDir }) => {
     console.log(chalk.cyan("    yarn start"));
 };
 
-const main = async (partialBootstrapData) => {
+const main = async partialBootstrapData => {
     const bootstrapData = {
         ...partialBootstrapData,
         targetDir: getTargetDirPath(partialBootstrapData.sanitizedAppName, partialBootstrapData.targetDir),
