@@ -1,16 +1,17 @@
 // (C) 2019 GoodData Corporation
-import React, { createContext, useContext, useEffect } from "react";
-import backend, { authProvider } from "../../backend";
+import React, { createContext, useContext, useEffect, useState } from "react";
+import bearFactory, { FixedLoginAndPasswordAuthProvider } from "@gooddata/sdk-backend-bear";
+
 import { useAuthState, initialState } from "./state";
 
 const noop = () => undefined;
 
 const defaultContext = {
     ...initialState,
-    backend,
+    backend: bearFactory(),
+    authError: null,
     login: noop,
     logout: noop,
-    register: noop,
 };
 
 export const AuthContext = createContext(defaultContext);
@@ -27,12 +28,16 @@ export const AuthProvider = ({ children }) => {
         authError,
     } = useAuthState(initialState);
 
+    const [backend, setBackend] = useState(defaultContext.backend);
+
     const login = async (username, password) => {
         onLoginStart();
         try {
-            authProvider.username = username;
-            authProvider.password = password;
-            await backend.authenticate();
+            const newBackend = bearFactory().withAuthentication(
+                new FixedLoginAndPasswordAuthProvider(username, password),
+            );
+            await newBackend.authenticate();
+            setBackend(newBackend);
             onLoginSuccess();
         } catch (err) {
             onLoginError(err);
@@ -57,7 +62,8 @@ export const AuthProvider = ({ children }) => {
                 await backend.authenticate();
                 onLoginSuccess();
             } catch (err) {
-                onLoginError(err);
+                // we do not care about the error in this context
+                onLoginError({});
             }
         };
 
@@ -83,6 +89,6 @@ export const AuthProvider = ({ children }) => {
 export const useAuth = () => useContext(AuthContext);
 
 export const useBackend = () => {
-    const { backend } = useAuth();
-    return backend;
+    const { backend: backendFromAuth } = useAuth();
+    return backendFromAuth;
 };

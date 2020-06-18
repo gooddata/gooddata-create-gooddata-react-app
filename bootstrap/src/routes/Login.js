@@ -7,11 +7,11 @@ import { useAuth } from "../contexts/Auth";
 import styles from "../components/Page.module.scss";
 
 function Login() {
-    const { login, loginError } = useAuth();
+    const { login, authError } = useAuth();
 
     return (
         <Page className={styles.Inverse} mainClassName={styles.VerticalCenter}>
-            <LoginForm login={login} loginError={loginError} />
+            <LoginForm login={login} loginError={authError} />
         </Page>
     );
 }

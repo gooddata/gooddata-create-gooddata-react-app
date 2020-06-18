@@ -55,24 +55,6 @@ const performTemplateReplacements = ({ targetDir, sanitizedAppName, hostname, ba
                 },
                 backend === "tiger" ? { regex: /workspace: ""/g, value: 'workspace: "workspace"' } : "",
             ],
-            "backend.js": [
-                backend === "tiger"
-                    ? {
-                          regex: /@gooddata\/sdk-backend-bear/g,
-                          value: "@gooddata/sdk-backend-tiger",
-                      }
-                    : "",
-                backend === "tiger" ? { regex: /bearFactory/g, value: "tigerFactory" } : "",
-                backend === "tiger"
-                    ? {
-                          regex: /FixedLoginAndPasswordAuthProvider\([^)]+\)/g,
-                          value: "AnonymousAuthProvider()",
-                      }
-                    : "",
-                backend === "tiger"
-                    ? { regex: /FixedLoginAndPasswordAuthProvider/g, value: "AnonymousAuthProvider" }
-                    : "",
-            ],
             "setupProxy.js": [
                 backend === "tiger"
                     ? {
@@ -87,6 +69,28 @@ const performTemplateReplacements = ({ targetDir, sanitizedAppName, hostname, ba
                     "Header.js": [
                         backend === "tiger" ? { regex: /import Aside from ".\/Aside";\n/g, value: "" } : "",
                         backend === "tiger" ? { regex: /<Aside \/>/g, value: "" } : "",
+                    ],
+                },
+            },
+            contexts: {
+                Auth: {
+                    "context.js": [
+                        backend === "tiger"
+                            ? {
+                                  regex: /@gooddata\/sdk-backend-bear/g,
+                                  value: "@gooddata/sdk-backend-tiger",
+                              }
+                            : "",
+                        backend === "tiger" ? { regex: /bearFactory/g, value: "tigerFactory" } : "",
+                        backend === "tiger"
+                            ? {
+                                  regex: /FixedLoginAndPasswordAuthProvider\([^)]+\)/g,
+                                  value: "AnonymousAuthProvider()",
+                              }
+                            : "",
+                        backend === "tiger"
+                            ? { regex: /FixedLoginAndPasswordAuthProvider/g, value: "AnonymousAuthProvider" }
+                            : "",
                     ],
                 },
             },
@@ -127,7 +131,7 @@ const outputFinalInstructions = ({ sanitizedAppName, install, targetDir }) => {
     console.log(chalk.cyan("    yarn start"));
 };
 
-const main = async (partialBootstrapData) => {
+const main = async partialBootstrapData => {
     const bootstrapData = {
         ...partialBootstrapData,
         targetDir: getTargetDirPath(partialBootstrapData.sanitizedAppName, partialBootstrapData.targetDir),
