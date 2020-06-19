@@ -3,8 +3,8 @@
     "version": "0.1.0",
     "private": true,
     "dependencies": {
-        "@gooddata/gooddata-js": "^12.5.0",
-        "@gooddata/react-components": "^7.6.0",
+        "@gooddata/gooddata-js": "^13.0.2",
+        "@gooddata/react-components": "^7.7.0",
         "classnames": "^2.2.6",
         "formik": "^1.5.7",
         "lodash": "^4.17.15",
