@@ -1067,10 +1067,10 @@
   resolved "https://registry.yarnpkg.com/@formatjs/intl-utils/-/intl-utils-2.2.0.tgz#ba6e12fe64ff7fd160be392007c47d24b7ae5c75"
   integrity sha512-+Az7tR1av1DHZu9668D8uh9atT6vp+FFmEF8BrEssv0OqzpVjpVBGVmcgPzQP8k2PQjVlm/h2w8cTt0knn132w==
 
-"@gooddata/gooddata-js@^12.5.0", "@gooddata/gooddata-js@^12.5.4":
-  version "12.5.5"
-  resolved "https://registry.yarnpkg.com/@gooddata/gooddata-js/-/gooddata-js-12.5.5.tgz#ac8180bc20762a0adeadcb7aad8fe669482f2eaa"
-  integrity sha512-i9RictlJBil5OhYmD3tvNM4cZT50WaQQpxVrCGXqQW9PXoxG5BmYY/O/+fLiqwb8y1FqQFQh+hbwUS6xQjRTVA==
+"@gooddata/gooddata-js@^13.0.1", "@gooddata/gooddata-js@^13.0.2":
+  version "13.0.2"
+  resolved "https://registry.yarnpkg.com/@gooddata/gooddata-js/-/gooddata-js-13.0.2.tgz#2fb37056bc6a8e50ff4180e1c148d7e1ebe114a1"
+  integrity sha512-zUQxCDumaGBYXg69WCbqS9RIPdAHJQbeE802o+Rw73zz4nsnmPD5lH9wsTJy3vZCAixcXlsJE6RIMEEDb8iCzw==
   dependencies:
     "@gooddata/typings" "^2.24.0"
     es6-promise "^3.0.2"
@@ -1085,10 +1085,10 @@
     rxjs "^5.5.6"
     uuid "^3.2.1"
 
-"@gooddata/goodstrap@^68.5.2":
-  version "68.6.0"
-  resolved "https://registry.yarnpkg.com/@gooddata/goodstrap/-/goodstrap-68.6.0.tgz#cc1e03645f5f7dbcccd8eaf036b66131f651dfd0"
-  integrity sha512-FtKog90KXlWH8WxVqr1NWnLAFDZKj7EUV6XD5OCbyVzMy23//Bv9YPSB5rRaWNZevWsHZwW68gA6xSaHswn5aA==
+"@gooddata/goodstrap@^68.6.0":
+  version "68.12.0"
+  resolved "https://registry.yarnpkg.com/@gooddata/goodstrap/-/goodstrap-68.12.0.tgz#f6d946a73d5e83f8336fc165ccbc4894198cde3e"
+  integrity sha512-mxxvt0IKQGHhcCCP1Eq/Gq7nsyi1Buumippxnhr2x/kTYILKMYzy6PaDAb2gRhjExFyWZR9lPfkSXO5ApWrkfw==
   dependencies:
     "@babel/runtime-corejs2" "^7.0.0"
     "@gooddata/js-utils" "^3.10.4"
@@ -1130,21 +1130,23 @@
   resolved "https://registry.yarnpkg.com/@gooddata/numberjs/-/numberjs-3.2.4.tgz#4363751f4a589e9d3f12d185b38b954183dc1c48"
   integrity sha512-v4JO9dIQ9PIJCxjiBkUNCSa40tHGShFsSYBo6B+YuMxpZpslLClvC1tcXRuk7tc9OsCAorcKzcEgtHQTLPtH2A==
 
-"@gooddata/react-components@^7.6.0":
-  version "7.6.0"
-  resolved "https://registry.yarnpkg.com/@gooddata/react-components/-/react-components-7.6.0.tgz#271d02e96db655a359c881840258254de3995e9a"
-  integrity sha512-AdR+G2pRMNjWymQp15ZuXrRARKIPY/0Hg8MKIZoKAG1sPDK15KoJFvMklm9zOIhB0bB7ZZM2/TzHGHoN8wzRSg==
+"@gooddata/react-components@^7.7.0":
+  version "7.7.0"
+  resolved "https://registry.yarnpkg.com/@gooddata/react-components/-/react-components-7.7.0.tgz#20f72410ffc425497e6d38c0edf957f05760fd0f"
+  integrity sha512-BnjRhVbviTKGdGXcguv0Hq1Kdy678Pke2cEjwgbX+jDhuVLuIvq2wbG8P3wCa3m2iiXs2VZqoq99X7Sbvo1qNg==
   dependencies:
     "@formatjs/intl-pluralrules" "^1.3.6"
-    "@gooddata/gooddata-js" "^12.5.4"
-    "@gooddata/goodstrap" "^68.5.2"
+    "@gooddata/gooddata-js" "^13.0.1"
+    "@gooddata/goodstrap" "^68.6.0"
     "@gooddata/js-utils" "^3.10.5"
     "@gooddata/numberjs" "^3.2.4"
-    "@gooddata/typings" "^2.24.0"
+    "@gooddata/typings" "^2.24.2"
+    "@types/codemirror" "^0.0.95"
     "@types/mapbox-gl" "^1.6.1"
     ag-grid-community "20.0.0"
     ag-grid-react "20.0.0"
     classnames "^2.2.6"
+    codemirror "^5.54.0"
     custom-event "^1.0.1"
     date-fns "^2.7.0"
     downshift "^3.2.7"
@@ -1160,6 +1162,7 @@
     mapbox-gl "^1.6.1"
     nodelist-foreach-polyfill "^1.2.0"
     prop-types "^15.6.0"
+    react-codemirror2 "^7.2.0"
     react-day-picker "~7.3.0"
     react-dom-factories "^1.0.2"
     react-intl "^3.6.0"
@@ -1171,7 +1174,7 @@
     stringify-object "^2.4.0"
     uuid "^3.2.1"
 
-"@gooddata/typings@^2.22.0", "@gooddata/typings@^2.24.0":
+"@gooddata/typings@^2.24.0", "@gooddata/typings@^2.24.2":
   version "2.24.2"
   resolved "https://registry.yarnpkg.com/@gooddata/typings/-/typings-2.24.2.tgz#0f2a511231aeba08c2051ad29ef1f497bdefce3b"
   integrity sha512-j20MPBDXq9oEUTtruMSRJRfWvLc6UHzb3aWn9z7Sb+pYptZFuUzDfxT7uyoU010cMNSPOGia74KorE82QQZugA==
@@ -1587,10 +1590,22 @@
   dependencies:
     "@babel/types" "^7.3.0"
 
+"@types/codemirror@^0.0.95":
+  version "0.0.95"
+  resolved "https://registry.yarnpkg.com/@types/codemirror/-/codemirror-0.0.95.tgz#8fe424989cd5a6d7848f124774d42ef34d91adb8"
+  integrity sha512-E7w4HS8/rR7Rxkga6j68n3/Mi4BJ870/OJJKRqytyWiM659KnbviSng/NPfM/FOjg7YL+5ruFF69FqoLChnPBw==
+  dependencies:
+    "@types/tern" "*"
+
 "@types/error-stack-parser@^1.3.18":
   version "1.3.18"
   resolved "https://registry.yarnpkg.com/@types/error-stack-parser/-/error-stack-parser-1.3.18.tgz#e01c9f8c85ca83b610320c62258b0c9026ade0f7"
   integrity sha1-4ByfjIXKg7YQMgxiJYsMkCat4Pc=
+
+"@types/estree@*":
+  version "0.0.44"
+  resolved "https://registry.yarnpkg.com/@types/estree/-/estree-0.0.44.tgz#980cc5a29a3ef3bea6ff1f7d021047d7ea575e21"
+  integrity sha512-iaIVzr+w2ZJ5HkidlZ3EJM8VTZb2MJLCjw3V+505yVts0gRC4UMvjw0d1HPtGqI/HQC/KdsYtayfzl+AXY2R8g==
 
 "@types/estree@^0.0.39":
   version "0.0.39"
@@ -1708,6 +1723,13 @@
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/@types/stack-utils/-/stack-utils-1.0.1.tgz#0a851d3bd96498fa25c33ab7278ed3bd65f06c3e"
   integrity sha512-l42BggppR6zLmpfU6fq9HEa2oGPEI8yrSPL3GITjfRInppYFahObbIQOQK3UGxEnyQpltZLaPe75046NOZQikw==
+
+"@types/tern@*":
+  version "0.23.3"
+  resolved "https://registry.yarnpkg.com/@types/tern/-/tern-0.23.3.tgz#4b54538f04a88c9ff79de1f6f94f575a7f339460"
+  integrity sha512-imDtS4TAoTcXk0g7u4kkWqedB3E4qpjXzCpD2LU5M5NAXHzCDsypyvXSaG7mM8DKYkCRa7tFp4tS/lp/Wo7Q3w==
+  dependencies:
+    "@types/estree" "*"
 
 "@types/yargs-parser@*":
   version "15.0.0"
@@ -3908,6 +3930,11 @@ code-point-at@^1.0.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/code-point-at/-/code-point-at-1.1.0.tgz#0d070b4d043a5bea33a2f1a40e2edb3d9a4ccf77"
   integrity sha1-DQcLTQQ6W+ozovGkDi7bPZpMz3c=
+
+codemirror@^5.54.0:
+  version "5.54.0"
+  resolved "https://registry.yarnpkg.com/codemirror/-/codemirror-5.54.0.tgz#82b6adf662b29eeb7b867fe7839d49e25e4a0b38"
+  integrity sha512-Pgf3surv4zvw+KaW3doUU7pGjF0BPU8/sj7eglWJjzni46U/DDW8pu3nZY0QgQKUcICDXRkq8jZmq0y6KhxM3Q==
 
 coffeescript@^2.3.1:
   version "2.5.1"
@@ -10759,6 +10786,11 @@ react-app-polyfill@^1.0.1:
     raf "^3.4.1"
     regenerator-runtime "^0.13.3"
     whatwg-fetch "^3.0.0"
+
+react-codemirror2@^7.2.0:
+  version "7.2.1"
+  resolved "https://registry.yarnpkg.com/react-codemirror2/-/react-codemirror2-7.2.1.tgz#38dab492fcbe5fb8ebf5630e5bb7922db8d3a10c"
+  integrity sha512-t7YFmz1AXdlImgHXA9Ja0T6AWuopilub24jRaQdPVbzUJVNKIYuy3uCFZYa7CE5S3UW6SrSa5nAqVQvtzRF9gw==
 
 react-day-picker@7.1.10:
   version "7.1.10"
