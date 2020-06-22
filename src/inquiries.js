@@ -8,9 +8,9 @@ export const inquireName = () =>
             name: "name",
             type: "input",
         })
-        .then((value) => value.name);
+        .then(value => value.name);
 
-export const inquireHostname = () =>
+export const inquireHostname = isBear =>
     inquirer
         .prompt([
             {
@@ -32,12 +32,13 @@ export const inquireHostname = () =>
                         value: "WHITE_LABELLED",
                     },
                 ],
+                when: () => isBear,
             },
             {
                 message: "Insert your hostname",
                 name: "hostname",
                 type: "input",
-                when: ({ hostname }) => hostname === "WHITE_LABELLED",
+                when: ({ hostname }) => hostname === "WHITE_LABELLED" || !isBear,
             },
         ])
-        .then((value) => value.hostname);
+        .then(value => value.hostname);
