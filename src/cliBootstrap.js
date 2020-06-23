@@ -2,7 +2,7 @@
 import { inquireName, inquireHostname } from "./inquiries";
 import { sanitizeAppName } from "./stringUtils";
 
-const getSanitizedAppName = async (nameFromCli) => {
+const getSanitizedAppName = async nameFromCli => {
     const name = nameFromCli || (await inquireName());
 
     if (!name) {
@@ -17,10 +17,10 @@ const getSanitizedAppName = async (nameFromCli) => {
  * @param {string} nameFromCli App name provided as the CLI argument.
  * @param {Object} options Other options from the CLI.
  */
-const getBootstrapData = async (nameFromCli, { hostname: hostnameFromCli }) => {
+const getBootstrapData = async (nameFromCli, { hostname: hostnameFromCli, backend: backendFromCli }) => {
     const sanitizedAppName = await getSanitizedAppName(nameFromCli);
 
-    const hostname = hostnameFromCli || (await inquireHostname());
+    const hostname = hostnameFromCli || (await inquireHostname(!backendFromCli || backendFromCli === "bear"));
 
     return {
         sanitizedAppName,
