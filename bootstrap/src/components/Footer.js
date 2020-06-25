@@ -43,7 +43,7 @@ const Footer = () => {
                 </div>
             </section>
             <section className={styles.Copyright}>
-                Copyright © 2007–2019 GoodData Corporation. All Rights Reserved. Code licensed under a dual
+                Copyright © 2007–2020 GoodData Corporation. All Rights Reserved. Code licensed under a dual
                 license
                 <br />
                 <a
