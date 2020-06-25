@@ -17,6 +17,7 @@ export default {
         "commander",
         "execa",
         "fs-extra",
+        "globby",
         "inquirer",
         "listr",
         "lodash/flatMap",

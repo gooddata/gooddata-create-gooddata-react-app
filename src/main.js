@@ -7,6 +7,7 @@ import mkdirp from "mkdirp";
 import tar from "tar";
 
 import replaceInFiles from "./replaceInFiles";
+import processTigerFiles from "./processTigerFiles";
 import { getHostnameWithSchema, getSchema, DEFAULT_SCHEMA } from "./stringUtils";
 import { verboseLog } from "./verboseLogging";
 
@@ -100,6 +101,11 @@ const performTemplateReplacements = ({ targetDir, sanitizedAppName, hostname, ba
     return replaceInFiles(targetDir, replacementDefinitions);
 };
 
+const setupApp = async (bootstrapData) => {
+    await performTemplateReplacements(bootstrapData);
+    return processTigerFiles(bootstrapData.targetDir, bootstrapData.backend === "tiger");
+};
+
 const runYarnInstall = ({ targetDir, install }) => {
     if (!install) {
         console.log("Skipping installation because the --no-install flag was specified");
@@ -131,7 +137,7 @@ const outputFinalInstructions = ({ sanitizedAppName, install, targetDir }) => {
     console.log(chalk.cyan("    yarn start"));
 };
 
-const main = async partialBootstrapData => {
+const main = async (partialBootstrapData) => {
     const bootstrapData = {
         ...partialBootstrapData,
         targetDir: getTargetDirPath(partialBootstrapData.sanitizedAppName, partialBootstrapData.targetDir),
@@ -148,7 +154,7 @@ const main = async partialBootstrapData => {
         },
         {
             title: "Set up app",
-            task: () => performTemplateReplacements(bootstrapData),
+            task: () => setupApp(bootstrapData),
         },
     ]);
 
