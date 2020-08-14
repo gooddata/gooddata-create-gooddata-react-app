@@ -1067,12 +1067,12 @@
   resolved "https://registry.yarnpkg.com/@formatjs/intl-utils/-/intl-utils-2.2.0.tgz#ba6e12fe64ff7fd160be392007c47d24b7ae5c75"
   integrity sha512-+Az7tR1av1DHZu9668D8uh9atT6vp+FFmEF8BrEssv0OqzpVjpVBGVmcgPzQP8k2PQjVlm/h2w8cTt0knn132w==
 
-"@gooddata/gooddata-js@^13.0.1", "@gooddata/gooddata-js@^13.0.2":
-  version "13.0.2"
-  resolved "https://registry.yarnpkg.com/@gooddata/gooddata-js/-/gooddata-js-13.0.2.tgz#2fb37056bc6a8e50ff4180e1c148d7e1ebe114a1"
-  integrity sha512-zUQxCDumaGBYXg69WCbqS9RIPdAHJQbeE802o+Rw73zz4nsnmPD5lH9wsTJy3vZCAixcXlsJE6RIMEEDb8iCzw==
+"@gooddata/gooddata-js@^13.1.0":
+  version "13.1.1"
+  resolved "https://registry.yarnpkg.com/@gooddata/gooddata-js/-/gooddata-js-13.1.1.tgz#96e3f7af1d873ea6696e79de15799b82f8931b43"
+  integrity sha512-2TIKvrA7tm8aAu1LkhYP3I4DQ3h9orcypXpCJU20FihidIg57WRaqt8PG0UCvAtOyQ84lLOX1XsMNzZ6q164DA==
   dependencies:
-    "@gooddata/typings" "^2.24.0"
+    "@gooddata/typings" "^2.26.0"
     es6-promise "^3.0.2"
     fetch-cookie "^0.7.0"
     invariant "^2.2.2"
@@ -1085,13 +1085,13 @@
     rxjs "^5.5.6"
     uuid "^3.2.1"
 
-"@gooddata/goodstrap@^68.6.0":
-  version "68.12.0"
-  resolved "https://registry.yarnpkg.com/@gooddata/goodstrap/-/goodstrap-68.12.0.tgz#f6d946a73d5e83f8336fc165ccbc4894198cde3e"
-  integrity sha512-mxxvt0IKQGHhcCCP1Eq/Gq7nsyi1Buumippxnhr2x/kTYILKMYzy6PaDAb2gRhjExFyWZR9lPfkSXO5ApWrkfw==
+"@gooddata/goodstrap@68.18.3":
+  version "68.18.3"
+  resolved "https://registry.yarnpkg.com/@gooddata/goodstrap/-/goodstrap-68.18.3.tgz#387bdbd780be550d8d4620535482f1d01e4d5f79"
+  integrity sha512-QhPijBQM7nShbgtqdSJkmV0l8txmMDL/vFohltKtWE1zwRFoiQZ2Ylb/4z3eK/4+HU2WpXrWqc6vNhB4peoaHQ==
   dependencies:
     "@babel/runtime-corejs2" "^7.0.0"
-    "@gooddata/js-utils" "^3.10.4"
+    "@gooddata/js-utils" "^3.10.9"
     classnames "^2.2.6"
     custom-event "^1.0.1"
     element-closest-polyfill "^1.0.0"
@@ -1100,7 +1100,7 @@
     immutable "^3.8.1"
     invariant "^2.2.2"
     kefir "^3.7.1"
-    lodash "^4.17.12"
+    lodash "^4.17.19"
     moment "^2.23.0"
     moment-timezone "^0.5.23"
     prop-types "^15.6.0"
@@ -1116,7 +1116,7 @@
     rxjs "^5.5.6"
     tinycolor2 "^1.4.1"
 
-"@gooddata/js-utils@^3.10.4", "@gooddata/js-utils@^3.10.5":
+"@gooddata/js-utils@^3.10.5":
   version "3.10.6"
   resolved "https://registry.yarnpkg.com/@gooddata/js-utils/-/js-utils-3.10.6.tgz#875b6d8045e3575fb5eea18dafbde077ce76d67b"
   integrity sha512-hGNorgIkgl7Q3M13rUVPiWz0G4T43VnobzG3wu4e6bPg7Vd6URIRvyZfJdxMk3lgV3AloTWRL/Mm1OVahXw6Cw==
@@ -1125,24 +1125,33 @@
     js-cookie "^2.1.4"
     lodash "^4.17.15"
 
+"@gooddata/js-utils@^3.10.9":
+  version "3.10.13"
+  resolved "https://registry.yarnpkg.com/@gooddata/js-utils/-/js-utils-3.10.13.tgz#75c68427bab3884a44ed7f99e7175c685fcb5e60"
+  integrity sha512-tIYt/VwP63pXWurv3CxVgAaO7lIsalsZJ/ivUrVwbB4YABctGmSOE64c8xk0IKGdbC1mtISuwB7KX1GXMgafFA==
+  dependencies:
+    "@gooddata/typings" "^2.26.1"
+    js-cookie "^2.1.4"
+    lodash "^4.17.15"
+
 "@gooddata/numberjs@^3.2.4":
   version "3.2.4"
   resolved "https://registry.yarnpkg.com/@gooddata/numberjs/-/numberjs-3.2.4.tgz#4363751f4a589e9d3f12d185b38b954183dc1c48"
   integrity sha512-v4JO9dIQ9PIJCxjiBkUNCSa40tHGShFsSYBo6B+YuMxpZpslLClvC1tcXRuk7tc9OsCAorcKzcEgtHQTLPtH2A==
 
-"@gooddata/react-components@^7.7.0":
-  version "7.7.0"
-  resolved "https://registry.yarnpkg.com/@gooddata/react-components/-/react-components-7.7.0.tgz#20f72410ffc425497e6d38c0edf957f05760fd0f"
-  integrity sha512-BnjRhVbviTKGdGXcguv0Hq1Kdy678Pke2cEjwgbX+jDhuVLuIvq2wbG8P3wCa3m2iiXs2VZqoq99X7Sbvo1qNg==
+"@gooddata/react-components@^7.8.0":
+  version "7.8.0"
+  resolved "https://registry.yarnpkg.com/@gooddata/react-components/-/react-components-7.8.0.tgz#0e5cbec551f24a796ad815d99c5c53d11876e0c0"
+  integrity sha512-0q2U7RjWVgzHvxgfttdT8vXA5Fc0htFgk+2SZdHyEVBo03y2SFlTAakJOtdaU0cCW45QvB23Wy9bhMwU9JK/wA==
   dependencies:
     "@formatjs/intl-pluralrules" "^1.3.6"
-    "@gooddata/gooddata-js" "^13.0.1"
-    "@gooddata/goodstrap" "^68.6.0"
+    "@gooddata/gooddata-js" "^13.1.0"
+    "@gooddata/goodstrap" "68.18.3"
     "@gooddata/js-utils" "^3.10.5"
     "@gooddata/numberjs" "^3.2.4"
-    "@gooddata/typings" "^2.24.2"
+    "@gooddata/typings" "^2.26.0"
     "@types/codemirror" "^0.0.95"
-    "@types/mapbox-gl" "^1.6.1"
+    "@types/mapbox-gl" "1.9.1"
     ag-grid-community "20.0.0"
     ag-grid-react "20.0.0"
     classnames "^2.2.6"
@@ -1159,7 +1168,7 @@
     invariant "^2.2.2"
     json-stable-stringify "^1.0.1"
     lodash "^4.17.15"
-    mapbox-gl "^1.6.1"
+    mapbox-gl "1.9.1"
     nodelist-foreach-polyfill "^1.2.0"
     prop-types "^15.6.0"
     react-codemirror2 "^7.2.0"
@@ -1174,10 +1183,17 @@
     stringify-object "^2.4.0"
     uuid "^3.2.1"
 
-"@gooddata/typings@^2.24.0", "@gooddata/typings@^2.24.2":
+"@gooddata/typings@^2.24.0":
   version "2.24.2"
   resolved "https://registry.yarnpkg.com/@gooddata/typings/-/typings-2.24.2.tgz#0f2a511231aeba08c2051ad29ef1f497bdefce3b"
   integrity sha512-j20MPBDXq9oEUTtruMSRJRfWvLc6UHzb3aWn9z7Sb+pYptZFuUzDfxT7uyoU010cMNSPOGia74KorE82QQZugA==
+  dependencies:
+    lodash "^4.17.11"
+
+"@gooddata/typings@^2.26.0", "@gooddata/typings@^2.26.1":
+  version "2.26.1"
+  resolved "https://registry.yarnpkg.com/@gooddata/typings/-/typings-2.26.1.tgz#5344c5ab6636c8ae863c89b265dc6e69b2bcec11"
+  integrity sha512-n51hW5iSFgjDI56DB9Pz+l7H2NozJPZ876je1Htjf1nXINlzx13VNwfDG0s8M8lSrFV4ES3YamkmXG3z/ymXbg==
   dependencies:
     lodash "^4.17.11"
 
@@ -1669,10 +1685,10 @@
   resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.14.149.tgz#1342d63d948c6062838fbf961012f74d4e638440"
   integrity sha512-ijGqzZt/b7BfzcK9vTrS6MFljQRPn5BFWOx8oE0GYxribu6uV+aA9zZuXI1zc/etK9E8nrgdoF2+LgUw7+9tJQ==
 
-"@types/mapbox-gl@^1.6.1":
-  version "1.8.1"
-  resolved "https://registry.yarnpkg.com/@types/mapbox-gl/-/mapbox-gl-1.8.1.tgz#dbc12da1324d5bdb3dbf71b90b77cac17994a1a3"
-  integrity sha512-DdT/YzpGiYITkj2cUwyqPilPbtZURr1E0vZX0KTyyeNP0t0bxNyKoXo0seAcvUd2MsMgFYwFQh1WRC3x2V0kKQ==
+"@types/mapbox-gl@1.9.1":
+  version "1.9.1"
+  resolved "https://registry.yarnpkg.com/@types/mapbox-gl/-/mapbox-gl-1.9.1.tgz#78b62f8a1ead78bc525a4c1db84bb71fa0fcc579"
+  integrity sha512-5LS/fljbGjCPfjtOK5+pz8TT0PL4bBXTnN/PDbPtTQMqQdY/KWTWE4jRPuo0fL5wctd543DCptEUTydn+JK+gA==
   dependencies:
     "@types/geojson" "*"
 
@@ -8313,6 +8329,11 @@ lodash.uniq@^4.5.0:
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.15.tgz#b447f6670a0455bbfeedd11392eff330ea097548"
   integrity sha512-8xOcRHvCjnocdS5cpwXQXVzmmh5e5+saE2QGoeQmbKmRS6J3VQppPOIt0MnmE+4xlZoumy0GPG0D0MVIQbNA1A==
 
+lodash@^4.17.19:
+  version "4.17.20"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.20.tgz#b44a9b6297bcb698f1c51a3545a2b3b368d59c52"
+  integrity sha512-PlhdFcillOINfeV7Ni6oF1TAEayyZBoZ8bcshTHqOYJYlrqzRK5hagpagky5o4HfCzzd1TRkXPMFq6cKk9rGmA==
+
 log-update-async-hook@^2.0.2:
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/log-update-async-hook/-/log-update-async-hook-2.0.2.tgz#6eba89dbe67fa12d0b20ac47df7942947af1fcd1"
@@ -8424,10 +8445,10 @@ map-visit@^1.0.0:
   dependencies:
     object-visit "^1.0.0"
 
-mapbox-gl@^1.6.1:
-  version "1.9.0"
-  resolved "https://registry.yarnpkg.com/mapbox-gl/-/mapbox-gl-1.9.0.tgz#53e3e13c99483f362b07a8a763f2d61d580255a5"
-  integrity sha512-PKpoiB2pPUMrqFfBJpt/oA8On3zcp0adEoDS2YIC2RA6o4EZ9Sq2NPZocb64y7ra3mLUvEb7ps1pLVlPMh6y7w==
+mapbox-gl@1.9.1:
+  version "1.9.1"
+  resolved "https://registry.yarnpkg.com/mapbox-gl/-/mapbox-gl-1.9.1.tgz#9c06310db6469064bb0245fe00d6233865ef4156"
+  integrity sha512-jpBcqh+4qpOkj8RdxRdvwKPA8gzNYyMQ8HOcXgZYuEM5nKevRDjD3cEs+rUxi1JuYj4t8bIk68Lfh7aQQC1MjQ==
   dependencies:
     "@mapbox/geojson-rewind" "^0.4.0"
     "@mapbox/geojson-types" "^1.0.2"
