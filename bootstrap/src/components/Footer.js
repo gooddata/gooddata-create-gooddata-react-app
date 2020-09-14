@@ -43,8 +43,8 @@ const Footer = () => {
                 </div>
             </section>
             <section className={styles.Copyright}>
-                Copyright © 2007–2019 GoodData Corporation. All Rights Reserved. Code licensed under a dual
-                license
+                Copyright © 2007–<span>{new Date().getFullYear()}</span> GoodData Corporation. All Rights
+                Reserved. Code licensed under a dual license
                 <br />
                 <a
                     href="https://github.com/gooddata/gooddata-react-components/blob/master/LICENSE"
