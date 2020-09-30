@@ -11,11 +11,10 @@ import Page from "../components/Page";
 import styles from "./AppRouter.module.scss";
 // Uncomment these lines if you want to redirect unauthorized users to login form
 // import { useAuth } from "../contexts/Auth";
+// import { AuthStatus } from "../contexts/Auth/state";
 // const RedirectIfNotLoggedIn = () => {
 //     const auth = useAuth();
-//     const user = auth.data;
-//     const isLoading = auth.isLoading;
-//     const shouldRedirectToLogin = !isLoading && !user;
+//     const shouldRedirectToLogin = auth.authStatus === AuthStatus.UNAUTHORIZED;
 //     return shouldRedirectToLogin ? <Route component={() => <Redirect to="/login" />} /> : null;
 // };
 
@@ -30,7 +29,7 @@ const AppRouter = () => {
                     <Route exact path="/dashboard" component={() => <Page>Dashboard</Page>} />
                     <Route exact path="/login" component={Login} />
                     <Route exact path="/logout" component={Logout} />
-                    {/* DELETE THIS LINE  */} <Redirect to="/welcome" />
+                    {/* DELETE THIS LINE */} <Redirect to="/welcome" />
                     {/* Uncomment the next line if you want to redirect unauthorized users to login form */}
                     {/* <RedirectIfNotLoggedIn /> */}
                 </WorkspaceProvider>
