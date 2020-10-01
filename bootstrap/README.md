@@ -43,6 +43,28 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 
 Generates and refreshes data pulled from the `backend` and `projectId/workspace` defined in `constants.js` file. If `projectId/workspace` is not defined, the script will prompt you to choose one of the workspaces available in the `backend`. To avoid constantly typing in credentials, you can create `.gdcatalogrc` file where you define your `username` and `password`.
 
+## Built-in Docker support
+
+The application comes with a simple Dockerfile. This image is a pre-configured nginx instance that handles compression, proxying and serving the application files.
+To use it, run these commands in your terminal:
+
+```bash
+# build production version of your application
+npm run build
+# build the docker image
+docker build -t your-tag .
+# run the docker image
+docker run \
+    --publish 3000:8080 \
+    --name your-name \
+    --env BACKEND_HOST="secure.gooddata.com" \
+    --env BACKEND_URL="https://secure.gooddata.com" \
+    your-tag:latest
+```
+
+The `--publish 3000:8080` option exposes the nginx running on port 8080 by default (you can change that if needed by `--env PORT=5000`, just make sure you update the `--publish` value accordingly), to port 3000 on your machine. The `--name your-name` assigns a name to the container run.
+The `--env BACKEND_HOST="secure.gooddata.com"` sets the host where the GoodData analytical backend is running. Similarly, the `--env BACKEND_URL="https://secure.gooddata.com"` sets the full URL of the GoodData analytical backend. You might want to change these values if you host GoodData on a different domain.
+
 ## Learn More
 
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
