@@ -3,12 +3,19 @@ import React, { createContext, useContext, useEffect, useState } from "react";
 import bearFactory, { FixedLoginAndPasswordAuthProvider } from "@gooddata/sdk-backend-bear";
 
 import { useAuthState, initialState } from "./state";
+import { backend } from "../../constants";
+
+const backendConfig = {};
+
+if (process.env.REACT_APP_SET_HOSTNAME) {
+    backendConfig.hostname = backend;
+}
 
 const noop = () => undefined;
 
 const defaultContext = {
     ...initialState,
-    backend: bearFactory(),
+    backend: bearFactory(backendConfig),
     authError: null,
     login: noop,
     logout: noop,
@@ -33,7 +40,7 @@ export const AuthProvider = ({ children }) => {
     const login = async (username, password) => {
         onLoginStart();
         try {
-            const newBackend = bearFactory().withAuthentication(
+            const newBackend = bearFactory(backendConfig).withAuthentication(
                 new FixedLoginAndPasswordAuthProvider(username, password),
             );
             await newBackend.authenticate();
