@@ -86,8 +86,11 @@ docker run \
     your-tag:latest
 ```
 
-The `--publish 3000:8080` option exposes the nginx running on port 8080 by default (you can change that if needed by `--env PORT=5000`, just make sure you update the `--publish` value accordingly), to port 3000 on your machine. The `--name your-name` assigns a name to the container run.
-The `--env BACKEND_HOST="secure.gooddata.com"` sets the host where the GoodData analytical backend is running. Similarly, the `--env BACKEND_URL="https://secure.gooddata.com"` sets the full URL of the GoodData analytical backend. You might want to change these values if you host GoodData on a different domain.
+The meaning of the `docker run` parameters is:
+
+-   `--publish 3000:8080` – expose the nginx running on port 8080 by default (you can change that if needed by adding `--env PORT=5000`, just make sure you update the `--publish` value accordingly), to port 3000 on your machine.
+-   `--name your-name` – assign a name to the container run.
+-   `--env BACKEND_HOST="secure.gooddata.com"` and `--env BACKEND_URL="https://secure.gooddata.com"` – set the host/URL where the GoodData analytical backend is running respectively. You need to change these values if you host GoodData on a different domain.
 
 #### Manually
 
