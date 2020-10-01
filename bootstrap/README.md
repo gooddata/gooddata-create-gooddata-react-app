@@ -105,7 +105,7 @@ which will create a `build` folder with all the build outputs that can you can t
 **Note:** In case you want to host the application on a host other than the one you use to host GoodData Analytical Backend, you should build the application like this
 
 ```bash
-REACT_APP_SET_HOSTNAME=true npm run build
+npm run build-with-explicit-hostname
 ```
 
 This will make sure that the application will use the hostname specified in `src/constants.js` in `backend` field.
