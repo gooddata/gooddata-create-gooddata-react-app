@@ -67,9 +67,14 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/ad
 
 ### Deployment
 
+There are two ways to deploy your application.
+
+1. If your domain does not have CORS set up and you want to get up and running fast, you can use the pre-configured Docker image included with the app.
+2. If the Docker way is not suitable for you, you can build and deploy the app manually (keep in mind that you will have to setup CORS on your GoodData domain so that it allows access from your application).
+
 #### Using the built-in Docker support
 
-The application comes with a simple Dockerfile. This image is a pre-configured nginx instance that handles compression, proxying and serving the application files.
+The application comes with a simple Dockerfile. This image is a pre-configured nginx instance that both serves the application files and acts as a reverse proxy for your GoodData domain. In this deployment, your GoodData domain does not need any CORS setup because the application will only communicate with its origin server.
 To use it, run these commands in your terminal:
 
 ```bash
@@ -92,7 +97,7 @@ The meaning of the `docker run` parameters is:
 -   `--name your-name` – assign a name to the container run.
 -   `--env BACKEND_HOST="secure.gooddata.com"` and `--env BACKEND_URL="https://secure.gooddata.com"` – set the host/URL where the GoodData analytical backend is running respectively. You need to change these values if you host GoodData on a different domain.
 
-#### Manually
+#### Building and deploying manually
 
 To deploy the application without the use of the provided Dockerfile, you can run
 
@@ -100,15 +105,15 @@ To deploy the application without the use of the provided Dockerfile, you can ru
 npm run build
 ```
 
-which will create a `build` folder with all the build outputs that can you can then host anyway you want.
+which will create a `build` folder with all the build outputs that can you can then host anyway you want. Built like this, the application will assume that the GoodData Analytical Backend is hosted on the same host as the application itself.
 
-**Note:** In case you want to host the application on a host other than the one you use to host GoodData Analytical Backend, you should build the application like this
+In case you want to host the application on a host other than the one you use to host the GoodData Analytical Backend, you should build the application like this
 
 ```bash
 npm run build-with-explicit-hostname
 ```
 
-This will make sure that the application will use the hostname specified in `src/constants.js` in `backend` field.
+Built like this, the application will connect to the GoodData Analytical Backend hosted at the host specified in `src/constants.js` in `backend` field.
 
 ### `npm run build` fails to minify
 
