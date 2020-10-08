@@ -6,15 +6,16 @@ import styles from "./Header.module.scss";
 import Links from "./Links";
 import Aside from "./Aside";
 import { useAuth } from "../../contexts/Auth";
-// uncomment the next line to use ProjectPicker
-// import ProjectPicker from "../controls/ProjectPicker";
+import { AuthStatus } from "../../contexts/Auth/state";
+// uncomment the next line to use WorkspacePicker
+// import WorkspacePicker from "../controls/WorkspacePicker";
 
 const VR = ({ ...restProps }) => <div className={styles.VR} {...restProps} />;
 
-// a wrapper for items visible to authenticated users only (e.g. ProjectPicker)
+// a wrapper for items visible to authenticated users only (e.g. WorkspacePicker)
 const ProtectedItems = ({ children }) => {
-    const authState = useAuth();
-    if (!authState.data || authState.isLoading) return null;
+    const { authStatus } = useAuth();
+    if (authStatus !== AuthStatus.AUTHORIZED) return null;
     return children || null;
 };
 
@@ -34,9 +35,9 @@ const BurgerMenu = () => {
                 <div className={styles.BurgerContent}>
                     <Links />
                     <ProtectedItems>
-                        {/* Uncomment these lines to add a project picker into the burger menu */}
+                        {/* Uncomment these lines to add a workspace picker into the burger menu */}
                         {/* <div className={styles.Centered}>
-                            <ProjectPicker />
+                            <WorkspacePicker />
                         </div> */}
                     </ProtectedItems>
                 </div>
@@ -76,9 +77,9 @@ const Header = () => {
             ) : (
                 <>
                     <ProtectedItems>
-                        {/* Uncomment these lines to add a project picker into the menu */}
+                        {/* Uncomment these lines to add a workspace picker into the menu */}
                         {/* <div className={`${styles.Centered} ${styles.Link}`}>
-                            <ProjectPicker />
+                            <WorkspacePicker />
                         </div> */}
                     </ProtectedItems>
                     <Logo />
