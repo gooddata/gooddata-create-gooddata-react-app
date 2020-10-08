@@ -4,7 +4,7 @@
     "private": true,
     "dependencies": {
         "@gooddata/gooddata-js": "^13.1.0",
-        "@gooddata/react-components": "^7.8.0",
+        "@gooddata/react-components": "^7.8.1",
         "classnames": "^2.2.6",
         "formik": "^1.5.7",
         "lodash": "^4.17.15",
