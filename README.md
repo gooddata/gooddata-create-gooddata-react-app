@@ -10,10 +10,10 @@ The app is built on top of Create React App. For more info see [Create React App
 
 ## How to use
 
-To create a project called `my-app`, run this in your terminal (please note the `@sdk8` part):
+To create a project called `my-app`, run this in your terminal:
 
 ```bash
-npx @gooddata/create-gooddata-react-app@sdk8 my-app
+npx @gooddata/create-gooddata-react-app my-app
 ```
 
 Then follow the instructions provided by the CLI.
