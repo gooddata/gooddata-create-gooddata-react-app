@@ -11,7 +11,6 @@ export default {
     // suppress warnings about unresolved modules from node_modules
     // see https://rollupjs.org/guide/en/#warning-treating-module-as-external-dependency
     external: [
-        "@gooddata/gooddata-js",
         "chalk",
         "child_process",
         "commander",
