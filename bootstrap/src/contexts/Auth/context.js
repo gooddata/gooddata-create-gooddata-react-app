@@ -15,7 +15,7 @@ const noop = () => undefined;
 
 const defaultContext = {
     ...initialState,
-    backend: bearFactory(backendConfig),
+    backend: bearFactory(backendConfig).withAuthentication(new ContextDeferredAuthProvider()),
     authError: null,
     login: noop,
     logout: noop,
