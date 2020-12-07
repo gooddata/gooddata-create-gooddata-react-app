@@ -73,28 +73,6 @@ const performTemplateReplacements = ({ targetDir, sanitizedAppName, hostname, ba
                     ],
                 },
             },
-            contexts: {
-                Auth: {
-                    "context.js": [
-                        backend === "tiger"
-                            ? {
-                                  regex: /@gooddata\/sdk-backend-bear/g,
-                                  value: "@gooddata/sdk-backend-tiger",
-                              }
-                            : "",
-                        backend === "tiger" ? { regex: /bearFactory/g, value: "tigerFactory" } : "",
-                        backend === "tiger"
-                            ? {
-                                  regex: /FixedLoginAndPasswordAuthProvider\([^)]+\)/g,
-                                  value: "AnonymousAuthProvider()",
-                              }
-                            : "",
-                        backend === "tiger"
-                            ? { regex: /FixedLoginAndPasswordAuthProvider/g, value: "AnonymousAuthProvider" }
-                            : "",
-                    ],
-                },
-            },
         },
     };
 

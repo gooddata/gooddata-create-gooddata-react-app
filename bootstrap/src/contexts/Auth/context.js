@@ -1,21 +1,14 @@
 // (C) 2019 GoodData Corporation
 import React, { createContext, useContext, useEffect, useState } from "react";
-import bearFactory, { FixedLoginAndPasswordAuthProvider } from "@gooddata/sdk-backend-bear";
+import { backendWithCredentials, createBackend } from "./backend";
 
 import { useAuthState, initialState } from "./state";
-import { backend } from "../../constants";
-
-const backendConfig = {};
-
-if (process.env.REACT_APP_SET_HOSTNAME) {
-    backendConfig.hostname = backend;
-}
 
 const noop = () => undefined;
 
 const defaultContext = {
     ...initialState,
-    backend: bearFactory(backendConfig),
+    backend: createBackend(),
     authError: null,
     login: noop,
     logout: noop,
@@ -40,9 +33,7 @@ export const AuthProvider = ({ children }) => {
     const login = async (username, password) => {
         onLoginStart();
         try {
-            const newBackend = bearFactory(backendConfig).withAuthentication(
-                new FixedLoginAndPasswordAuthProvider(username, password),
-            );
+            const newBackend = backendWithCredentials(backend, username, password);
             await newBackend.authenticate();
             setBackend(newBackend);
             onLoginSuccess();
