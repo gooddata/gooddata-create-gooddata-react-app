@@ -30,33 +30,22 @@ export const WorkspaceListProvider = ({ children }) => {
     useEffect(() => {
         const getWorkspaces = async () => {
             setWorkspaceListState({ isLoading: true });
+
             try {
-                const currentWorkspaces = (
-                    await backend
-                        .workspaces()
-                        .forCurrentUser()
-                        .query()
-                ).items;
+                const workspaces = [];
+                let page = await backend
+                    .workspaces()
+                    .forCurrentUser()
+                    .query();
 
-                const queryNextPages = async () => {
-                    const page = (
-                        await (
-                            await backend
-                                .workspaces()
-                                .forCurrentUser()
-                                .query()
-                        ).next()
-                    ).items;
+                while (!isEmpty(page.items)) {
+                    const allDescriptors = await Promise.all(page.items.map(workspace => workspace.getDescriptor()));
 
-                    while (!isEmpty(page)) {
-                        currentWorkspaces.concat(page);
-                        queryNextPages();
-                    }
-                };
+                    workspaces.push(...allDescriptors);
+                    page = await page.next();
+                }
 
-                await queryNextPages();
-
-                const filteredWorkspaces = filterWorkspaces(currentWorkspaces, workspaceFilter);
+                const filteredWorkspaces = filterWorkspaces(workspaces, workspaceFilter);
                 setWorkspaceListState({
                     isLoading: false,
                     data: filteredWorkspaces,
@@ -68,7 +57,10 @@ export const WorkspaceListProvider = ({ children }) => {
         };
 
         setWorkspaceListState({ isLoading: false });
-        if (authStatus === AuthStatus.AUTHORIZED) getWorkspaces();
+
+        if (authStatus === AuthStatus.AUTHORIZED) {
+            getWorkspaces();
+        }
     }, [authStatus, backend]);
 
     return (
