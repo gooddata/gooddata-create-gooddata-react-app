@@ -73,7 +73,7 @@ const Welcome = () => {
                                     <li>
                                         by following&nbsp;
                                         <a
-                                            href="https://help.gooddata.com/doc/en/workspace-and-user-administration/administering-workspaces-and-workspace-objects/find-the-workspace-id"
+                                            href="https://help.gooddata.com/pages/viewinfo.action?pageId=34341289"
                                             {...linkProps}
                                         >
                                             this tutorial
