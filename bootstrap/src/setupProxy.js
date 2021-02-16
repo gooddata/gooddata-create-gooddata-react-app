@@ -13,6 +13,8 @@ module.exports = function(app) {
             headers: {
                 host: domain.replace(/https:\/\//, ''),
                 origin: null,
+                // This is essential for Tiger backends. To ensure 401 flies when not authenticated and using proxy
+                "X-Requested-With": "XMLHttpRequest",
             },
             onProxyReq: function(proxyReq, req, res) {
                 proxyReq.setHeader("accept-encoding", "identity");
