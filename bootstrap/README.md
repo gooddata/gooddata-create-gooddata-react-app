@@ -6,7 +6,26 @@ This project was bootstrapped with [GoodData.UI Accelerator Toolkit](https://sdk
 -  To create a production build run the `npm run build` command.
 
 This project uses the [Create React App](https://github.com/facebook/create-react-app) (CRA) scripts and infrastructure, you 
-can find additional documentation for CRA in [HOWTO.md](./HOTWO.md).
+can find the original documentation for CRA in [HOWTO.md](./HOTWO.md).
+
+### Getting started
+
+Before you can create visualizations for data in your workspace, you need to export its Logical Data Model (LDM). You can 
+then use the exported LDM entities to define the visualizations.
+
+The export is simple: run the `npm run refresh-ldm` command.
+
+-  This command will use information from [constants.js](./src/constants.js). It will connect to GoodData servers running 
+   on the host specified in the `backend` property and [export](https://sdk.gooddata.com/gooddata-ui/docs/gdc_catalog_export.html) LDM for the `workspace` of your choice.
+-  If your configuration does not specify `workspace`, the script will prompt you to choose one of the workspaces available in the `backend`.
+
+Once done, you will find that the [src/ldm/full.js](./src/ldm/full.js) file will be populated with attribute and measure definitions
+matching the LDM defined in your workspace. You can then use these generated definitions as inputs to the different 
+[visualization components](https://sdk.gooddata.com/gooddata-ui/docs/start_with_visual_components.html) available in GoodData.UI SDK.
+
+**Note: Before running this script, please make sure `backend` is defined in `constants.js` file.**
+
+**Hint: To avoid constantly typing in credentials, you can create `.gdcatalogrc` file where you define your `username` and `password`.**
 
 ### Deployment
 
