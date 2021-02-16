@@ -2,15 +2,19 @@ import tigerFactory, {
     ContextDeferredAuthProvider, redirectToTigerAuthentication,
     TigerTokenAuthProvider,
 } from "@gooddata/sdk-backend-tiger";
-import { debounce, throttle } from "lodash";
+import throttle from "lodash/throttle";
 import { backend } from "../../constants";
 
 const throttledHandler = throttle(redirectToTigerAuthentication, 10, { leading: true });
 
 const createBackendForDevelopment = () => {
     if (!process.env.REACT_APP_SET_HOSTNAME && process.env.REACT_APP_DEV_TIGER_API_TOKEN) {
+        console.info("The application will use Tiger API Token for authentication and will use the proxy to send requests to the backend.");
+
         return tigerFactory().withAuthentication(new TigerTokenAuthProvider(process.env.REACT_APP_DEV_TIGER_API_TOKEN));
     }
+
+    console.info("The application will use Tiger OIDC authentication flow for authentication and will send requests directly to the backend. Please make sure your installation has correct CORS setup.")
 
     return tigerFactory({hostname: backend}).withAuthentication(new ContextDeferredAuthProvider(throttledHandler));
 }
