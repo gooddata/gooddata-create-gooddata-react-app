@@ -42,3 +42,22 @@ export const inquireHostname = isBear =>
             },
         ])
         .then(value => value.hostname);
+
+export const inquireFlavor = () =>
+    inquirer
+        .prompt({
+            message: "What is your application desired flavor?",
+            name: "flavor",
+            type: "list",
+            choices: [
+                {
+                    name: "JavaScript",
+                    value: "js",
+                },
+                {
+                    name: "TypeScript",
+                    value: "ts",
+                },
+            ],
+        })
+        .then(value => value.flavor);

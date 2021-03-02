@@ -31,7 +31,8 @@ _NOTE:_ We use `yarn` dependency manager. To install it, follow its [documentati
 -   `--no-install` skip yarn installing the app dependencies
 -   `--verbose` output additional logs, useful mainly for debugging and bug reports
 -   `-h, --help` output usage information
--   `--backend <backend>` switch backend to a desired one (default: bear)
+-   `--backend <backend>` switch backend to a desired one (default: `bear`)
+-   `--flavor <flavor>` desired flavor of the application: `js` for JavaScript, `ts` for TypeScript
 
 ### Configuration file
 
@@ -39,8 +40,9 @@ The configuration file has the following structure:
 
 ```json
 {
-    "hostname": "(Required) URL of the project hosted, e.g. https://developer.na.gooddata.com",
-    "appName": "(Optional) name of the app to use"
+    "hostname": "(Required) URL of the project hosted, e.g., https://developer.na.gooddata.com",
+    "appName": "(Optional) name of the app to use",
+    "flavor": "(Optional) flavor of the app, e.g., js for JavaScript, ts for TypeScript (default: js)"
 }
 ```
 

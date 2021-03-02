@@ -6,82 +6,26 @@ import Listr from "listr";
 import mkdirp from "mkdirp";
 import tar from "tar";
 
-import replaceInFiles from "./replaceInFiles";
 import processTigerFiles from "./processTigerFiles";
-import { getHostnameWithSchema, getSchema, DEFAULT_SCHEMA } from "./stringUtils";
 import { verboseLog } from "./verboseLogging";
+import { performTemplateReplacements } from "./performTemplateReplacements";
 
 const getTargetDirPath = (sanitizedAppName, targetDir) =>
     path.resolve(targetDir || process.cwd(), sanitizedAppName);
 
-const copyAppFiles = async ({ targetDir }) => {
+const copyAppFiles = async ({ targetDir, flavor }) => {
+    const tarFile = flavor === "js" ? "bootstrap.js.tgz" : "bootstrap.ts.tgz";
     mkdirp(targetDir);
     return tar.x({
-        file: path.resolve(__dirname, "bootstrap.tgz"),
+        file: path.resolve(__dirname, tarFile),
         strip: 1,
         cwd: targetDir,
     });
 };
 
-const performTemplateReplacements = ({ targetDir, sanitizedAppName, hostname, backend }) => {
-    const hostnameSchema = getSchema(hostname) || DEFAULT_SCHEMA;
-
-    // this object has structure corresponding to the file structure relative to targetDir
-    // having it like this makes sure that all the replacements relevant to each file are in one place, thus preventing race conditions
-    const replacementDefinitions = {
-        "package.json": [
-            { regex: /@gooddata\/gdc-app-name/, value: sanitizedAppName },
-            backend === "tiger"
-                ? { regex: /@gooddata\/sdk-backend-bear/g, value: "@gooddata/sdk-backend-tiger" }
-                : "",
-            backend === "tiger"
-                ? {
-                      regex: /"refresh-ldm": "node .\/scripts\/refresh-ldm.js"/g,
-                      value: '"refresh-ldm": "node ./scripts/refresh-ldm.js --backend tiger"',
-                  }
-                : "",
-            hostnameSchema !== "https"
-                ? {
-                      regex: /"start": "cross-env HTTPS=true react-scripts start",/g,
-                      value: '"start": "react-scripts start",',
-                  }
-                : "",
-        ],
-        src: {
-            "constants.js": [
-                { regex: /appName: "(.*?)"/, value: `appName: "${sanitizedAppName}"` },
-                {
-                    regex: /backend: "https:\/\/developer\.na\.gooddata\.com"/g,
-                    value: `backend: "${getHostnameWithSchema(hostname)}"`,
-                },
-                backend === "tiger" ? { regex: /workspace: ""/g, value: 'workspace: "workspace"' } : "",
-            ],
-            "setupProxy.js": [
-                backend === "tiger"
-                    ? {
-                          regex: /proxy\("\/gdc"/g,
-                          value: 'proxy("/api"',
-                      }
-                    : "",
-            ],
-            components: {
-                Header: {
-                    // remove Login / Logout buttons for now from tiger
-                    "Header.js": [
-                        backend === "tiger" ? { regex: /import Aside from ".\/Aside";\n/g, value: "" } : "",
-                        backend === "tiger" ? { regex: /<Aside \/>/g, value: "" } : "",
-                    ],
-                },
-            },
-        },
-    };
-
-    return replaceInFiles(targetDir, replacementDefinitions);
-};
-
-const setupApp = async (bootstrapData) => {
+const setupApp = async bootstrapData => {
     await performTemplateReplacements(bootstrapData);
-    return processTigerFiles(bootstrapData.targetDir, bootstrapData.backend === "tiger");
+    await processTigerFiles(bootstrapData.targetDir, bootstrapData.backend === "tiger");
 };
 
 const runYarnInstall = ({ targetDir, install }) => {
@@ -115,7 +59,7 @@ const outputFinalInstructions = ({ sanitizedAppName, install, targetDir }) => {
     console.log(chalk.cyan("    yarn start"));
 };
 
-const main = async (partialBootstrapData) => {
+const main = async partialBootstrapData => {
     const bootstrapData = {
         ...partialBootstrapData,
         targetDir: getTargetDirPath(partialBootstrapData.sanitizedAppName, partialBootstrapData.targetDir),

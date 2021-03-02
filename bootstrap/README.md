@@ -15,15 +15,15 @@ then use the exported LDM entities to define the visualizations.
 
 The export is simple: run the `npm run refresh-ldm` command.
 
--  This command will use information from [constants.js](./src/constants.js). It will connect to GoodData servers running 
+-  This command will use information from [constants.ts](./src/constants.ts). It will connect to GoodData servers running 
    on the host specified in the `backend` property and [export](https://sdk.gooddata.com/gooddata-ui/docs/gdc_catalog_export.html) LDM for the `workspace` of your choice.
 -  If your configuration does not specify `workspace`, the script will prompt you to choose one of the workspaces available in the `backend`.
 
-Once done, you will find that the [src/ldm/full.js](./src/ldm/full.js) file will be populated with attribute and measure definitions
+Once done, you will find that the [src/ldm/full.ts](./src/ldm/full.ts) file will be populated with attribute and measure definitions
 matching the LDM defined in your workspace. You can then use these generated definitions as inputs to the different 
 [visualization components](https://sdk.gooddata.com/gooddata-ui/docs/start_with_visual_components.html) available in GoodData.UI SDK.
 
-**Note: Before running this script, please make sure `backend` is defined in `constants.js` file.**
+**Note: Before running this script, please make sure `backend` is defined in `constants.ts` file.**
 
 **Hint: To avoid constantly typing in credentials, you can create `.gdcatalogrc` file where you define your `username` and `password`.**
 
@@ -75,7 +75,7 @@ In case you want to host the application on a host other than the one you use to
 npm run build-with-explicit-hostname
 ```
 
-Built like this, the application will connect to the GoodData Analytical Backend hosted at the host specified in `src/constants.js` in `backend` field.
+Built like this, the application will connect to the GoodData Analytical Backend hosted at the host specified in `src/constants.ts` in `backend` field.
 
 ### `npm run build` fails to minify
 

@@ -3,7 +3,7 @@ import fs from "fs-extra";
 
 import { sanitizeAppName } from "./stringUtils";
 
-export const parseConfig = ({ hostname, appName }, nameFromCli) => {
+export const parseConfig = (nameFromCli, { hostname, appName, flavor }) => {
     if (!hostname) {
         throw new Error("You must provide a hostname for your app");
     }
@@ -13,9 +13,14 @@ export const parseConfig = ({ hostname, appName }, nameFromCli) => {
         throw new Error("You must provide a name for your app");
     }
 
+    if (flavor !== undefined && flavor !== "ts" && flavor !== "js") {
+        throw new Error("You must provide valid flavor value");
+    }
+
     return {
         sanitizedAppName,
         hostname,
+        flavor: flavor || "js",
     };
 };
 
@@ -28,12 +33,14 @@ const getBootstrapData = async (nameFromCli, { config }) => {
     let contents = {};
 
     try {
-        contents = await fs.readJSON(config, { encoding: "utf8", flag: "r" })
+        contents = await fs.readJSON(config, { encoding: "utf8", flag: "r" });
     } catch (err) {
-        throw new Error("The config file specified using the -c option was not found. Please check that the path you provided is correct.");
+        throw new Error(
+            "The config file specified using the -c option was not found. Please check that the path you provided is correct.",
+        );
     }
 
-    return parseConfig(contents, nameFromCli);
+    return parseConfig(nameFromCli, contents);
 };
 
 export default getBootstrapData;

@@ -30,7 +30,7 @@ is not authenticated, the app will redirect to page where the flow starts.
 
 -  If you host the application on a different origin than the Tiger installation, then you must set the 
    `REACT_APP_SET_HOSTNAME` env variable to `true`. This will ensure that wherever you deploy your application, 
-   it will always connect to server specified in [constants.js](./src/constants.js) `backend` property.
+   it will always connect to server specified in [constants.ts](./src/constants.ts) `backend` property.
    
    **This requires correct CORS setup of your Tiger installation**
    
@@ -54,7 +54,7 @@ The choice of the authentication method depends on your Tiger installation setup
 
    In this setup, the application will not communicate with the Tiger backend directly. It will use a 'development proxy'
    running inside webpack dev server. Requests to all `/api` resources will be proxied to your Tiger installation running at 
-   location specified in [constants.js](./src/constants.js) `backend` property.
+   location specified in [constants.ts](./src/constants.ts) `backend` property.
    
    **IMPORTANT: If you have to go with the API token, make sure you specify the token in the `.env.development.local` file. This ensures
    that the value of your token will not leak into production build.**
@@ -66,16 +66,16 @@ then use the exported LDM entities to define the visualizations.
 
 The export is simple: run the `npm run refresh-ldm` command.
 
--  This script will use information from [constants.js](./src/constants.js). It will connect to GoodData servers running 
+-  This script will use information from [constants.ts](./src/constants.ts). It will connect to GoodData servers running 
    on the host specified in the `backend` property and [export](https://sdk.gooddata.com/gooddata-ui/docs/gdc_catalog_export.html) LDM for the `workspace` of your choice.
 
 -  The script will use Tiger API Token for authentication. You need to set the `TIGER_API_TOKEN` env variable with the Token.
 
-Once done, you will find that the [src/ldm/full.js](./src/ldm/full.js) file will be populated with attribute and measure definitions
+Once done, you will find that the [src/ldm/full.ts](./src/ldm/full.ts) file will be populated with attribute and measure definitions
 matching the LDM defined in your workspace. You can then use these generated definitions as inputs to the different 
 [visualization components](https://sdk.gooddata.com/gooddata-ui/docs/start_with_visual_components.html) available in GoodData.UI SDK.
 
-**Note: Before running this script, please make sure `backend` is defined in `constants.js` file.**
+**Note: Before running this script, please make sure `backend` is defined in `constants.ts` file.**
 
 ### Deployment
 
@@ -105,7 +105,8 @@ docker run \
 
 The meaning of the `docker run` parameters is:
 
--   `--publish 3000:8080` – expose the nginx running on port 8080 by default (you can change that if needed by adding `--env PORT=5000`, just make sure you update the `--publish` value accordingly), to port 3000 on your machine.
+-   `--publish 3000:8080` – expose the nginx running on port 8080 by default (you can change that if needed by adding `--env PORT=5000`, j
+    ust make sure you update the `--publish` value accordingly), to port 3000 on your machine.
 -   `--name your-name` – assign a name to the container run.
 -   `--env BACKEND_HOST="secure.gooddata.com"` and `--env BACKEND_URL="https://secure.gooddata.com"` – set the host/URL where the GoodData analytical backend is running respectively. You need to change these values if you host GoodData on a different domain.
 
@@ -125,7 +126,7 @@ In case you want to host the application on a host other than the one you use to
 npm run build-with-explicit-hostname
 ```
 
-Built like this, the application will connect to the GoodData Analytical Backend hosted at the host specified in `src/constants.js` in `backend` field.
+Built like this, the application will connect to the GoodData Analytical Backend hosted at the host specified in `src/constants.ts` in `backend` field.
 
 ### `npm run build` fails to minify
 
