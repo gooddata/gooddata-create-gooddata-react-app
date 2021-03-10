@@ -2,9 +2,6 @@
     "testMatch": [
         "<rootDir>/src/**/__tests__/*.test.js"
     ],
-    "moduleFileExtensions": [
-        "js"
-    ],
     "collectCoverage": true,
     "collectCoverageFrom": [
         "src/**/*.js"

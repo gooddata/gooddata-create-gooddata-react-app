@@ -9,7 +9,7 @@ const WINDOW_WIDTH = 1920;
 const WINDOW_HEIGHT = 1080;
 // For some reason testcafe has problems using globstar so we need to specify
 // maximum directory depth, otherwise it just picks up tests in the deepest directory.
-const TESTS_PATH = "tests/**/**/**/*.spec.js";
+const TESTS_PATH = "tests/**/**/**/*.spec.ts";
 
 const CHROME_HEADLESS_LOCAL = `chrome:headless --window-size='${WINDOW_WIDTH},${WINDOW_HEIGHT}' --no-sandbox`;
 const CHROME_LOCAL = `chrome --window-size='${WINDOW_WIDTH},${WINDOW_HEIGHT}' --no-sandbox --disable-background-timer-throttling`;

@@ -34,12 +34,16 @@ describe("replaceInFiles", () => {
 
     describe("replaceInFiles", () => {
         it("should replace values according to the spec", async () => {
-            const readFileMock = async () => "foo bar baz";
+            const readFileMock = async () => "foo bar baz buz";
             const writeFileMock = jest.fn();
 
             const spec = {
                 directory: {
-                    "b.js": [{ regex: /bar/g, value: "replaced" }],
+                    "b.js": [
+                        { regex: /bar/g, value: "replaced", apply: true },
+                        { regex: /baz/g, value: "not replaced", apply: false },
+                        { regex: /buz/g, value: "buf" },
+                    ],
                 },
             };
 
@@ -47,7 +51,7 @@ describe("replaceInFiles", () => {
 
             expect(writeFileMock).toHaveBeenLastCalledWith(
                 path.join(".", "directory", "b.js"),
-                "foo replaced baz",
+                "foo replaced baz buf",
                 { encoding: "utf8", flag: "w" },
             );
         });

@@ -1,6 +1,12 @@
 const proxy = require("http-proxy-middleware");
 
-const constants = require("./constants");
+require("@babel/register")({
+    presets: ["@babel/preset-typescript", "@babel/preset-env"],
+    plugins: ["add-module-exports"],
+    extensions: [".ts", ".js"],
+});
+
+const constants = require("./constants.ts");
 
 const domain = constants.backend;
 module.exports = function(app) {
@@ -11,12 +17,12 @@ module.exports = function(app) {
             secure: false,
             target: domain,
             headers: {
-                host: domain.replace(/https:\/\//, ''),
+                host: domain.replace(/https:\/\//, ""),
                 origin: null,
                 // This is essential for Tiger backends. To ensure 401 flies when not authenticated and using proxy
                 "X-Requested-With": "XMLHttpRequest",
             },
-            onProxyReq: function(proxyReq, req, res) {
+            onProxyReq: function(proxyReq, _req, _res) {
                 proxyReq.setHeader("accept-encoding", "identity");
             },
         }),
