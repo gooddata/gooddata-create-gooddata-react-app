@@ -107,9 +107,9 @@ const Welcome: React.FC = () => {
                 <Code>/src/components/Header/Links.tsx</Code>.
             </p>
 
-            <h3>Add an example from the Live Examples</h3>
+            <h3>Add an example from the Examples Gallery</h3>
             <p>
-                Explore the <a href="https://gooddata-examples.herokuapp.com">Live Examples</a> and try out
+                Explore the <a href="https://gdui-examples.herokuapp.com/">Examples Gallery</a> and try out
                 some code snippets.
             </p>
 
