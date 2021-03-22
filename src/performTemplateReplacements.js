@@ -29,9 +29,14 @@ export const performTemplateReplacements = async ({
                 apply: isTigerBackend,
             },
             {
-                regex: /"start": "cross-env HTTPS=true react-scripts start",/g,
-                value: '"start": "react-scripts start",',
+                regex: /HTTPS=true/g,
+                value: "",
                 apply: hostnameSchema !== "https",
+            },
+            {
+                regex: /PORT=3000/g,
+                value: "PORT=8443",
+                apply: isTigerBackend,
             },
         ],
         src: {
