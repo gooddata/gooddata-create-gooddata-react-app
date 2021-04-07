@@ -46,7 +46,6 @@ export const performTemplateReplacements = async ({
                     regex: /backend = "https:\/\/developer\.na\.gooddata\.com"/g,
                     value: `backend = "${getHostnameWithSchema(hostname)}"`,
                 },
-                { regex: /workspace = ""/g, value: 'workspace = "workspace"', apply: isTigerBackend },
             ],
             "setupProxy.js": [
                 {
