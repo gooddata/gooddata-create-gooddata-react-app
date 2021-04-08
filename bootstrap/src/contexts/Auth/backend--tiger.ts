@@ -8,7 +8,7 @@ import throttle from "lodash/throttle";
 
 import { backend } from "../../constants";
 
-const throttledHandler = throttle(redirectToTigerAuthentication, 10, { leading: true });
+const throttledHandler = throttle(redirectToTigerAuthentication, 500, { leading: false, trailing: true });
 
 const createBackendForDevelopment = () => {
     if (!process.env.REACT_APP_SET_HOSTNAME && process.env.REACT_APP_DEV_TIGER_API_TOKEN) {
