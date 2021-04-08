@@ -8,5 +8,5 @@ require("@babel/register")({
 
 const { workspace, backend } = require("../src/constants.ts");
 const path = "./src/ldm/full.ts";
-process.argv.push("--project-id", workspace, "--hostname", backend, "--output", path);
+process.argv.push("--workspace-id", workspace, "--hostname", backend, "--output", path);
 require("../node_modules/@gooddata/catalog-export");
