@@ -76,7 +76,3 @@ npm run build-with-explicit-hostname
 ```
 
 Built like this, the application will connect to the GoodData Analytical Backend hosted at the host specified in `src/constants.ts` in `backend` field.
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
