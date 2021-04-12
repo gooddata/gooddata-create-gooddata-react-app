@@ -115,7 +115,7 @@ const Welcome: React.FC = () => {
 
             <h3>Check out the GoodData Anywhere documentation</h3>
             <p>
-                Read the <a href=" https://docs.anywhere.gooddata.com">GoodData Anywhere documentation</a> to
+                Read the <a href="https://gooddata.com/developers/cloud-native/doc/1.0/">GoodData Anywhere documentation</a> to
                 find out more about its features.
             </p>
         </Page>

@@ -79,40 +79,7 @@ matching the LDM defined in your workspace. You can then use these generated def
 
 ### Deployment
 
-There are two ways to deploy your application.
-
-1. If your domain does not have CORS set up and you want to get up and running fast, you can use the pre-configured Docker image included with the app.
-2. If the Docker way is not suitable for you, you can build and deploy the app manually (keep in mind that you will have to setup CORS on your GoodData domain so that it allows access from your application).
-
-#### Using the built-in Docker support
-
-The application comes with a simple Dockerfile. This image is a pre-configured nginx instance that both serves the application files and acts as a reverse proxy for your GoodData domain. In this deployment, your GoodData domain does not need any CORS setup because the application will only communicate with its origin server.
-To use it, run these commands in your terminal:
-
-```bash
-# build production version of your application
-npm run build
-# build the docker image
-docker build -t your-tag .
-# run the docker image
-docker run \
-    --publish 3000:8080 \
-    --name your-name \
-    --env BACKEND_HOST="secure.gooddata.com" \
-    --env BACKEND_URL="https://secure.gooddata.com" \
-    your-tag:latest
-```
-
-The meaning of the `docker run` parameters is:
-
--   `--publish 3000:8080` – expose the nginx running on port 8080 by default (you can change that if needed by adding `--env PORT=5000`, j
-    ust make sure you update the `--publish` value accordingly), to port 3000 on your machine.
--   `--name your-name` – assign a name to the container run.
--   `--env BACKEND_HOST="secure.gooddata.com"` and `--env BACKEND_URL="https://secure.gooddata.com"` – set the host/URL where the GoodData analytical backend is running respectively. You need to change these values if you host GoodData on a different domain.
-
-#### Building and deploying manually
-
-To deploy the application without the use of the provided Dockerfile, you can run
+To deploy the application, you can run
 
 ```bash
 npm run build
@@ -127,7 +94,3 @@ npm run build-with-explicit-hostname
 ```
 
 Built like this, the application will connect to the GoodData Analytical Backend hosted at the host specified in `src/constants.ts` in `backend` field.
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
