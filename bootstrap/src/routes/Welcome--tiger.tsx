@@ -44,7 +44,7 @@ const Welcome: React.FC = () => {
                 <li>
                     <p>
                         In the root of the boilerplate, run <Code>yarn refresh-ldm</Code>, the terminal then
-                        will prompt you to enter <Code>Username/Password</Code>.
+                        will guide you through how to obtain an API token if you have not set it already.
                         <br />
                         After that, the script will create a file <Code>/src/ldm/full.ts</Code> which will
                         contain all <Code>LDM</Code> objects, metrics and insights.
