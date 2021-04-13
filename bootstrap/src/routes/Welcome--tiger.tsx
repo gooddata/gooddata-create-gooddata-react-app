@@ -37,7 +37,7 @@ const Welcome: React.FC = () => {
                 <li>
                     <p>
                         In <Code>/src/constants.ts</Code>, check that <Code>backend</Code> is set to your
-                        GoodData Anywhere endpoint. For example,{" "}
+                        GoodData.CN endpoint. For example,{" "}
                         <Code>https://analytics.anywhere.gooddata.com</Code>.
                     </p>
                 </li>
@@ -113,9 +113,9 @@ const Welcome: React.FC = () => {
                 some code snippets.
             </p>
 
-            <h3>Check out the GoodData Anywhere documentation</h3>
+            <h3>Check out the GoodData.CN documentation</h3>
             <p>
-                Read the <a href="https://gooddata.com/developers/cloud-native/doc/1.0/">GoodData Anywhere documentation</a> to
+                Read the <a href="https://gooddata.com/developers/cloud-native/doc/1.0/">GoodData.CN documentation</a> to
                 find out more about its features.
             </p>
         </Page>
