@@ -6,13 +6,7 @@ import Page from "../components/Page";
 import styles from "./Welcome.module.scss";
 
 import kpiUri from "../media/kpi.png";
-import iUri from "../media/i.svg";
 import successUri from "../media/success.svg";
-
-const linkProps = {
-    target: "_blank",
-    rel: "noopenner noreferrer",
-};
 
 const Code: React.FC = ({ children, ...restProps }) => (
     <code className={styles.code} {...restProps}>
@@ -23,11 +17,6 @@ const Pre: React.FC = ({ children, ...restProps }) => (
     <pre className={styles.pre} {...restProps}>
         {children}
     </pre>
-);
-const Blockquote: React.FC = ({ children, ...restProps }) => (
-    <blockquote className={styles.blockquote} {...restProps}>
-        {children}
-    </blockquote>
 );
 
 const Welcome: React.FC = () => {
@@ -52,38 +41,10 @@ const Welcome: React.FC = () => {
             <ol>
                 <li>
                     <p>
-                        In <Code>/src/constants.ts</Code>:
+                        In <Code>/src/constants.ts</Code>, check that <Code>backend</Code> is set to your
+                        domain URI. For example, <Code>https://secure.gooddata.com</Code> or{" "}
+                        <Code>https://developer.na.gooddata.com</Code>.
                     </p>
-                    <ol className={styles.subList}>
-                        <li>
-                            <p>
-                                Check that <Code>backend</Code> is set to your domain URI.
-                            </p>
-                            For example, <Code>https://secure.gooddata.com</Code> or{" "}
-                            <Code>https://developer.na.gooddata.com</Code>.
-                        </li>
-                        <li>
-                            <p>
-                                Set <Code>workspace</Code> to your workspace ID.
-                            </p>
-                            <Blockquote>
-                                <img src={iUri} alt="(i)" className={styles.inlineImg} />
-                                &emsp; You can find your workspace ID
-                                <ol>
-                                    <li>
-                                        by following&nbsp;
-                                        <a
-                                            href="https://help.gooddata.com/pages/viewinfo.action?pageId=34341289"
-                                            {...linkProps}
-                                        >
-                                            this tutorial
-                                        </a>
-                                        .
-                                    </li>
-                                </ol>
-                            </Blockquote>
-                        </li>
-                    </ol>
                 </li>
                 <li>
                     <p>
@@ -98,6 +59,10 @@ const Welcome: React.FC = () => {
                         You will be able to utilize those generated objects. To read more about generating MD
                         objects, refer to <Code>npm run refresh-md</Code> section in <Code>README.md</Code>
                         file.
+                        <br />
+                        The script will also print out a workspace ID for the project used for the generating.
+                        You can use this value in <Code>/src/constants.ts</Code> to set the{" "}
+                        <Code>workspace</Code> property.
                     </p>
                 </li>
                 <li>
