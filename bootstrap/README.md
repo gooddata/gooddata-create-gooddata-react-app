@@ -19,7 +19,7 @@ The export is simple: run the `npm run refresh-ldm` command.
    on the host specified in the `backend` property and [export](https://sdk.gooddata.com/gooddata-ui/docs/gdc_catalog_export.html) LDM for the `workspace` of your choice.
 -  If your configuration does not specify `workspace`, the script will prompt you to choose one of the workspaces available in the `backend`.
 
-Once done, you will find that the [src/ldm/full.ts](./src/ldm/full.ts) file will be populated with attribute and measure definitions
+Once done, you will find that the [src/ldm/full.ts](src/md/full.ts) file will be populated with attribute and measure definitions
 matching the LDM defined in your workspace. You can then use these generated definitions as inputs to the different
 [visualization components](https://sdk.gooddata.com/gooddata-ui/docs/start_with_visual_components.html) available in GoodData.UI SDK.
 
