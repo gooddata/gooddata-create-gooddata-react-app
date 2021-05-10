@@ -73,7 +73,7 @@ The export is simple: run the `npm run refresh-ldm` command.
 
 -  The script will use GoodData.CN API Token for authentication. You need to set the `TIGER_API_TOKEN` env variable with the Token.
 
-Once done, you will find that the [src/ldm/full.ts](./src/ldm/full.ts) file will be populated with attribute and measure definitions
+Once done, you will find that the [src/ldm/full.ts](src/md/full.ts) file will be populated with attribute and measure definitions
 matching the LDM defined in your workspace. You can then use these generated definitions as inputs to the different
 [visualization components](https://sdk.gooddata.com/gooddata-ui/docs/start_with_visual_components.html) available in GoodData.UI SDK.
 

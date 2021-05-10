@@ -87,28 +87,28 @@ const Welcome: React.FC = () => {
                 </li>
                 <li>
                     <p>
-                        In the root of the boilerplate, run <Code>yarn refresh-ldm</Code>, the terminal then
+                        In the root of the boilerplate, run <Code>yarn refresh-md</Code>, the terminal then
                         will prompt you to enter <Code>Username/Password</Code> and <Code>workspace</Code>
                         selection.
                         <br />
-                        After that, the script will create a file <Code>/src/ldm/full.ts</Code> which will
-                        contain all <Code>LDM</Code> objects, metrics and insights that are in the selected
+                        After that, the script will create a file <Code>/src/md/full.ts</Code> which will
+                        contain all <Code>MD</Code> objects, metrics and insights that are in the selected
                         <Code>workspace</Code>.
                         <br />
-                        You will be able to utilize those generated objects. To read more about generating LDM
-                        objects, refer to <Code>npm run refresh-ldm</Code> section in <Code>README.md</Code>
+                        You will be able to utilize those generated objects. To read more about generating MD
+                        objects, refer to <Code>npm run refresh-md</Code> section in <Code>README.md</Code>
                         file.
                     </p>
                 </li>
                 <li>
                     In <Code>Home.tsx</Code>, replace <Code>Place your content here</Code> with actual code.
                     <p>
-                        For example, <Code> {`<InsightView insight={Ldm.Insights.Headline}/>`}</Code>. We
-                        access the <Code>Headline</Code> identifier through the generated <Code>LDM</Code>
+                        For example, <Code> {`<InsightView insight={Md.Insights.Headline}/>`}</Code>. We
+                        access the <Code>Headline</Code> identifier through the generated <Code>MD</Code>
                         objects.
                         <br />
-                        The main benefit of utilizing the generated LDM objects is that you have the access to
-                        all LDM objects, metrics and insights in the workspace that you selected.
+                        The main benefit of utilizing the generated MD objects is that you have the access to
+                        all MD objects, metrics and insights in the workspace that you selected.
                     </p>
                 </li>
                 <li>

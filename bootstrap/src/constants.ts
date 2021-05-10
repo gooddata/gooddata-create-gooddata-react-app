@@ -6,8 +6,8 @@ export const appName = "My App";
 export const backend = "https://developer.na.gooddata.com";
 
 // The ID of workspace that is selected by default in the optional workspace picker component (located in the web
-// application header). It is also a default setting for script that refreshes LDM data used by the application.
-// LDM script shows list of available workspaces on backend in the case when the value is not set to any ID.
+// application header). It is also a default setting for script that refreshes MD data used by the application.
+// MD script shows list of available workspaces on backend in the case when the value is not set to any ID.
 export const workspace = "";
 
 // RegExp used by optional workspace picker component (located in the web application header) to filter out

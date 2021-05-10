@@ -24,8 +24,8 @@ export const performTemplateReplacements = async ({
                 apply: isTigerBackend,
             },
             {
-                regex: /"refresh-ldm": "node .\/scripts\/refresh-ldm.js"/g,
-                value: '"refresh-ldm": "node ./scripts/refresh-ldm.js --backend tiger"',
+                regex: /"refresh-md": "node .\/scripts\/refresh-md.js"/g,
+                value: '"refresh-md": "node ./scripts/refresh-md.js --backend tiger"',
                 apply: isTigerBackend,
             },
             {
