@@ -6,7 +6,7 @@ require("@babel/register")({
     extensions: [".ts", ".js"],
 });
 
-const { workspace, backend } = require("../src/constants.ts");
+const { workspace, backend } = require("../src/constants");
 const path = "./src/md/full.ts";
 process.argv.push("--workspace-id", workspace, "--hostname", backend, "--output", path);
 require("../node_modules/@gooddata/catalog-export");

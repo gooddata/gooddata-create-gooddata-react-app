@@ -66,15 +66,15 @@ The choice of the authentication method depends on your GoodData.CN installation
 Before you can create visualizations for data in your workspace, you need to export its Logical Data Model (LDM). You can
 then use the exported LDM entities to define the visualizations.
 
-The export is simple: run the `npm run refresh-ldm` command.
+The export is simple: run the `npm run refresh-md` command.
 
 -  This script will use information from [constants.ts](./src/constants.ts). It will connect to GoodData servers running
-   on the host specified in the `backend` property and [export](https://sdk.gooddata.com/gooddata-ui/docs/gdc_catalog_export.html) LDM for the `workspace` of your choice.
+   on the host specified in the `backend` property and [export](https://sdk.gooddata.com/gooddata-ui/docs/gdc_catalog_export.html) MD for the `workspace` of your choice.
 
 -  The script will use GoodData.CN API Token for authentication. You need to set the `TIGER_API_TOKEN` env variable with the Token.
 
-Once done, you will find that the [src/ldm/full.ts](src/md/full.ts) file will be populated with attribute and measure definitions
-matching the LDM defined in your workspace. You can then use these generated definitions as inputs to the different
+Once done, you will find that the [src/md/full.ts](src/md/full.ts) file will be populated with attribute and measure definitions
+matching the MD defined in your workspace. You can then use these generated definitions as inputs to the different
 [visualization components](https://sdk.gooddata.com/gooddata-ui/docs/start_with_visual_components.html) available in GoodData.UI SDK.
 
 **Note: Before running this script, please make sure `backend` is defined in `constants.ts` file.**
