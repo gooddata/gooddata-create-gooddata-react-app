@@ -19,9 +19,9 @@
         "react-helmet": "^5.2.1",
         "react-router-dom": "^5.0.1",
         "react-router-use-location-state": "^2.3.1",
-        "react-scripts": "3.4.3",
+        "react-scripts": "4.0.3",
         "use-location-state": "^2.3.1",
-        "yup": "^0.27.0"
+        "yup": "^0.32.9"
     },
     "scripts": {
         "start": "cross-env HTTPS=true PORT=3000 react-scripts start",
@@ -75,7 +75,7 @@
         "node-sass": "^4.13.1",
         "prettier": "^1.18.2",
         "pretty-quick": "^1.11.1",
-        "serve": "^11.2.0",
+        "serve": "^11.3.2",
         "testcafe": "^1.5.0",
         "typescript": "^4.1.5"
     },
