@@ -21,6 +21,7 @@
         "suppressImplicitAnyIndexErrors": true,
         "useDefineForClassFields": true,
         "strict": true,
+        "noFallthroughCasesInSwitch": true
     },
     "include": ["src", "tests"],
     "exclude": ["node_modules", "build", "dist"]
