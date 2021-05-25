@@ -92,11 +92,7 @@ const replacementDefinitions = {
         },
     },
     scripts: {
-        "refresh-ldm.js": [
-            {
-                regex: /constants\.ts/g,
-                value: "constants",
-            },
+        "refresh-md.js": [
             {
                 regex: /full\.ts/g,
                 value: "full.js",
