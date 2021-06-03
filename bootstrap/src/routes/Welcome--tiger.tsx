@@ -52,6 +52,10 @@ const Welcome: React.FC = () => {
                         You will be able to utilize those generated objects. To read more about generating MD
                         objects, refer to <Code>npm run refresh-md</Code> section in <Code>README.md</Code>
                         file.
+                        <br />
+                        The script will also print out a workspace ID for the project used for the generating.
+                        You can use this value in <Code>/src/constants.ts</Code> to set the{" "}
+                        <Code>workspace</Code> property.
                     </p>
                 </li>
                 <li>
