@@ -53,6 +53,7 @@ const BurgerMenu: React.FC = () => {
 const Header: React.FC = () => {
     const [windowWidth, setWindowWidth] = useState(window ? window.innerWidth : null);
 
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     const handleResize = useCallback(
         throttle(() => {
             if (window) {
