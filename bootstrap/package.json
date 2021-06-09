@@ -12,7 +12,7 @@
         "@gooddata/sdk-ui-geo": "^8.4.0",
         "@gooddata/sdk-ui-pivot": "^8.4.0",
         "classnames": "^2.3.1",
-        "formik": "^1.5.7",
+        "formik": "^2.2.9",
         "lodash": "^4.17.15",
         "react": "^16.8.6",
         "react-dom": "^16.8.6",
