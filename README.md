@@ -1,6 +1,7 @@
 # gooddata-create-gooddata-react-app
 
-© 2019-2020 GoodData Corporation
+(c) 2019-2021 GoodData Corporation
+This repository is under the BSD-3-clause license available in the LICENSE file and includes additional third party packages under separate open source licenses as specified in the NOTICES file.
 
 # GoodData Create React App
 
