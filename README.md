@@ -14,7 +14,7 @@ The app is built on top of Create React App. For more info see [Create React App
 To create a project called `my-app`, run this in your terminal:
 
 ```bash
-npx @gooddata/create-gooddata-react-app my-app
+npx --ignore-existing @gooddata/create-gooddata-react-app my-app
 ```
 
 Then follow the instructions provided by the CLI.
