@@ -1,6 +1,6 @@
 ## GoodData.UI Accelerator Toolkit Application
 
-This project was bootstrapped with [GoodData.UI Accelerator Toolkit](https://sdk.gooddata.com/gooddata-ui/docs/ht_create_your_first_visualization_toolkit.html).
+This project was bootstrapped with [GoodData.UI Accelerator Toolkit](https://sdk.gooddata.com/gooddata-ui/docs/create_new_application.html).
 
 -  To start the application on your workstation run the `npm run start` command.
 -  To create a production build run the `npm run build` command.
@@ -16,7 +16,7 @@ then use the exported LDM entities to define the visualizations.
 The export is simple: run the `npm run refresh-md` command.
 
 -  This command will use information from [constants.ts](./src/constants.ts). It will connect to GoodData servers running
-   on the host specified in the `backend` property and [export](https://sdk.gooddata.com/gooddata-ui/docs/gdc_catalog_export.html) MD for the `workspace` of your choice.
+   on the host specified in the `backend` property and [export](https://sdk.gooddata.com/gooddata-ui/docs/export_catalog.html) MD for the `workspace` of your choice.
 -  If your configuration does not specify `workspace`, the script will prompt you to choose one of the workspaces available in the `backend`.
 
 Once done, you will find that the [src/md/full.ts](src/md/full.ts) file will be populated with attribute and measure definitions
@@ -89,7 +89,7 @@ sensitive information will be at serious risk.
 If you already own certificates issued by a trusted CA, then you can reconfigure the nginx to use them. The process is similar to
 how you set up HTTPS on localhost.
 
-If you do not own certificates but have your own domain then you can use the [https://letsencrypt.org/](Let's Encrypt) Certificate Authority. We recommend
+If you do not own certificates but have your own domain then you can use the [Let's Encrypt](https://letsencrypt.org/) Certificate Authority. We recommend
 that you switch the base image in the [Dockerfile](./Dockerfile) and use the [nginx-certbot](https://hub.docker.com/r/jonasal/nginx-certbot); this will
 automate the certificate acquisition and renewal process for you.
 

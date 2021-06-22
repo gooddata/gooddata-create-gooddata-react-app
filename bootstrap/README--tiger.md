@@ -1,6 +1,6 @@
 ## GoodData.UI Accelerator Toolkit Application
 
-This project was bootstrapped with [GoodData.UI Accelerator Toolkit](https://sdk.gooddata.com/gooddata-ui/docs/ht_create_your_first_visualization_toolkit.html).
+This project was bootstrapped with [GoodData.UI Accelerator Toolkit](https://sdk.gooddata.com/gooddata-ui/docs/create_new_application.html).
 
 -  To start the application on your workstation run the `npm run start` command.
 -  To create a production build run the `npm run build` command.
@@ -69,7 +69,7 @@ then use the exported LDM entities to define the visualizations.
 The export is simple: run the `npm run refresh-md` command.
 
 -  This script will use information from [constants.ts](./src/constants.ts). It will connect to GoodData servers running
-   on the host specified in the `backend` property and [export](https://sdk.gooddata.com/gooddata-ui/docs/gdc_catalog_export.html) MD for the `workspace` of your choice.
+   on the host specified in the `backend` property and [export](https://sdk.gooddata.com/gooddata-ui/docs/export_catalog.html) MD for the `workspace` of your choice.
 
 -  The script will use GoodData.CN API Token for authentication. You need to set the `TIGER_API_TOKEN` env variable with the Token.
 
