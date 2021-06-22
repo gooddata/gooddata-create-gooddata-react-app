@@ -46,6 +46,7 @@ npm run build
 docker build -t your-tag .
 # run the docker image
 docker run \
+    --rm \
     --publish 3000:8080 \
     --name your-name \
     --env BACKEND_HOST="secure.gooddata.com" \
@@ -58,6 +59,39 @@ The meaning of the `docker run` parameters is:
 -   `--publish 3000:8080` – expose the nginx running on port 8080 by default (you can change that if needed by adding `--env PORT=5000`, just make sure you update the `--publish` value accordingly), to port 3000 on your machine.
 -   `--name your-name` – assign a name to the container run.
 -   `--env BACKEND_HOST="secure.gooddata.com"` and `--env BACKEND_URL="https://secure.gooddata.com"` – set the host/URL where the GoodData analytical backend is running respectively. You need to change these values if you host GoodData on a different domain.
+
+**IMPORTANT**: The Docker image is not setup with SSL certificates and thus by default offers no support for HTTPS. Read on to learn more.
+
+##### HTTPS on localhost
+
+If you intend to use the Docker image on localhost and you need support for HTTPS, then you can use self-signed certificates.
+
+First generate the certificate and private key and store them in the `docker` directory.
+
+```bash
+cd docker
+openssl req -x509 -out localhost.crt -keyout localhost.key \
+  -newkey rsa:2048 -nodes -sha256 \
+  -subj '/CN=localhost' -extensions EXT -config <( \
+   printf "[dn]\nCN=localhost\n[req]\ndistinguished_name = dn\n[EXT]\nsubjectAltName=DNS:localhost\nkeyUsage=digitalSignature\nextendedKeyUsage=serverAuth")
+```
+
+Then edit the [Dockerfile](./Dockerfile) and [docker/nginx.conf.template](./docker/nginx.conf.template) and uncomment the marked-up lines.
+
+##### HTTPS in production
+
+If you plan on hosting your application on platforms such as Heroku that solve the HTTPS transport and do the SSL termination
+for you, then you do not have to set up anything - this image is good to go.
+
+**IMPORTANT**: If your hosting does not provide SSL termination then we strongly recommend to not use this image as is. Your data or other
+sensitive information will be at serious risk.
+
+If you already own certificates issued by a trusted CA, then you can reconfigure the nginx to use them. The process is similar to
+how you set up HTTPS on localhost.
+
+If you do not own certificates but have your own domain then you can use the [https://letsencrypt.org/](Let's Encrypt) Certificate Authority. We recommend
+that you switch the base image in the [Dockerfile](./Dockerfile) and use the [nginx-certbot](https://hub.docker.com/r/jonasal/nginx-certbot); this will
+automate the certificate acquisition and renewal process for you.
 
 #### Building and deploying manually
 

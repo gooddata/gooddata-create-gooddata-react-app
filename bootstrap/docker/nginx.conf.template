@@ -31,7 +31,20 @@ map $sent_http_content_type $expires {
 }
 
 server {
+  #
+  # Comment this out if you are setting up HTTPS for localhost
+  #
   listen ${PORT};
+
+  #
+  # Uncomment the lines below if you are setting up HTTPS for localhost
+  #
+  # listen ${PORT} ssl;
+  #
+  # server_name  localhost;
+  # ssl_certificate /etc/ssl/certs/localhost.crt;
+  # ssl_certificate_key /etc/ssl/private/localhost.key;
+  #
 
   root   /usr/share/nginx/html;
   index  index.html;
