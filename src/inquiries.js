@@ -35,10 +35,15 @@ export const inquireHostname = isBear =>
                 when: () => isBear,
             },
             {
-                message: "Insert your hostname",
+                message: "Insert your hostname. Protocol defaults to https if none is provided.",
                 name: "hostname",
                 type: "input",
                 when: ({ hostname }) => hostname === "WHITE_LABELLED" || !isBear,
+                validate: input => {
+                    return input.indexOf("http://") > -1 && isBear
+                        ? "Provide hostname with a secure https protocol or no protocol at all."
+                        : true;
+                },
             },
         ])
         .then(value => value.hostname);
