@@ -56,11 +56,11 @@ export const inquireBackend = () =>
             type: "list",
             choices: [
                 {
-                    name: "SaaS (Bear)",
+                    name: "SaaS (codename 'Bear')",
                     value: "bear",
                 },
                 {
-                    name: "Gooddata.CN (Tiger)",
+                    name: "Gooddata.CN (codename 'Tiger')",
                     value: "tiger",
                 },
             ],
