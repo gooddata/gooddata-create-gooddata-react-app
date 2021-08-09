@@ -48,6 +48,25 @@ export const inquireHostname = isBear =>
         ])
         .then(value => value.hostname);
 
+export const inquireBackend = () =>
+    inquirer
+        .prompt({
+            message: "What is your application desired platform (backend)?",
+            name: "backend",
+            type: "list",
+            choices: [
+                {
+                    name: "SaaS (codename 'Bear')",
+                    value: "bear",
+                },
+                {
+                    name: "Gooddata.CN (codename 'Tiger')",
+                    value: "tiger",
+                },
+            ],
+        })
+        .then(value => value.backend);
+
 export const inquireFlavor = () =>
     inquirer
         .prompt({
@@ -56,12 +75,12 @@ export const inquireFlavor = () =>
             type: "list",
             choices: [
                 {
-                    name: "JavaScript",
-                    value: "js",
-                },
-                {
                     name: "TypeScript",
                     value: "ts",
+                },
+                {
+                    name: "JavaScript",
+                    value: "js",
                 },
             ],
         })
