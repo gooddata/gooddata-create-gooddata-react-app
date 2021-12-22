@@ -3,7 +3,7 @@ import kebabCase from "lodash/kebabCase";
 
 export const DEFAULT_SCHEMA = "https";
 
-export const getSchema = hostname => {
+export const getSchema = (hostname) => {
     const matches = /^(\w+):\/\//i.exec(hostname);
 
     if (!(matches && matches[1])) {
@@ -13,7 +13,7 @@ export const getSchema = hostname => {
     return matches[1];
 };
 
-export const getHostnameWithSchema = hostname =>
+export const getHostnameWithSchema = (hostname) =>
     getSchema(hostname) ? hostname : `${DEFAULT_SCHEMA}://${hostname}`;
 
 export const sanitizeAppName = kebabCase;

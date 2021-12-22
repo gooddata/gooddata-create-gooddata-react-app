@@ -10,14 +10,17 @@ export const parseReplacementSpecTree = (currentPath, specTreeOrReplacements) =>
               parseReplacementSpecTree(path.join(currentPath, key), value),
           );
 
-const processFile = (readFile, writeFile) => async ({ file, replacements }) => {
-    const contents = await readFile(file, { encoding: "utf8", flag: "r" });
-    const replaced = replacements.reduce(
-        (acc, { regex, value, apply }) => (apply || apply === undefined ? acc.replace(regex, value) : acc),
-        contents,
-    );
-    return writeFile(file, replaced, { encoding: "utf8", flag: "w" });
-};
+const processFile =
+    (readFile, writeFile) =>
+    async ({ file, replacements }) => {
+        const contents = await readFile(file, { encoding: "utf8", flag: "r" });
+        const replaced = replacements.reduce(
+            (acc, { regex, value, apply }) =>
+                apply || apply === undefined ? acc.replace(regex, value) : acc,
+            contents,
+        );
+        return writeFile(file, replaced, { encoding: "utf8", flag: "w" });
+    };
 
 const replaceInFiles = async (
     initialPath,

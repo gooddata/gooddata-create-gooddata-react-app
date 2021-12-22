@@ -8,9 +8,9 @@ export const inquireName = () =>
             name: "name",
             type: "input",
         })
-        .then(value => value.name);
+        .then((value) => value.name);
 
-export const inquireHostname = isBear =>
+export const inquireHostname = (isBear) =>
     inquirer
         .prompt([
             {
@@ -39,14 +39,14 @@ export const inquireHostname = isBear =>
                 name: "hostnameCustom", // must have different name that the previous one, otherwise it will always be skipped
                 type: "input",
                 when: ({ hostname }) => hostname === "WHITE_LABELLED" || !isBear,
-                validate: input => {
+                validate: (input) => {
                     return input.indexOf("http://") > -1 && isBear
                         ? "Provide hostname with a secure https protocol or no protocol at all."
                         : true;
                 },
             },
         ])
-        .then(value => {
+        .then((value) => {
             // the custom hostname must take precedence
             return value.hostnameCustom || value.hostname;
         });
@@ -68,7 +68,7 @@ export const inquireBackend = () =>
                 },
             ],
         })
-        .then(value => value.backend);
+        .then((value) => value.backend);
 
 export const inquireFlavor = () =>
     inquirer
@@ -87,4 +87,4 @@ export const inquireFlavor = () =>
                 },
             ],
         })
-        .then(value => value.flavor);
+        .then((value) => value.flavor);

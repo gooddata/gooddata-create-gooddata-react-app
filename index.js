@@ -5,7 +5,7 @@ import main from "./src/main";
 import getBootstrapDataFromCli from "./src/cliBootstrap";
 import getBootstrapDataFromConfig from "./src/configBootstrap";
 
-process.on("unhandledRejection", err => console.error(err.message));
+process.on("unhandledRejection", (err) => console.error(err.message));
 
 program
     .name("@gooddata/create-react-app")
@@ -17,7 +17,7 @@ program
     .option("--verbose", "output additional logs, useful mainly for debugging and bug reports")
     .option("--backend <backend>", "setting backend of the app (default: bear backend)")
     .option("--flavor <flavor>", "language flavor of the app, either TypeScript (ts) or JavaScript (js)")
-    .action(async appName => {
+    .action(async (appName) => {
         const bootstrapFunc = program.config ? getBootstrapDataFromConfig : getBootstrapDataFromCli;
         const bootstrapData = await bootstrapFunc(appName, program);
         return main({

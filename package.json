@@ -57,7 +57,7 @@
     "esm": "^3.2.25",
     "jest": "27.4.5",
     "jest-junit": "^13.0.0",
-    "prettier": "2.2.1",
+    "prettier": "2.5.1",
     "rimraf": "^2.6.3",
     "rollup": "^1.16.4",
     "rollup-plugin-terser": "^5.1.0"
