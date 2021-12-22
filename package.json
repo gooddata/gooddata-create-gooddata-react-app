@@ -46,10 +46,10 @@
     "tar": "^4.4.10"
   },
   "devDependencies": {
-    "@babel/cli": "^7.13.0",
+    "@babel/cli": "^7.16.0",
     "@babel/core": "^7.13.8",
-    "@babel/plugin-transform-typescript": "^7.13.0",
-    "@babel/preset-env": "^7.13.9",
+    "@babel/plugin-transform-typescript": "^7.16.1",
+    "@babel/preset-env": "^7.16.5",
     "@gooddata/eslint-config": "^1.0.0",
     "cross-env": "^5.2.0",
     "eslint": "^4.19.1",
