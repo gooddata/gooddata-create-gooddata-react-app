@@ -16,7 +16,7 @@ const getTargetDirPath = (sanitizedAppName, targetDir) =>
 
 const copyAppFiles = async ({ targetDir, flavor }) => {
     const tarFile = flavor === "js" ? "bootstrap.js.tgz" : "bootstrap.ts.tgz";
-    mkdirp(targetDir);
+    await mkdirp(targetDir);
     return tar.x({
         file: path.resolve(__dirname, tarFile),
         strip: 1,
@@ -24,7 +24,7 @@ const copyAppFiles = async ({ targetDir, flavor }) => {
     });
 };
 
-const setupApp = async (bootstrapData) => {
+const setupApp = async bootstrapData => {
     await performTemplateReplacements(bootstrapData);
     await processTigerFiles(bootstrapData.targetDir, bootstrapData.backend === "tiger");
     await removeBackendInvalidFiles(bootstrapData.targetDir, bootstrapData.backend === "tiger");
@@ -61,7 +61,7 @@ const outputFinalInstructions = ({ sanitizedAppName, install, targetDir }) => {
     console.log(chalk.cyan("    yarn start"));
 };
 
-const main = async (partialBootstrapData) => {
+const main = async partialBootstrapData => {
     const bootstrapData = {
         ...partialBootstrapData,
         targetDir: getTargetDirPath(partialBootstrapData.sanitizedAppName, partialBootstrapData.targetDir),

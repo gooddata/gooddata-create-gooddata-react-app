@@ -42,7 +42,7 @@
     "inquirer": "^6.3.1",
     "listr": "^0.14.3",
     "lodash": "^4.17.15",
-    "mkdirp": "0.5.5",
+    "mkdirp": "^1.0.4",
     "tar": "^6.1.11"
   },
   "devDependencies": {
