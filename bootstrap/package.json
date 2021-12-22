@@ -50,11 +50,11 @@
         ]
     },
     "devDependencies": {
-        "@babel/core": "^7.13.8",
-        "@babel/plugin-transform-typescript": "^7.9.6",
-        "@babel/preset-env": "^7.13.9",
-        "@babel/preset-typescript": "^7.13.0",
-        "@babel/register": "^7.13.8",
+        "@babel/core": "^7.16.5",
+        "@babel/plugin-transform-typescript": "^7.16.1",
+        "@babel/preset-env": "^7.16.5",
+        "@babel/preset-typescript": "^7.16.5",
+        "@babel/register": "^7.16.5",
         "@gooddata/catalog-export": "^8.7.0",
         "@types/enzyme": "^3.10.8",
         "@types/express": "^4.17.11",
