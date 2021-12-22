@@ -18,7 +18,7 @@ export default {
         "fs-extra",
         "globby",
         "inquirer",
-        "listr",
+        "listr2",
         "lodash/flatMap",
         "lodash/kebabCase",
         "mkdirp",

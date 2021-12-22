@@ -2,7 +2,7 @@
 import chalk from "chalk";
 import path from "path";
 import execa from "execa";
-import Listr from "listr";
+import { Listr } from "listr2";
 import mkdirp from "mkdirp";
 import tar from "tar";
 
