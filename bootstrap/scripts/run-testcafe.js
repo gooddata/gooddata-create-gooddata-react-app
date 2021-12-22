@@ -17,7 +17,7 @@ const CHROME_LOCAL = `chrome --window-size='${WINDOW_WIDTH},${WINDOW_HEIGHT}' --
 let testcafe = null;
 
 createTestCafe("localhost")
-    .then(tc => {
+    .then((tc) => {
         testcafe = tc;
         const runner = testcafe.createRunner();
         const mode = process.env.TEST_MODE;
@@ -34,21 +34,18 @@ createTestCafe("localhost")
         }
 
         console.log(`Starting TestCafe in local mode with concurrency ${LOCAL_CONCURRENCY}.`);
-        return runnerBase
-            .browsers([CHROME_HEADLESS_LOCAL])
-            .concurrency(LOCAL_CONCURRENCY)
-            .run({
-                assertionTimeout: ASSERTION_TIMEOUT,
-                selectorTimeout: SELECTOR_TIMEOUT,
-            });
+        return runnerBase.browsers([CHROME_HEADLESS_LOCAL]).concurrency(LOCAL_CONCURRENCY).run({
+            assertionTimeout: ASSERTION_TIMEOUT,
+            selectorTimeout: SELECTOR_TIMEOUT,
+        });
     })
-    .then(failedCount => {
+    .then((failedCount) => {
         testcafe.close();
         if (failedCount > 0) {
             process.exit(1);
         }
     })
-    .catch(e => {
+    .catch((e) => {
         console.error(e.message);
         testcafe.close();
         process.exit(1);

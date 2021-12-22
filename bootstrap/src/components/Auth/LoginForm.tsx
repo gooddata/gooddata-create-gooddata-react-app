@@ -23,17 +23,9 @@ export interface MyFormProps extends FormValues, RouteComponentProps {
     loginError?: string;
 }
 
-const LoginFormComponent: React.FC<MyFormProps & FormikProps<FormValues>> = props => {
-    const {
-        values,
-        touched,
-        errors,
-        isSubmitting,
-        handleChange,
-        handleBlur,
-        handleSubmit,
-        loginError,
-    } = props;
+const LoginFormComponent: React.FC<MyFormProps & FormikProps<FormValues>> = (props) => {
+    const { values, touched, errors, isSubmitting, handleChange, handleBlur, handleSubmit, loginError } =
+        props;
 
     return (
         <>
@@ -121,15 +113,13 @@ const formikConnector = withFormik<MyFormProps, FormValues>({
         password,
     }),
     validationSchema: object().shape({
-        email: string()
-            .email("Invalid e-mail address")
-            .required("E-mail is required"),
+        email: string().email("Invalid e-mail address").required("E-mail is required"),
         password: string().required("Password is required"),
     }),
     handleSubmit: ({ email, password }, { props: { login, history }, setFieldError, setSubmitting }) => {
         return login(email, password).then(
             () => history.push("/"),
-            error => {
+            (error) => {
                 setSubmitting(false);
                 if (error.response && error.response.status === 401) {
                     setFieldError("password", "E-mail or password is invalid");

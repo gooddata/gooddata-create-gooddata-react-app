@@ -14,12 +14,12 @@ const isInList = (workspaceId: string, workspaceList: IWorkspaceDescriptor[]) =>
     return (
         workspaceId &&
         workspaceList &&
-        workspaceList.some(workspace => getWorkspaceId(workspace) === workspace.id)
+        workspaceList.some((workspace) => getWorkspaceId(workspace) === workspace.id)
     );
 };
 
 const workspaceOptions = (workspaces: IWorkspaceDescriptor[]) =>
-    workspaces.map(workspace => {
+    workspaces.map((workspace) => {
         const constWorkspace = getWorkspaceId(workspace);
         return (
             <option value={constWorkspace} key={constWorkspace}>
@@ -45,7 +45,7 @@ const WorkspacePicker: React.FC = () => {
         <div className={styles.WorkspacePickerContainer}>
             <select
                 value={workspace}
-                onChange={event => setWorkspace(event.target.value)}
+                onChange={(event) => setWorkspace(event.target.value)}
                 className={styles.WorkspacePicker}
             >
                 {!isInList(workspace, workspaceList.data) && (
