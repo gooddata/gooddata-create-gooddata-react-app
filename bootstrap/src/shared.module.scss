@@ -32,7 +32,7 @@
     color: $color-text-muted;
     border-top: 1px solid $color-border;
     padding-top: 0.25rem;
-    margin-top: $spacing/2;
+    margin-top: $spacing * 0.5;
 }
 
 .Header {
@@ -112,7 +112,7 @@
     right: 0;
     top: 0;
     margin: 0;
-    padding: $spacing/4;
+    padding: $spacing * 0.25;
 }
 
 .MainStretch {

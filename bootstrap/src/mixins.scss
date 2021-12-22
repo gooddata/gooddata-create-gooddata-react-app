@@ -16,5 +16,5 @@
 }
 
 @mixin box-shadow {
-    box-shadow: 0 $spacing/4 $spacing/4 0 transparentize($color-paper-inverse, 0.9);
+    box-shadow: 0 $spacing * 0.25 $spacing * 0.25 0 transparentize($color-paper-inverse, 0.9);
 }
