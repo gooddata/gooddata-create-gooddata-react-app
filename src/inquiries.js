@@ -32,11 +32,11 @@ export const inquireHostname = isBear =>
                         value: "WHITE_LABELLED",
                     },
                 ],
-                when: () => isBear,
+                when: isBear,
             },
             {
                 message: "Insert your hostname. Protocol defaults to https if none is provided.",
-                name: "hostname",
+                name: "hostnameCustom", // must have different name that the previous one, otherwise it will always be skipped
                 type: "input",
                 when: ({ hostname }) => hostname === "WHITE_LABELLED" || !isBear,
                 validate: input => {
@@ -46,7 +46,10 @@ export const inquireHostname = isBear =>
                 },
             },
         ])
-        .then(value => value.hostname);
+        .then(value => {
+            // the custom hostname must take precedence
+            return value.hostnameCustom || value.hostname;
+        });
 
 export const inquireBackend = () =>
     inquirer
