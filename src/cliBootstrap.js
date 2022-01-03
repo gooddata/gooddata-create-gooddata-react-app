@@ -2,7 +2,7 @@
 import { inquireName, inquireHostname, inquireFlavor, inquireBackend } from "./inquiries";
 import { sanitizeAppName } from "./stringUtils";
 
-const getSanitizedAppName = async nameFromCli => {
+const getSanitizedAppName = async (nameFromCli) => {
     const name = nameFromCli || (await inquireName());
 
     if (!name) {
@@ -12,12 +12,12 @@ const getSanitizedAppName = async nameFromCli => {
     return sanitizeAppName(name);
 };
 
-const getSanitizedFlavor = async flavor => {
+const getSanitizedFlavor = async (flavor) => {
     const sanitizedFlavor = flavor !== "ts" && flavor !== "js" ? undefined : flavor;
     return sanitizedFlavor || inquireFlavor();
 };
 
-const getSanitizedBackend = async backend => {
+const getSanitizedBackend = async (backend) => {
     const sanitizedBackend = backend !== "bear" && backend !== "tiger" ? undefined : backend;
     return sanitizedBackend || inquireBackend();
 };

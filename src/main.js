@@ -2,7 +2,7 @@
 import chalk from "chalk";
 import path from "path";
 import execa from "execa";
-import Listr from "listr";
+import { Listr } from "listr2";
 import mkdirp from "mkdirp";
 import tar from "tar";
 
@@ -16,7 +16,7 @@ const getTargetDirPath = (sanitizedAppName, targetDir) =>
 
 const copyAppFiles = async ({ targetDir, flavor }) => {
     const tarFile = flavor === "js" ? "bootstrap.js.tgz" : "bootstrap.ts.tgz";
-    mkdirp(targetDir);
+    await mkdirp(targetDir);
     return tar.x({
         file: path.resolve(__dirname, tarFile),
         strip: 1,

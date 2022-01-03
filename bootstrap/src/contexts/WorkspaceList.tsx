@@ -20,7 +20,7 @@ const WorkspaceListContext = createContext<IWorkspaceListContext>({
 
 const filterWorkspaces = (workspaces: IWorkspaceDescriptor[], filter?: RegExp) => {
     if (filter) {
-        return workspaces.filter(workspace => workspace.title.match(filter));
+        return workspaces.filter((workspace) => workspace.title.match(filter));
     }
     return workspaces;
 };
@@ -53,7 +53,7 @@ export const WorkspaceListProvider: React.FC = ({ children }) => {
 
                 while (!isEmpty(page.items)) {
                     const allDescriptors = await Promise.all(
-                        page.items.map(workspace => workspace.getDescriptor()),
+                        page.items.map((workspace) => workspace.getDescriptor()),
                     );
 
                     workspaces.push(...allDescriptors);

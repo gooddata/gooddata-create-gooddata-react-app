@@ -43,7 +43,7 @@
 }
 
 .Centered {
-    margin: 0 $spacing / 2;
+    margin: 0 $spacing * 0.5;
     padding: 0 $spacing;
     display: flex;
     flex: 0 0 auto;
@@ -52,7 +52,7 @@
 }
 
 .Link {
-    margin: 0 $spacing / 2;
+    margin: 0 $spacing * 0.5;
     padding: 0 $spacing;
     display: flex;
     flex: 0 0 auto;
@@ -115,7 +115,7 @@
 
     .Link,
     .Centered {
-        padding-bottom: $spacing/4;
+        padding-bottom: $spacing * 0.25;
         margin-top: $spacing;
     }
 }

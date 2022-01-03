@@ -9,7 +9,7 @@ require("@babel/register")({
 const constants = require("./constants.ts");
 
 const domain = constants.backend;
-module.exports = function(app) {
+module.exports = function (app) {
     app.use(
         proxy("/gdc", {
             changeOrigin: true,
@@ -22,7 +22,7 @@ module.exports = function(app) {
                 // This is essential for Tiger backends. To ensure 401 flies when not authenticated and using proxy
                 "X-Requested-With": "XMLHttpRequest",
             },
-            onProxyReq: function(proxyReq, _req, _res) {
+            onProxyReq: function (proxyReq, _req, _res) {
                 proxyReq.setHeader("accept-encoding", "identity");
             },
         }),
