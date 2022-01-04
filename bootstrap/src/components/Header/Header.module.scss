@@ -6,11 +6,11 @@
     top: 0px;
     right: 0px;
     left: 0px;
-    min-height: 4em;
+    min-height: $header-height;
     display: flex;
     flex-direction: row;
     align-items: stretch;
-    z-index: 100;
+    z-index: 101; // must be higher than z-index of the sdk-ui-dashboard header (which is 100 currently)
     padding: 0;
     color: #4a4a4a;
     background: #fdfdfd;
