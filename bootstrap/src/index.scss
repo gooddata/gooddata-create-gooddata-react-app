@@ -34,8 +34,3 @@ h3 {
     margin-top: 2em;
     margin-bottom: 0.25em;
 }
-
-.gd-dash-header-wrapper {
-    // offset the header so that the dashboard top bar is not hidden behind it when scrolling
-    top: $header-height !important;
-}
