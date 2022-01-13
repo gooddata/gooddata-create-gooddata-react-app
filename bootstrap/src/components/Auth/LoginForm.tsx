@@ -13,6 +13,8 @@ import Button from "../controls/Button";
 import sharedStyles from "../../shared.module.scss";
 import styles from "./LoginForm.module.scss";
 
+import logoUri from "../../media/logo-new.png";
+
 export interface FormValues {
     email: string;
     password: string;
@@ -32,12 +34,7 @@ const LoginFormComponent: React.FC<MyFormProps & FormikProps<FormValues>> = (pro
             {loginError && <div className={styles.Error}>{loginError}</div>}
             <form onSubmit={handleSubmit} className={cx(styles.Login, "s-login-form")}>
                 <div className={styles.LoginLogo}>
-                    <img
-                        src="https://secure.gooddata.com/images/logo-new.png"
-                        alt="GoodData"
-                        className={styles.LoginLogo}
-                        style={{ height: 70 }}
-                    />
+                    <img src={logoUri} alt="GoodData" className={styles.LoginLogo} style={{ height: 70 }} />
                 </div>
                 <h2>
                     Please sign in to the{" "}
