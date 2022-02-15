@@ -17,8 +17,7 @@ module.exports = function (app) {
             secure: false,
             target: domain,
             headers: {
-                host: domain.replace(/https:\/\//, ""),
-                origin: null,
+                host: domain.replace(/^https:\/\//, ""),
                 // This is essential for Tiger backends. To ensure 401 flies when not authenticated and using proxy
                 "X-Requested-With": "XMLHttpRequest",
             },
