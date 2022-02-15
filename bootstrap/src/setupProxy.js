@@ -22,6 +22,8 @@ module.exports = function (app) {
                 "X-Requested-With": "XMLHttpRequest",
             },
             onProxyReq: function (proxyReq, _req, _res) {
+                // changeOrigin: true does not work well for POST requests, so remove origin like this to be safe
+                proxyReq.removeHeader("origin");
                 proxyReq.setHeader("accept-encoding", "identity");
             },
         }),
