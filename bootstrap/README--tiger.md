@@ -71,7 +71,7 @@ The export is simple: run the `npm run refresh-md` command.
 -  This script will use information from [constants.ts](./src/constants.ts). It will connect to GoodData servers running
    on the host specified in the `backend` property and [export](https://sdk.gooddata.com/gooddata-ui/docs/export_catalog.html) MD for the `workspace` of your choice.
 
--  The script will use GoodData.CN API Token for authentication. You need to set the `TIGER_API_TOKEN` env variable with the Token.
+-  The script will use GoodData.CN API Token for authentication. You need to set the `REACT_APP_DEV_TIGER_API_TOKEN` env variable with the Token.
 
 Once done, you will find that the [src/md/full.ts](src/md/full.ts) file will be populated with attribute and measure definitions
 matching the MD defined in your workspace. You can then use these generated definitions as inputs to the different
