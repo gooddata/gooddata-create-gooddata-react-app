@@ -81,5 +81,8 @@
         "hooks": {
             "pre-commit": "pretty-quick --staged --pattern \"**/*.*(js|jsx|ts|tsx|scss)\""
         }
+    },
+    "engines": {
+        "node": ">=12.15.0"
     }
 }
