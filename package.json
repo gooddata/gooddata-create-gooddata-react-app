@@ -69,5 +69,8 @@
     "transformIgnorePatterns": [
       "<rootDir>/node_modules/"
     ]
+  },
+  "engines": {
+    "node": ">=12.15.0"
   }
 }
