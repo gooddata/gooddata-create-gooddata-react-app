@@ -66,10 +66,10 @@ yarn global remove @gooddata/create-gooddata-react-app
 
 ### Force npx to use the latest version
 
-You can force `npx` to use latest version of the tool by running
+You can force `npx` to use latest version of the tool by appending the `@latest` to the `@gooddata/create-gooddata-react-app` like
 
 ```bash
-npx --ignore-existing @gooddata/create-gooddata-react-app my-app
+npx @gooddata/create-gooddata-react-app@latest my-app
 ```
 
 ### Enable verbose output
