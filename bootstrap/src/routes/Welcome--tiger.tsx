@@ -61,8 +61,13 @@ const Welcome: React.FC = () => {
                 <li>
                     In <Code>Home.tsx</Code>, replace <Code>Place your content here</Code> with actual code.
                     <p>
-                        For example, <Code> {`<InsightView insight={Md.Insights.Headline}/>`}</Code>. We
-                        access the <Code>Headline</Code> identifier through the generated <Code>MD</Code>
+                        For example,{" "}
+                        <Code>
+                            {`<div style={{ height: 400, width: 600 }}>
+    <InsightView insight={Md.Insights.Headline}/>
+</div>`}
+                        </Code>
+                        . We access the <Code>Headline</Code> identifier through the generated <Code>MD</Code>
                         objects.
                         <br />
                         The main benefit of utilizing the generated MD objects is that you have the access to
