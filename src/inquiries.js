@@ -63,7 +63,7 @@ export const inquireBackend = () =>
                     value: "bear",
                 },
                 {
-                    name: "Gooddata.CN (codename 'Tiger')",
+                    name: "GoodData Cloud or Gooddata.CN (codename 'Tiger')",
                     value: "tiger",
                 },
             ],
