@@ -34,7 +34,7 @@ const Welcome: React.FC = () => {
 
             <h2>Your new GoodData-powered app is ready!</h2>
             <p>
-                Now, let’s take one more step and set up your home dashboard with a test headline report
+                Now, let's take one more step and set up your home dashboard with a test headline report
                 widget. This will help verify that everything is set up correctly.
             </p>
 

@@ -8,11 +8,11 @@ This project was bootstrapped with [GoodData.UI Accelerator Toolkit](https://sdk
 This project uses the [Create React App](https://github.com/facebook/create-react-app) (CRA) scripts and infrastructure, you
 can find the original documentation for CRA in [HOWTO.md](./HOWTO.md).
 
-This application uses the GoodData.CN as a backend. Please note, that in the developer tools context, we refer to the GoodData.CN using the codename `tiger` (for example in the npm package names and variable names).
+This application uses GoodData Cloud or GoodData.CN as a backend. Please note, that in the developer tools context, we refer to GoodData Cloud and GoodData.CN using the codename `tiger` (for example in the npm package names and variable names).
 
 ### Authentication and CORS
 
-When building and deploying your application on top of GoodData.CN backend you will sooner or later run into a delicate
+When building and deploying your application on top of GoodData Cloud/GoodData.CN backend you will sooner or later run into a delicate
 topic of [Cross Origin Resource Sharing](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) (CORS) combined
 with Authentication.
 
@@ -24,17 +24,17 @@ page to learn how to correctly set environment variables for the application.**
 
 #### Production Deployment
 
-Application is always set to use GoodData.CN's OIDC authentication flow. As soon as the application finds that the session
+Application is always set to use GoodData Cloud/GoodData.CN's OIDC authentication flow. As soon as the application finds that the session
 is not authenticated, the app will redirect to page where the flow starts.
 
--  If you host the application on the same origin as the GoodData.CN installation then you do not have to change the
+-  If you host the application on the same origin as the GoodData Cloud instance/GoodData.CN installation then you do not have to change the
    default configuration in any way.
 
--  If you host the application on a different origin than the GoodData.CN installation, then you must set the
+-  If you host the application on a different origin than the GoodData Cloud instance/GoodData.CN installation, then you must set the
    `REACT_APP_SET_HOSTNAME` env variable to `true`. This will ensure that wherever you deploy your application,
    it will always connect to server specified in [constants.ts](./src/constants.ts) `backend` property.
 
-   **This requires correct CORS setup of your GoodData.CN installation**
+   **This requires correct CORS setup of your GoodData Cloud instance/GoodData.CN installation**
 
 #### Development on your workstation
 
@@ -44,18 +44,18 @@ Application may use GoodData.CN's OIDC authentication flow or use API token. The
 *  In the API Token authentication setup, the application will be sending the token from the very first request. If the token is invalid the application
    will encounter 401 error that it does not know how to handle and will crash.
 
-The choice of the authentication method depends on your GoodData.CN installation setup:
+The choice of the authentication method depends on your GoodData Cloud instance/GoodData.CN installation setup:
 
--  If your GoodData.CN installation is set up with CORS and allows the `https://localhost:3000` origin, then you can use the
+-  If your GoodData Cloud instance/GoodData.CN installation is set up with CORS and allows the `https://localhost:3000` origin, then you can use the
    OIDC authentication flow even while  developing the application on your workstation. To do this, set the `REACT_APP_SET_HOSTNAME` env
    variable to `true`.
 
--  If your GoodData.CN installation does not allow cross origin requests, then you must use API token authentication method. To
+-  If your GoodData Cloud instance/GoodData.CN installation does not allow cross origin requests, then you must use API token authentication method. To
    enable this make sure that the `REACT_APP_SET_HOSTNAME` is not set and that the `REACT_APP_DEV_TIGER_API_TOKEN` is
    set and contains a valid API Token.
 
-   In this setup, the application will not communicate with the GoodData.CN backend directly. It will use a 'development proxy'
-   running inside webpack dev server. Requests to all `/api` resources will be proxied to your GoodData.CN installation running at
+   In this setup, the application will not communicate with the GoodData Cloud/GoodData.CN backend directly. It will use a 'development proxy'
+   running inside webpack dev server. Requests to all `/api` resources will be proxied to your GoodData Cloud instance/GoodData.CN installation running at
    location specified in [constants.ts](./src/constants.ts) `backend` property.
 
    **IMPORTANT: If you have to go with the API token, make sure you specify the token in the `.env.development.local` file. This ensures
@@ -71,7 +71,7 @@ The export is simple: run the `npm run refresh-md` command.
 -  This script will use information from [constants.ts](./src/constants.ts). It will connect to GoodData servers running
    on the host specified in the `backend` property and [export](https://sdk.gooddata.com/gooddata-ui/docs/export_catalog.html) MD for the `workspace` of your choice.
 
--  The script will use GoodData.CN API Token for authentication. You need to set the `TIGER_API_TOKEN` env variable with the Token.
+-  The script will use GoodData Cloud/GoodData.CN API Token for authentication. You need to set the `TIGER_API_TOKEN` env variable with the Token.
 
 Once done, you will find that the [src/md/full.ts](src/md/full.ts) file will be populated with attribute and measure definitions
 matching the MD defined in your workspace. You can then use these generated definitions as inputs to the different
