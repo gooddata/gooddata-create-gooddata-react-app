@@ -79,3 +79,7 @@ You can increase the logging level of `@gooddata/create-gooddata-react-app my-ap
 ```bash
 npx @gooddata/create-gooddata-react-app my-app --verbose
 ```
+
+#### Internet Explorer
+
+Internet Explorer 11 is [no longer supported](https://help.gooddata.com/pages/viewpage.action?pageId=86775029).
