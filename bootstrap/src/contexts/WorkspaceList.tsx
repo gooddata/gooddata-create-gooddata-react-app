@@ -66,7 +66,7 @@ export const WorkspaceListProvider: React.FC = ({ children }) => {
                     data: filteredWorkspaces,
                 });
                 setFirstWorkspace(getFirstWorkspace(filteredWorkspaces));
-            } catch (error) {
+            } catch (error: any) {
                 setWorkspaceListState({ isLoading: false, error });
             }
         };

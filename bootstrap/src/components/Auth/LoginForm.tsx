@@ -1,7 +1,7 @@
 import React from "react";
 import cx from "classnames";
 import { withRouter, RouteComponentProps } from "react-router-dom";
-import { withFormik, FormikProps } from "formik";
+import { useFormik } from "formik";
 import { string, object } from "yup";
 
 import { backend } from "../../constants";
@@ -15,23 +15,41 @@ import styles from "./LoginForm.module.scss";
 
 import logoUri from "../../media/logo-new.png";
 
-export interface FormValues {
+export interface MyFormProps extends RouteComponentProps {
+    login: (username: string, password: string) => Promise<void>;
+    loginError?: string;
     email: string;
     password: string;
 }
 
-export interface MyFormProps extends FormValues, RouteComponentProps {
-    login: (username: string, password: string) => Promise<void>;
-    loginError?: string;
-}
-
-const LoginFormComponent: React.FC<MyFormProps & FormikProps<FormValues>> = (props) => {
-    const { values, touched, errors, isSubmitting, handleChange, handleBlur, handleSubmit, loginError } =
-        props;
+const LoginFormComponent: React.FC<MyFormProps> = (props) => {
+    const { values, touched, errors, isSubmitting, handleChange, handleBlur, handleSubmit } = useFormik({
+        initialValues: {
+            email: props.email,
+            password: props.password,
+        },
+        validationSchema: object().shape({
+            email: string().email("Invalid e-mail address").required("E-mail is required"),
+            password: string().required("Password is required"),
+        }),
+        onSubmit: ({ email, password }, { setSubmitting, setFieldError }) => {
+            return props.login(email, password).then(
+                () => props.history.push("/"),
+                (error) => {
+                    setSubmitting(false);
+                    if (error.response && error.response.status === 401) {
+                        setFieldError("password", "E-mail or password is invalid");
+                    } else {
+                        setFieldError("password", "Unknown error");
+                    }
+                },
+            );
+        },
+    });
 
     return (
         <>
-            {loginError && <div className={styles.Error}>{loginError}</div>}
+            {props.loginError && <div className={styles.Error}>{props.loginError}</div>}
             <form onSubmit={handleSubmit} className={cx(styles.Login, "s-login-form")}>
                 <div className={styles.LoginLogo}>
                     <img src={logoUri} alt="GoodData" className={styles.LoginLogo} style={{ height: 70 }} />
@@ -104,28 +122,4 @@ const LoginFormComponent: React.FC<MyFormProps & FormikProps<FormValues>> = (pro
     );
 };
 
-const formikConnector = withFormik<MyFormProps, FormValues>({
-    mapPropsToValues: ({ email = "", password = "" }) => ({
-        email,
-        password,
-    }),
-    validationSchema: object().shape({
-        email: string().email("Invalid e-mail address").required("E-mail is required"),
-        password: string().required("Password is required"),
-    }),
-    handleSubmit: ({ email, password }, { props: { login, history }, setFieldError, setSubmitting }) => {
-        return login(email, password).then(
-            () => history.push("/"),
-            (error) => {
-                setSubmitting(false);
-                if (error.response && error.response.status === 401) {
-                    setFieldError("password", "E-mail or password is invalid");
-                } else {
-                    setFieldError("password", "Unknown error");
-                }
-            },
-        );
-    },
-});
-
-export default withRouter(formikConnector(LoginFormComponent));
+export default withRouter(LoginFormComponent);
