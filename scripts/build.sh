@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+shopt -s extglob
 set -e
 
 SCRIPT_PATH="$( cd -- "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )"
@@ -12,17 +13,18 @@ rm -rf build
 
 mkdir dist
 mkdir build
+mkdir build/babel-source
+mkdir build/tar-source
 
 # build dist/index.js
 npm-do rollup -c
 
 # copy bootstrap files without node_modules and build to babel staging area because babel "ignore" option does not work
-rsync -rv \
-  --exclude=node_modules \
-  --exclude=build \
-  --exclude=src/react-app-env.d.ts \
-  bootstrap/ \
-  build/babel-source
+rm -rf bootstrap/build
+rm -rf bootstrap/node_modules
+
+cp -rv bootstrap/ build/babel-source
+rm -f build/babel-source/src/react-app-env.d.ts
 
 # transpile TypeScript files to JavaScript
 npm-do babel --no-babelrc \
@@ -37,14 +39,10 @@ npm-do prettier --write "build/tar-source/**/*" \
   --trailing-comma all
 
 # copy rest of the files that will be packed to JavaScript tar
-rsync -rv \
-  --exclude='node_modules' \
-  --exclude='build' \
-  --exclude='tsconfig.json' \
-  --exclude='*.ts' \
-  --exclude='*.tsx' \
-  bootstrap/ \
-  build/tar-source
+cp -rv bootstrap/ build/tar-source
+rm -rf build/tar-source/**/*.ts
+rm -rf build/tar-source/**/*.tsx
+rm -f build/tar-source/tsconfig.json
 
 # replace TypeScript related content in JavaScript files
 node -r esm "./src/processJavaScriptFiles.js" "${SCRIPT_PATH}/../build/tar-source"
