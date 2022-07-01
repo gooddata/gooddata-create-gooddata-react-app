@@ -1,4 +1,4 @@
-const proxy = require("http-proxy-middleware");
+const { createProxyMiddleware } = require("http-proxy-middleware");
 
 require("@babel/register")({
     presets: ["@babel/preset-typescript", "@babel/preset-env"],
@@ -11,7 +11,8 @@ const constants = require("./constants.ts");
 const domain = constants.backend;
 module.exports = function (app) {
     app.use(
-        proxy("/gdc", {
+        "/gdc",
+        createProxyMiddleware({
             changeOrigin: true,
             cookieDomainRewrite: "localhost",
             secure: false,
@@ -29,14 +30,16 @@ module.exports = function (app) {
         }),
     );
     app.use(
-        proxy("/*.html", {
+        "/*.html",
+        createProxyMiddleware({
             changeOrigin: true,
             secure: false,
             target: domain,
         }),
     );
     app.use(
-        proxy("/packages/*.{js,css}", {
+        "/packages/*.{js,css}",
+        createProxyMiddleware({
             changeOrigin: true,
             secure: false,
             target: domain,

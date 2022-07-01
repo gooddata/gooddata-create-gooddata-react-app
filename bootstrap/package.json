@@ -20,12 +20,12 @@
         "react-helmet": "^6.1.0",
         "react-router-dom": "^5.3.0",
         "react-router-use-location-state": "^2.3.1",
-        "react-scripts": "4.0.3",
+        "react-scripts": "5.0.1",
         "use-location-state": "^2.3.1",
         "yup": "^0.32.9"
     },
     "scripts": {
-        "start": "cross-env HTTPS=true PORT=3000 react-scripts start",
+        "start": "cross-env HTTPS=true PORT=3000 GENERATE_SOURCEMAP=false react-scripts start",
         "build": "react-scripts build",
         "build-with-explicit-hostname": "cross-env REACT_APP_SET_HOSTNAME=true npm run build",
         "eject": "react-scripts eject",

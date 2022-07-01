@@ -1,4 +1,3 @@
-import React from "react";
 import { BackendProvider } from "@gooddata/sdk-ui";
 
 import AppRouter from "./routes/AppRouter";
