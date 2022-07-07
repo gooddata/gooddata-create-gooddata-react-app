@@ -49,8 +49,8 @@ export const performTemplateReplacements = async ({
             ],
             "setupProxy.js": [
                 {
-                    regex: /proxy\("\/gdc"/g,
-                    value: 'proxy("/api"',
+                    regex: /"\/gdc"/g,
+                    value: '"/api"',
                     apply: isTigerBackend,
                 },
             ],
