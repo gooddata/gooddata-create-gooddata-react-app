@@ -23,7 +23,7 @@ npm-do rollup -c
 rm -rf bootstrap/build
 rm -rf bootstrap/node_modules
 
-cp -rv bootstrap/ build/babel-source
+cp -rv bootstrap/. build/babel-source
 rm -f build/babel-source/src/react-app-env.d.ts
 
 # transpile TypeScript files to JavaScript
@@ -39,7 +39,7 @@ npm-do prettier --write "build/tar-source/**/*" \
   --trailing-comma all
 
 # copy rest of the files that will be packed to JavaScript tar
-cp -rv bootstrap/ build/tar-source
+cp -rv bootstrap/. build/tar-source
 rm -rf build/tar-source/**/*.ts
 rm -rf build/tar-source/**/*.tsx
 rm -f build/tar-source/tsconfig.json
