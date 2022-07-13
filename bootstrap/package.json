@@ -80,6 +80,9 @@
         "testcafe": "^1.18.3",
         "typescript": "^4.1.5"
     },
+    "resolutions": {
+        "@types/react": "17"
+    },
     "husky": {
         "hooks": {
             "pre-commit": "pretty-quick --staged --pattern \"**/*.*(js|jsx|ts|tsx|scss)\""
