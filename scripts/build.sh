@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-shopt -s extglob
 set -e
 
 SCRIPT_PATH="$( cd -- "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )"
@@ -40,8 +39,8 @@ npm-do prettier --write "build/tar-source/**/*" \
 
 # copy rest of the files that will be packed to JavaScript tar
 cp -rv bootstrap/. build/tar-source
-rm -rf build/tar-source/**/*.ts
-rm -rf build/tar-source/**/*.tsx
+# remove the TypeScript specific files
+find build/tar-source -type f \( -name '*.ts' -o -name '*.tsx' \) -exec rm -f {} +
 rm -f build/tar-source/tsconfig.json
 
 # replace TypeScript related content in JavaScript files
