@@ -19,9 +19,14 @@ export const performTemplateReplacements = async ({
         "package.json": [
             { regex: /@gooddata\/gdc-app-name/, value: sanitizedAppName },
             {
-                regex: /@gooddata\/sdk-backend-bear/g,
-                value: "@gooddata/sdk-backend-tiger",
+                regex: /\s*"@gooddata\/sdk-backend-bear": "[^"]+",?/g,
+                value: "",
                 apply: isTigerBackend,
+            },
+            {
+                regex: /\s*"@gooddata\/sdk-backend-tiger": "[^"]+",?/g,
+                value: "",
+                apply: !isTigerBackend,
             },
             {
                 regex: /"refresh-md": "node .\/scripts\/refresh-md.js"/g,
