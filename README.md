@@ -1,7 +1,8 @@
 # gooddata-create-gooddata-react-app
 
-(c) 2019-2022 GoodData Corporation
-This repository is under the BSD-3-clause license available in the LICENSE file and includes additional third party packages under separate open source licenses as specified in the NOTICES file.
+(c) 2017-2022 GoodData Corporation
+
+This repository is under a GoodData commercial license available in the [LICENSE](https://github.com/gooddata/gooddata-ui-sdk/blob/master/LICENSE) file because it contains a commercial package, HighCharts. Subdirectories containing the MIT license are not subject to the GoodData commercial license and do not contain any commercial code. Please see the [NOTICE](https://github.com/gooddata/gooddata-ui-sdk/blob/master/NOTICE) file for additional licensing information related to this project's third-party open source components.
 
 # GoodData Create React App
 
