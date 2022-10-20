@@ -1,2 +1,2 @@
 ---
-scan_image: "harbor.intgdc.com/tools/gdc-fossa-cli-frontend-node:latest"
+scan_image: "harbor.intgdc.com/tools/gdc-fossa-cli-frontend-node:v3"
