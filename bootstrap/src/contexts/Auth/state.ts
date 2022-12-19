@@ -47,11 +47,7 @@ export const useAuthState = (initialState: IAuthState) => {
             authStatus: AuthStatus.UNAUTHORIZED,
             authError: undefined,
         });
-    const onLogoutError = (err?: Error) =>
-        setState({
-            authStatus: AuthStatus.UNAUTHORIZED,
-            authError: err?.message,
-        });
+    const onLogoutError = onLoginError;
 
     return {
         onLoginStart,
