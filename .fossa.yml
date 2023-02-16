@@ -1,7 +1,7 @@
 ---
 version: 3
 project:
-  id: gooddata-ui-sdk
+  id: gooddata-create-gooddata-react-app
 
 telemetry:
   scope: 'off'
