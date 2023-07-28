@@ -1,5 +1,10 @@
 ## GoodData.UI Accelerator Toolkit Application
 
+> This package is deprecated and is no longer recommended for use.
+> We suggest using `npx @gooddata/app-toolkit@latest init` as a suitable replacement.
+>
+> For additional information, please refer to the [quick start guide](https://www.gooddata.com/docs/gooddata-ui/latest/quick_start/).
+
 This project was bootstrapped with [GoodData.UI Accelerator Toolkit](https://sdk.gooddata.com/gooddata-ui/docs/create_new_application.html).
 
 -  To start the application on your workstation run the `npm run start` command.
